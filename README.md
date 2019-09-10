@@ -10,3 +10,16 @@ $_.name -replace '\.txt', '.pdf'
 # 正则匹配：aa(bb).cc --> bb.cc
 $_.name -replace '.*\((.*)\)\.', '$1.'
 ```
+
+#### CMD：查杀进程
+
+```powershell
+# 查看端口占用
+netstat - ano | findstr 8888
+
+tasklist | findstr 6244
+taskkill /F /PID 6244
+
+PS: Stop-Process -ID 6244 -Force
+```
+
