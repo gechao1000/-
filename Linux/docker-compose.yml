@@ -1,0 +1,12 @@
+# 详情
+# https://www.jianshu.com/p/ba77c7bdf03e
+# https://docs.docker.com/compose/compose-file/#reference-and-guidelines
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai
