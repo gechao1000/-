@@ -20,7 +20,7 @@
 
 - `-d` 	detach(分离模式)，在后台运行
 - `-p`  port(映射端口)，localhost:docker容器
-- `--name server-nginx`  为容器命名，ID和NAME是容器标识
+- `--name`  为容器命名，ID和NAME是容器标识
 
 `docker ps`   正在运行的容器
 
@@ -44,6 +44,19 @@
 
 #### 删除容器和镜像
 
-`docker rm 容器`
+> https://www.cnblogs.com/jackadam/p/8567846.html
 
-`docker rmi 镜像`
+```shell
+docker rm 容器
+docker rmi 镜像
+
+# 杀死所有正在运行的容器
+docker kill $(docker ps -a -q)
+
+# 删除所有已经停止的容器
+docker rm $(docker ps -a -q)
+
+# 删除所有镜像
+docker rmi $(docker images -q)
+```
+
