@@ -17,7 +17,11 @@
 sudo pacman-mirrors -i -c China -m rank
 
 # 添加archlinuxcn源
-echo -e "\n[archlinuxcn]\nSigLevel = TrustAll\nServer = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/\$arch\n\n[antergos]\nSigLevel = TrustAll\nServer = https://mirrors.tuna.tsinghua.edu.cn/antergos/\$repo/\$arch\n" | sudo tee -a /etc/pacman.conf
+vim /etc/pacman.conf
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+
+sudo pacman -S archlinuxcn-keyring
 
 # 卸载libreoffice
 sudo pacman -Rc libreoffice-still
@@ -25,9 +29,6 @@ sudo pacman -Rc libreoffice-still
 # 更新软件列表和软件
 sudo pacman -Syy
 sudo pacman -Syu
-
-# 安装密钥
-sudo pacman -S archlinuxcn-keyring antergos-keyring
 
 # AUR(Arch User Repository)助手：yay 
 ## 修改 aururl 
