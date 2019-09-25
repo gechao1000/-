@@ -23,3 +23,9 @@ taskkill /F /PID 6244
 PS: Stop-Process -ID 6244 -Force
 ```
 
+#### CMD：Idea连接android模拟器
+
+```
+D:\dev\Nox\bin\nox_adb.exe connect 127.0.0.1:62001
+```
+
