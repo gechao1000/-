@@ -47,6 +47,7 @@
 > https://www.cnblogs.com/jackadam/p/8567846.html
 
 ```shell
+# 根据id删除
 docker rm 容器
 docker rmi 镜像
 
@@ -58,5 +59,21 @@ docker rm $(docker ps -a -q)
 
 # 删除所有镜像
 docker rmi $(docker images -q)
+```
+
+#### 卷标
+
+```
+# docker-compose.yml 配置文件
+volumes:
+    config:
+    data:
+    logs:
+
+# 查看所有卷标
+docker volume ls
+
+# 查看卷对应的地址
+docker volume inspect xxx
 ```
 
