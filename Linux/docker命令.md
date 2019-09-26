@@ -74,6 +74,9 @@ volumes:
 docker volume ls
 
 # 查看卷对应的地址
-docker volume inspect xxx
+docker inspect xxx
+
+# 只删除未使用的volume
+docker volume prune
 ```
 
