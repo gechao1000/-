@@ -13,6 +13,8 @@ repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 
 yum install -y kubelet kubeadm kubectl
+
+# kubelet设置开机启动
 ```
 
 #### Kubernetes安装集群
@@ -83,4 +85,27 @@ kubectl get node
 ```
 
 #### Kubernetes 配置网络
+
+> CNI(Container Network Interface) 是一个标准的、通用的接口，pod之间通信
+>
+> https://docs.projectcalico.org/v3.9/getting-started/kubernetes/
+
+1. 下载Calico配置文件并修改
+
+```shell
+wget https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+
+- name: CALICO_IPV4POOL_CIDR
+	value: "10.244.0.0/16"
+```
+
+2. 安装网络插件 Calico
+
+```shell
+kubectl apply -f calico.yaml
+
+# 验证安装是否成功
+watch kubectl get pods --all-namespaces
+kubectl get node
+```
 
