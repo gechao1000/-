@@ -30,3 +30,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
 ```
 
+> http://mirrors.ustc.edu.cn/help/dockerhub.html
+
+```
+/etc/docker/daemon.json
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+}
+```
+
+
