@@ -30,7 +30,7 @@ yum -y install net-tools
 
 # ntp服务器
 yum -y install ntp ntpdate
-ntpdate ntp1.aliyun.com
+ntpdate cn.pool.ntp.org
 ```
 
 #### vim 	
