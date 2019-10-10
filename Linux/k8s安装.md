@@ -57,8 +57,15 @@ kubeadm init --config=kubeadm.yml --upload-certs | tee kubeadm-init.log
 # --upload-certs 参数可以在后续执行加入节点时自动分发证书文件
 # 追加的 tee kubeadm-init.log 用以输出日志
 
-# 报错
+# 报错 bridge-nf-call-iptables
 echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+## 或者
+vi /etc/sysctl.conf
+## 添加以下内容
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+## 最后再执行
+sysctl -p
 ```
 
 5. 配置kubectl
