@@ -15,7 +15,11 @@
 mkdir -p /usr/local/kubernetes/volumes
 chmod a+rw /usr/local/kubernetes/volumes
 
+# centos
 yum install -y nfs-utils
+
+# ubuntu
+apt-get install -y nfs-kernel-server
 ```
 
 2. 配置 NFS 服务目录
@@ -31,9 +35,12 @@ vi /etc/exports
 /usr/local/kubernetes/volumes *(rw,sync,no_subtree_check,no_root_squash)
 
 # 启动服务
+## centos
 systemctl start nfs
 systemctl enable nfs-serve
 systemctl enable rpcbind
+## ubuntu
+/etc/init.d/nfs-kernel-server restart
 
 # 查看
 rpcinfo -p 192.168.80.130
@@ -46,6 +53,8 @@ showmount -e localhost
 
 ```shell
 yum install -y nfs-utils
+
+apt-get install -y nfs-common
 ```
 
 2. 挂载目录
@@ -157,35 +166,32 @@ kind: Deployment
 metadata:
   name: mysql-myshop
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: mysql-myshop
-  replicas: 1
+      name: mysql-myshop
   template:
     metadata:
       labels:
-        app: mysql-myshop
+        name: mysql-myshop
     spec:
       containers:
         - name: mysql-myshop
           image: mysql:8.0.16
-          # 只有镜像不存在时，才会进行镜像拉取
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
-          # 同 Docker 配置中的 environment
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "123456"
-          # 容器中的挂载目录
           volumeMounts:
-          	# 以数据卷的形式挂载 MySQL 配置文件目录
+            # 以数据卷的形式挂载 MySQL 配置文件目录
             - name: cm-vol-myshop
               mountPath: /etc/mysql/conf.d
             - name: nfs-vol-myshop
               mountPath: /var/lib/mysql
       volumes:
-      	# 将 ConfigMap 中的内容以文件形式挂载进数据卷
+        # 将 ConfigMap 中的内容以文件形式挂载进数据卷
         - name: cm-vol-myshop
           configMap:
             name: mysql-myshop-config
@@ -194,7 +200,6 @@ spec:
               - key: mysqld.cnf
                 # ConfigMap Key 匹配的 Value 写入名为 mysqld.cnf 的文件中
                 path: mysqld.cnf
-        # 挂载到数据卷
         - name: nfs-vol-myshop
           persistentVolumeClaim:
             claimName: nfs-pvc-mysql-myshop
@@ -209,7 +214,7 @@ spec:
       targetPort: 3306
   type: LoadBalancer
   selector:
-    app: mysql-myshop
+    name: mysql-myshop
 ```
 
 2. 查看 ConfigMap

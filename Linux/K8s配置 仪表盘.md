@@ -1,12 +1,12 @@
-Kubernetes Dashboard 是 Kubernetes 集群的 Web UI，用于管理集群。
+### Kubernetes Dashboard
 
-#### 安装
+1. 安装
 
-> ```
-> https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
-> ```
+```
+https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+```
 
-1. 暴露端口用来测试，正式环境使用 Ingress 
+2. 暴露端口用来测试，正式环境使用 Ingress 
 
 ```yaml
 # 省略部分代码...
@@ -30,7 +30,7 @@ spec:
     k8s-app: kubernetes-dashboard
 ```
 
-2. 部署到集群
+3. 部署到集群
 
 ```shell
 # 部署
@@ -42,7 +42,7 @@ kubectl -n kubernetes-dashboard get service kubernetes-dashboard
 kubectl -n kubernetes-dashboard describe service kubernetes-dashboard
 ```
 
-3. 创建登录账号
+4. 创建登录账号
 
 ```yaml
 apiVersion: v1
@@ -65,9 +65,24 @@ subjects:
   namespace: kubernetes-dashboard
 ```
 
-4. 打印 Token
+5. 打印 Token
 
 ```shell
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+```
+
+### Kuboard
+
+1. 安装
+
+```shell
+kubectl apply -f https://kuboard.cn/install-script/kuboard.yaml
+```
+
+2. 您集群中任意节点的 32567 端口（http://any-of-your-node-ip:32567)
+
+```
+# 获取 Token
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep kuboard-user | awk '{print $1}')
 ```
 

@@ -85,7 +85,7 @@ spec:
     # 增加 hostNetwork: true，意思是开启主机网络模式，暴露 Nginx 服务端口 80
     hostNetwork: true
 
-quay.io不能拉取，替换为 quay.mirrors.ustc.edu.cn
+quay.io不能拉取，替换为 quay.azk8s.cn
 
 # 部署
 kubectl apply -f mandatory.yaml
