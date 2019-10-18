@@ -17,7 +17,7 @@
 sudo pacman-mirrors -i -c China -m rank
 
 # 添加archlinuxcn源
-vim /etc/pacman.conf
+vi /etc/pacman.conf
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 

@@ -17,6 +17,16 @@ yum install -y kubelet kubeadm kubectl
 # kubelet设置开机启动
 ```
 
+#### 安装特定版本的 Kubernetes
+
+> TiDB 与 k8s 1.16 可能存在冲突
+
+```
+apt-get update && apt-get install -y kubelet=1.15.4-00 kubeadm=1.15.4-00 kubectl=1.15.4-00
+
+yum install -y kubeadm-1.15.4
+```
+
 #### Kubernetes安装集群
 
 > kubeadm 是 kubernetes 的集群安装工具，能够快速安装 kubernetes 集群
@@ -89,6 +99,17 @@ kubeadm join ... (主节点kubeadm-init.log)
 
 # 回到 Master 主节点查看是否安装成功
 kubectl get node
+```
+
+7. 集群扩容（增加新的节点 Node）
+
+```shell
+# 每个 Token 的有效期为 24 小时
+kubeadm token list
+kubeadm token create
+
+# 查看 Kubernetes 认证的 SHA256 加密字符串
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
 ```
 
 #### Kubernetes 配置网络
