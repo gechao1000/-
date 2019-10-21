@@ -1,3 +1,9 @@
+#### 简易安装
+
+```
+http://get.daocloud.io/
+```
+
 #### YUM 安装
 
 > https://docs.docker.com/install/linux/docker-ce/centos/
@@ -72,4 +78,28 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2
 }
 ```
 
+#### docker 可视化工具
+
+1. docker ui（只能在本地使用）
+
+```shell
+docker pull uifd/ui-for-docker
+
+docker run -d -p 9000:9000 --name ui -v /var/run/docker.sock:/var/run/docker.sock uifd/ui-for-docker
+```
+
+2. portainer
+
+```shell
+docker pull portainer/portainer
+
+docker run -d -p 9000:9000 --name ui -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+```
+
+3. daocloud（需要注册账号，收费）
+
+```shell
+# 集群管理 -> 添加主机
+curl -sSL https://get.daoCloud.io/daomonit | sh -s [DaoCloudToken]
+```
 
