@@ -97,3 +97,36 @@ spec:
     app: rocketmq-console
 ```
 
+## 集群清理流程
+
+* 删除 Console
+
+```
+kubectl delete -f rocketmq-console.yaml
+```
+
+* 删除 Broker
+
+```
+kubectl delete -f example/rocketmq_v1alpha1_broker_cr.yaml
+```
+
+* 删除 NameServer
+
+```
+kubectl delete -f example/rocketmq_v1alpha1_nameservice_cr.yaml
+```
+
+* 删除 Operator
+
+```
+./purge-operator.sh
+```
+
+* 删除 Storage
+
+```
+cd deploy/storage
+./remove-storage-class.sh
+```
+
