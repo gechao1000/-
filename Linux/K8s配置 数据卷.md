@@ -49,6 +49,8 @@ showmount -e localhost
 
 ### NFS 客户端
 
+> 每个 Node 都需要安装
+
 1. 安装客户端的目的是验证是否可以上传文件到服务端
 
 ```shell

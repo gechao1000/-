@@ -1,20 +1,23 @@
 #### 安装 Kubernetes 必备工具
 
 > https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+>
+> https://opsx.alibaba.com/mirror?lang=zh-CN
 
 ```
 vim /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
-baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
 enabled=1
-gpgcheck=0
-repo_gpgcheck=0
+gpgcheck=1
+repo_gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 
 yum install -y kubelet kubeadm kubectl
 
 # kubelet设置开机启动
+systemctl enable kubelet && systemctl start kubelet
 ```
 
 #### 安装特定版本的 Kubernetes
@@ -45,6 +48,8 @@ localAPIEndpoint:
   advertiseAddress: 192.168.80.110
 # 国内不能访问 Google，修改为阿里云
 imageRepository: registry.aliyuncs.com/google_containers
+# kubelet版本号
+kubernetesVersion: v1.16.0
 networking:
   # 配置 POD 所在网段为我们虚拟机不重叠的网段（这里用的是 Flannel 默认网段）
   podSubnet: "10.244.0.0/16"

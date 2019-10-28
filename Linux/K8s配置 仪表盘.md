@@ -1,5 +1,7 @@
 ### Kubernetes Dashboard
 
+> https://github.com/kubernetes/dashboard
+
 1. 安装
 
 ```
