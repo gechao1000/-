@@ -75,6 +75,8 @@ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboar
 
 ### Kuboard
 
+>  https://kuboard.cn/ 
+
 1. 安装
 
 ```shell

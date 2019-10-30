@@ -1,3 +1,35 @@
+#### 安装前准备
+
+1. 修改 hostname
+
+```shell
+# 修改 hostname
+hostnamectl set-hostname your-new-host-name
+
+# 设置 hostname 解析
+echo "127.0.0.1   $(hostname)" >> /etc/hosts
+```
+
+2. 安装 docker,  nfs-utils 
+3. 关闭交换空间
+
+```shell
+swapoff -a
+
+# 注释 swap 开头的行
+vi /etc/fstab
+```
+
+4. 同步时间
+
+```shell
+# 设置系统时间与网络时间同步（cn.pool.ntp.org 位于中国的公共 NTP 服务器）
+ntpdate cn.pool.ntp.org
+
+# 将系统时间写入硬件时间
+hwclock --systohc
+```
+
 #### 安装 Kubernetes 必备工具
 
 > https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/

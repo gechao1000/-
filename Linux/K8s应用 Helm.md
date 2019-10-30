@@ -14,9 +14,59 @@
 * **Repoistory：** Helm 的软件仓库，Repository 本质上是一个 Web 服务器，该服务器保存了一系列的 Chart 软件包以供用户下载，并且提供了一个该 Repository 的 Chart 包的清单文件以供查询。Helm 可以同时管理多个不同的 Repository
 * **Release：** 使用 `helm install` 命令在 Kubernetes 集群中部署的 Chart 称为 Release，可以理解为 Helm 使用 Chart 包部署的一个应用实例
 
-#### 安装 Tiller
+#### 安装 helm 客户端
 
-1. 生成配置文件 [不能启动tiller]
+* 脚本安装
+
+```shell
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+```
+
+* 安装包
+
+```shell
+# 下载二进制包
+https://github.com/helm/helm/releases
+
+# 解压
+cp linux-amd64/helm /usr/local/bin/
+```
+
+#### 安装 helm 服务端(Tiller)
+
+1. 创建 ServiceAccount
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/pingcap/tidb-operator/master/manifests/tiller-rbac.yaml
+```
+
+2. 初始化
+
+```shell
+helm init --service-account tiller --tiller-image registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.15.2 
+```
+
+3. 查看状态
+
+```shell
+helm version
+
+kubectl get pod -n kube-system -l name=tiller
+```
+
+4. 添加 TiDB repo
+
+```shell
+helm repo add pingcap https://charts.pingcap.org/
+
+helm search pingcap -l
+
+helm repo update
+```
+
+## 参考
+
+* 生成配置文件
 
 ```
 helm init --service-account tiller --output yaml > tiller.yaml
@@ -34,16 +84,13 @@ spec:
 
 kubectl apply -f tiller.yaml
 ```
-2. 不生成配置文件
+* 不生成配置文件(不可用)
 
 ```shell
 helm init --upgrade --tiller-image gcr.azk8s.cn/google_containers/tiller:v2.14.3 --stable-repo-url http://mirror.azure.cn/kubernetes/charts/ --service-account tiller --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
 ```
 
-
-#### 给 Tiller 授权
-
-1. `tiller-adminuser.yaml`， 为 Tiller 创建服务帐号和绑定角色
+* `tiller-rbac.yaml`， 为 Tiller 创建服务帐号和绑定角色
 
 ```
 apiVersion: v1
@@ -66,21 +113,13 @@ subjects:
   namespace: kube-system
 ```
 
-2. 为 Tiller 设置账号
+* 为 Tiller 设置账号
 
 ```shell
-# 使用 kubectl patch 更新 API 对象
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-
-# 查看是否授权成功
-kubectl get deploy --namespace kube-system tiller-deploy --output yaml|grep  serviceAccount
-
-# 验证安装是否成功
-kubectl -n kube-system get pods|grep tiller
-helm version
 ```
 
-3. 卸载 Tiller
+* 卸载 Tiller
 
 ```shell
 helm reset

@@ -1,6 +1,14 @@
-minikube
+#### 官方文档
 
->  https://github.com/kubernetes/minikube/releases 
+>   https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/ 
+
+#### 中文社区（ 不用keepalived haproxy ）
+
+>  https://www.kubernetes.org.cn/5904.html 
+
+#### Kuboard 官网
+
+>  [https://kuboard.cn/install/install-kubernetes.html#%E4%BB%8B%E7%BB%8D](https://kuboard.cn/install/install-kubernetes.html#介绍) 
 
 ### 概念
 
