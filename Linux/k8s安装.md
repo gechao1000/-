@@ -23,6 +23,9 @@ vi /etc/fstab
 4. 同步时间
 
 ```shell
+# 设置时区
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 # 设置系统时间与网络时间同步（cn.pool.ntp.org 位于中国的公共 NTP 服务器）
 ntpdate cn.pool.ntp.org
 
