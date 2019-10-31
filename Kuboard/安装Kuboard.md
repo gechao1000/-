@@ -20,3 +20,15 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 http://任意一个Worker节点的IP地址:32567/
 ```
 
+#### 监控套件
+
+* 在 Master 节点执行
+
+```shell
+kubectl -n kube-system create secret generic etcd-certs --from-file=/etc/kubernetes/pki/etcd/server.crt --from-file=/etc/kubernetes/pki/etcd/server.key
+```
+
+* kuboard 设置菜单，安装`全局监控套件`，执行初始化
+
+* 安装`名称空间监控套件`，执行初始化
+

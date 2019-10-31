@@ -20,11 +20,9 @@ yum install -y nfs-utils
 # 创建共享目录，如果要使用自己的目录，请替换本文档中所有的 /root/nfs_root/
 mkdir /root/nfs_root
 
-systemctl enable rpcbind
-systemctl enable nfs-server
+systemctl enable rpcbind && systemctl start rpcbind
+systemctl enable nfs-server && systemctl start nfs-server
 
-systemctl start rpcbind
-systemctl start nfs-server
 exportfs -r
 ```
 
