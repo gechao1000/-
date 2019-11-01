@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress-for-nginx  # Ingress 的名字，仅用于标识
+spec:
+  rules:                      # Ingress 中定义 L7 路由规则
+  - host: a.demo.kuboard.cn   # 根据 virtual hostname 进行路由（请使用您自己的域名）
+    http:
+      paths:                  # 按路径进行路由
+      - path: /
+        backend:
+          serviceName: nginx-service  # 指定后端的 Service 为之前创建的 nginx-service
+          servicePort: 80
