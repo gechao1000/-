@@ -29,3 +29,15 @@ PS: Stop-Process -ID 6244 -Force
 D:\dev\Nox\bin\nox_adb.exe connect 127.0.0.1:62001
 ```
 
+#### Spring Cloud Alibaba Dubbo
+
+```
+<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-alibaba-dubbo -->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-alibaba-dubbo</artifactId>
+    <version>2.1.0.RELEASE</version>
+</dependency>
+
+```
+
