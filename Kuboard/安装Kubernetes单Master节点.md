@@ -91,19 +91,9 @@ kubeadm reset
 kubectl delete node demo-worker-x-x
 ```
 
-#### 配置 Ingress Controller
-
-1. 安装
+#### 安装 Ingress Controller
 
 ```shell
 # 只在 master 节点执行
 kubectl apply -f https://kuboard.cn/install-script/v1.16.2/nginx-ingress.yaml
 ```
-
-2. 卸载
-
-```shell
-# 只在 master 节点执行
-kubectl delete -f https://kuboard.cn/install-script/v1.16.2/nginx-ingress.yaml
-```
-
