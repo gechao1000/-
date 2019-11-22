@@ -16,11 +16,8 @@
 # 修改为国内镜像
 sudo pacman-mirrors -i -c China -m rank
 
-# 添加archlinuxcn源
-vi /etc/pacman.conf
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-
+# 添加archlinuxcn源 /etc/pacman.conf
+# https://github.com/archlinuxcn/mirrorlist-repo
 sudo pacman -S archlinuxcn-keyring
 
 # 卸载libreoffice
@@ -43,7 +40,17 @@ yay -P -g
 # 中文字体
 sudo pacman -S wqy-microhei wqy-zenhei
 
-# 输入法
+# 输入法 ibus
+sudo pacman -S ibus-rime
+
+vim ~/.bashrc
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+------------------------------------
+
+# 输入法 fcitx
 sudo pacman -S fcitx-im
 sudo pacman -S fcitx-configtool
 sudo pacman -S fcitx-googlepinyin

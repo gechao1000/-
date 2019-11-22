@@ -60,7 +60,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
 ```
 
-> aliyun
+>  配置文件： /etc/docker/daemon.json 
 
 ```
 {
@@ -101,5 +101,15 @@ docker run -d -p 9000:9000 --name ui -v /var/run/docker.sock:/var/run/docker.soc
 ```shell
 # 集群管理 -> 添加主机
 curl -sSL https://get.daoCloud.io/daomonit | sh -s [DaoCloudToken]
+```
+
+####  建立 Docker 组加入当前用户 
+
+```shell
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+#查看用户所属的组使用命令
+groups $USER
 ```
 
