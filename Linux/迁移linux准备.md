@@ -16,6 +16,9 @@
 # 修改为国内镜像
 sudo pacman-mirrors -i -c China -m rank
 
+# SJTUJ 源
+https://mirrors.sjtug.sjtu.edu.cn
+
 # 添加archlinuxcn源 /etc/pacman.conf
 # https://github.com/archlinuxcn/mirrorlist-repo
 sudo pacman -S archlinuxcn-keyring
@@ -40,14 +43,13 @@ yay -P -g
 # 中文字体
 sudo pacman -S wqy-microhei wqy-zenhei
 
-# 输入法 ibus
+# 输入法 ibus (不好用)
 sudo pacman -S ibus-rime
 
-vim ~/.bashrc
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-
+ibus-daemon -x -d
 ------------------------------------
 
 # 输入法 fcitx
@@ -114,7 +116,8 @@ sudo pacman -S eclipse
 sudo pacman -S typora (导出需要pandoc)
 sudo pacman -S google-chrome
 sudo pacman -S deepin-screenshot
-sudo pacman -S wps-office ttf-wps-fonts
+sudo pacman -S wps-office 
+sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
 sudo pacman -S netease-cloud-music
 sudo pacman -S file-roller unrar unzip p7zip 
 ysy -S deepin-wine-tim
