@@ -123,38 +123,6 @@ plugins=(其他的插件 zsh-syntax-highlighting)
 echo $ZSH_THEME
 ```
 
-##### Python (手动安装pip)
-
-```
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
-sudo python get-pip.py
-
-# 升级 pip
-python -m pip install --upgrade pip
-
-# jupyter notebook配置
-jupyter notebook --generate-config
-修改默认存储目录 c.NotebookApp.notebook_dir = 'D:\\Projects\\Jupyter'
-右键jupyter属性，去掉%USERPROFILE%参数
-```
-
-#### sdkman.io(似乎不需要)
-
-```
-# 默认安装目录$HOME/.sdkman
-curl -s "https://get.sdkman.io" | bash
-
-# 自定义安装目录
-export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash
-
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-sdk version
-
-sdk install java
-sdk install maven
-```
-
 ##### 开发环境
 
 ```
@@ -229,17 +197,36 @@ chmod a+x electron-wechat-1.0.0-x86_64.AppImage
 #sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
 ```
 
-数据库postgres
+
+##### Python (手动安装pip)
 
 ```
-使用命令sudo pacman -S postgresql 安装
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
+sudo python get-pip.py
 
-使用psql postgres 进入superuser
+# 升级 pip
+python -m pip install --upgrade pip
 
-使用\password postgres 设定密码（用户名：postgres；密码：12345678）。
+# jupyter notebook配置
+jupyter notebook --generate-config
+修改默认存储目录 c.NotebookApp.notebook_dir = 'D:\\Projects\\Jupyter'
+右键jupyter属性，去掉%USERPROFILE%参数
+```
 
-\l 查看现有数据库
+#### sdkman.io(似乎不需要)
 
-客户端：pgAdmin4, DataGrip
+```
+# 默认安装目录$HOME/.sdkman
+curl -s "https://get.sdkman.io" | bash
+
+# 自定义安装目录
+export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk version
+
+sdk install java
+sdk install maven
 ```
 
