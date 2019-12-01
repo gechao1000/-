@@ -204,10 +204,10 @@ file-roller unrar unzip p7zip
 ktouch (打字练习)
 goldendict (词典)
 steam-manjaro
-audacious (本地音乐)
 calibre (电子书管理)
 pdf阅读器: qpdfview(默认已安装)，foxit
 git客户端: GitKraken(收费), Github Desktop
+音乐播放器：foobar2000, audacious(windows有乱码)
 视频播放器: mpv,vlc,SMPlayer
 邮件: Evolution, Thunderbird
 deepin-screenshot (深度截图)
@@ -219,7 +219,7 @@ anoise (闭上眼睛听雨、听海、听自然)
 # tim，不是原生
 ysy -S deepin-wine-tim
 
-# 微信，AppImage包
+# 微信，AppImage包 (运行报错)
 wget https://github.com/eNkru/freechat/releases/download/v1.0.0/electron-wechat-1.0.0-x86_64.AppImage
 chmod a+x electron-wechat-1.0.0-x86_64.AppImage
 ./electron-wechat-1.0.0-x86_64.AppImage
