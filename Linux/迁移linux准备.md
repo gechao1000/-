@@ -10,31 +10,54 @@
 
 ## 环境搭建
 
+##### 安装系统
+
+```
+不要设置自动登录
+
+chrome会提示创建 `默认密码环`
+安装searhorse，可以查看密码和密钥
+```
+
 ##### 仓库
 
 ```
 # 修改为国内镜像
 sudo pacman-mirrors -i -c China -m rank
 
-# SJTUJ 源
-https://mirrors.sjtug.sjtu.edu.cn
-
 # 添加archlinuxcn源 /etc/pacman.conf
-# https://github.com/archlinuxcn/mirrorlist-repo
+https://mirrors.sjtug.sjtu.edu.cn
+# https://github.com/archlinuxcn/mirrorlist-repo (所有国内镜像)
 sudo pacman -S archlinuxcn-keyring
-
-# 卸载libreoffice
-sudo pacman -Rc libreoffice-still
-
-# 更新软件列表和软件
-sudo pacman -Syy
-sudo pacman -Syu
 
 # AUR(Arch User Repository)助手：yay 
 ## 修改 aururl 
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 ## 修改的配置文件位于 ~/.config/yay/config.json ，还可通过以下命令查看修改过的配置
 yay -P -g
+```
+
+##### pacman 常用命令
+
+```
+# 更新软件列表
+sudo pacman -Syy
+
+# 更新软件列表和软件
+sudo pacman -Syu
+
+# 搜索，安装
+pacman -Ss XXX
+pacman -Si XXX
+sudo pacman -S XXX
+
+# 查看已安装
+pacman -Q
+pacman -Qi XXX
+pacman -Ql XXX
+
+# 卸载
+sudo pacman -Rs XXX
 ```
 
 ##### 字体，输入法
@@ -68,16 +91,46 @@ sudo pacman -S wqy-microhei wqy-zenhei fcitx-im fcitx-configtool
 echo -e "\nexport GTK_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\nexport QT_IM_MODULE=fcitx\n" | tee -a ~/.profile
 ```
 
-##### Python
+##### oh-my-zh
+
+> https://github.com/ohmyzsh/ohmyzsh.git
+>
+> 主题样式： https://birdteam.net/131798 
+
+```
+# 查看当前环境shell
+echo $SHELL
+
+# 查看系统自带哪些shell
+cat /etc/shells
+
+# 将zsh设置为默认shell
+chsh -s /bin/zsh
+
+# 自动安装
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# 手动安装
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+# 插件 oh-my-zsh/plugin/
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+vim ~/.zshrc
+plugins=(其他的插件 zsh-syntax-highlighting)
+
+# 主题 .oh-my-zsh/themes/
+echo $ZSH_THEME
+```
+
+##### Python (手动安装pip)
 
 ```
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
 sudo python get-pip.py
 
+# 升级 pip
 python -m pip install --upgrade pip
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
-sudo pacman -S pycharm
 
 # jupyter notebook配置
 jupyter notebook --generate-config
@@ -102,33 +155,78 @@ sdk install java
 sdk install maven
 ```
 
-##### Java
+##### 开发环境
 
 ```
-sudo pacman -S jdk8-openjdk
-sudo pacman -S intellij-idea-ultimate-edition
-sudo pacman -S eclipse
+# 卸载自带的JDK
+sudo pacman -R jdk8-openjdk
+sudo pacman -R jre8-openjdk
+sudo pacman -R jre8-openjdk-headless
+
+# JAVA
+pacman -S jdk8-openjdk
+pacman -S intellij-idea-ultimate-edition
+pacman -S eclipse
+
+# Rust
+pacman -S rust
+pacman -S gcc automake autoconf libtool make
+
+# Nodejs
+pacman -S nodejs npm 
+
+# Python
+pacman -S python-pip
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+~/.config/pip/pip.conf
+
+# vscode
+pacman -S code
+插件: Bracket Pair Colorizer, One Monokai Theme, Visual Studio IntelliCode, 
+	Sublime Importer for VS Code, Web Template Studio
+
+# 其它工具
+pacman -S lazygit
+pacman -S docker docker-compose
+pacman -S neofetch
 ```
 
 ##### 常用软件
 
-```
-sudo pacman -S typora (导出需要pandoc)
-sudo pacman -S google-chrome
-sudo pacman -S deepin-screenshot
-sudo pacman -S wps-office 
-sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
-sudo pacman -S netease-cloud-music
-sudo pacman -S file-roller unrar unzip p7zip 
-ysy -S deepin-wine-tim
+> 推荐： https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/#arch-linux 
 
-pdf阅读器: foxit
+```
+浏览器：firefox，chromuim，google-chrome，opera
+下载工具：uget uget-integrator，qbittorrent
+typora (导出需要pandoc)
+obs-studio
+file-roller unrar unzip p7zip 
+ktouch (打字练习)
+goldendict (词典)
+steam-manjaro
+audacious (本地音乐)
+calibre (电子书管理)
+pdf阅读器: qpdfview(默认已安装)，foxit
 git客户端: GitKraken(收费), Github Desktop
 视频播放器: mpv,vlc,SMPlayer
 邮件: Evolution, Thunderbird
+deepin-screenshot (深度截图)
 
-vscode插件: Bracket Pair Colorizer, One Monokai Theme, Visual Studio IntelliCode, 
-	Sublime Importer for VS Code, Web Template Studio
+# 软件库没有
+Freeplane (思维导图)
+anoise (闭上眼睛听雨、听海、听自然)
+
+# tim，不是原生
+ysy -S deepin-wine-tim
+
+# 微信，AppImage包
+wget https://github.com/eNkru/freechat/releases/download/v1.0.0/electron-wechat-1.0.0-x86_64.AppImage
+chmod a+x electron-wechat-1.0.0-x86_64.AppImage
+./electron-wechat-1.0.0-x86_64.AppImage
+
+# wps office 有bug，继续用libreoffice-still
+#sudo pacman -S wps-office 
+#sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
 ```
 
 数据库postgres
