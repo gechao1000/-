@@ -13,6 +13,9 @@ npx create-electron-app my-app
 
 # react
 npx create-react-app my-app
+
+# react native
+npx react-native init MyTestApp
 ```
 
 ##### 临时安装可执行依赖包，不用全局安装，不用担心长期的污染 

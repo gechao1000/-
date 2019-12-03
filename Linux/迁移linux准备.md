@@ -93,9 +93,7 @@ echo -e "\nexport GTK_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\nexport QT_IM
 
 ##### oh-my-zh
 
-> https://github.com/ohmyzsh/ohmyzsh.git
->
-> 主题样式： https://birdteam.net/131798 
+>  https://ohmyz.sh/ 
 
 ```
 # 查看当前环境shell
@@ -108,7 +106,7 @@ cat /etc/shells
 chsh -s /bin/zsh
 
 # 自动安装
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # 手动安装
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -133,15 +131,17 @@ sudo pacman -R jre8-openjdk-headless
 
 # JAVA
 pacman -S jdk8-openjdk
+pacman -S jdk-openjdk
 pacman -S intellij-idea-ultimate-edition
 pacman -S eclipse
 
 # Rust
 pacman -S rust
-pacman -S gcc automake autoconf libtool make
+pacman -S gcc automake autoconf libtool make cmake
 
 # Nodejs
 pacman -S nodejs npm 
+npm config set registry https://registry.npm.taobao.org
 
 # Python
 pacman -S python-pip
