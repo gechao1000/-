@@ -1,13 +1,19 @@
-# 详情
-# https://www.jianshu.com/p/ba77c7bdf03e
-# https://docs.docker.com/compose/compose-file/#reference-and-guidelines
-# docker-compose 命令默认使用的配置文件是当前目录中的 docker-compose.yml 文件，当然我们可以通过 -f 选项指定一个其它名称的配置文件
+version: '2'
 
-version: '3.1'
 services:
-  db:
-    image: mysql
-    container_name: mysql
+  redis:
+    image: 'bitnami/redis:4.0'
+    restart: always
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis_data:/bitnami/redis/data'
+  mysql:
+    image: mysql:8
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=123456
@@ -21,10 +27,26 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./data:/var/lib/mysql
-
-  adminer:
-    image: adminer
+      - mysql_data:/var/lib/mysql
+  oracle:
+    image: truevoly/oracle-12c
     restart: always
     ports:
-      - 8080:8080
+      - 1521:1521
+    volumes:
+      - oracle_data:/u01/app/oracle
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres 
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  redis_data:
+  mysql_data:
+  oracle_data:
+  postgres_data:
