@@ -230,3 +230,55 @@ sdk install java
 sdk install maven
 ```
 
+dwm （动态窗口管理器，极简主义）
+
+>  https://dwm.suckless.org/ 
+>
+> 与 xfce 冲突
+
+```
+git clone https://git.suckless.org/dwm
+```
+
+manjaro 安装 虚拟机
+
+```
+安装 libvirt, QEMU, OVMF, Virtual Machine Manager
+
+systemctl start libvirtd
+systemctl enable libvirtd
+
+1. 大部分配置文件
+git clone https://github.com/PassthroughPOST/Hackintosh-KVM.git
+
+2. 复制文件(OVMF_CODE.fd	OVMF_VARS.fd)
+https://github.com/kholia/OSX-KVM.git
+
+[可选]
+3. Mac上使用High Sierra Patcher工具，下载和创建安装盘
+4. create_iso_highsierra.sh 在mac上执行，生成iso文件
+
+5. 修改 Example-XML-Files(两个配置文件对应两个平台)
+- 复制到上一级目录，可以重命名为hackintosh.xml
+- 删除不需要的配置，<qemu:arg value='-object'/>	
+- <loader readonly='yes' type='pflash'> <nvram> 改为本地目录
+- <name> 改为 Hackintosh
+
+6. 执行 virsh define hackintosh.xml，打开 Virtual Machine Manager
+```
+
+vscode 远程开发
+
+> Remote Development插件，支持 SSH、Container(容器)、WSL
+
+```
+# ssh连接远程机器
+ssh gexc@192.168.80.90
+
+# 生成密钥, 复制公钥内容 ~/.ssh/id_rsa.pub
+ssh-keygen
+
+# 远程机器执行ssh-keygen，新建文件authorized_keys，保存本地公钥 
+
+```
+

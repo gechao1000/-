@@ -16,6 +16,9 @@ npx create-react-app my-app
 
 # react native
 npx react-native init MyTestApp
+
+# taro
+npx @tarojs/cli init myApp
 ```
 
 ##### 临时安装可执行依赖包，不用全局安装，不用担心长期的污染 
