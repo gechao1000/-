@@ -35,22 +35,6 @@ PermitRootLogin yes
 service ssh restart
 ```
 
-#### 环境变量
-
-```
-系统环境变量：/etc/environment
-用户环境变量：/etc/profile
-
-# 配置 jdk
-export JAVA_HOME=/usr/local/java/jdk1.8.0_152
-export JRE_HOME=/usr/local/java/jdk1.8.0_152/jre
-export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
-export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
-
-# 用户环境变量生效
-source /etc/profile
-```
-
 LVM 磁盘扩容
 
 1. 基本概念
