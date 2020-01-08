@@ -1,15 +1,8 @@
 #### 开发环境
 
+>  https://create-react-app.dev/docs/getting-started/ 
+
 ```
-# 国内镜像
-npm config set registry https://registry.npm.taobao.org
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-# 创建项目
-npm install -g create-react-app
-create-react-app demo
-npm start
-
 # vscode插件
 Simple React Snippets，Web Template Studio
 

@@ -7,17 +7,9 @@
 * 数据库: redis, mongodb, mysql
 * jdk, python, nodejs, nginx
 * 下载工具, rar, office, ssh客户端, 西游vpn
+* Soop工具: busybox, gow, ssh-copy-id, openssh, lazygit
 
 ## 环境搭建
-
-##### 安装系统
-
-```
-不要设置自动登录
-
-chrome会提示创建 `默认密码环`
-安装searhorse，可以查看密码和密钥
-```
 
 ##### 仓库
 
@@ -141,22 +133,36 @@ pacman -S gcc automake autoconf libtool make cmake
 
 # Nodejs
 pacman -S nodejs npm 
-npm config set registry https://registry.npm.taobao.org
+或
+pacman -S yarn
 
 # Python
 pacman -S python-pip
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-~/.config/pip/pip.conf
 
 # vscode
 pacman -S code
-插件: Bracket Pair Colorizer, One Monokai Theme, Visual Studio IntelliCode, 
-	Sublime Importer for VS Code, Web Template Studio
 
 # 其它工具
 pacman -S lazygit
 pacman -S docker docker-compose
 pacman -S neofetch
+```
+
+##### 配置环境变量
+
+```
+# 配置文件
+/etc/profile
+/etc/environment
+~/.bash_profile
+~/.bashrc
+
+#注意引用已经存在的环境变量，以冒号 : 分割两个环境变量，$ 调用已经存在的变量
+PATH=$PATH:<PATH 1>:<PATH 2>:<PATH 3>:——:<PATH 3>
+
+#然后启用它，注意：/etc/environment 中无需添加下面这条命令 
+export PATH
 ```
 
 ##### 常用软件
@@ -267,18 +273,4 @@ https://github.com/kholia/OSX-KVM.git
 6. 执行 virsh define hackintosh.xml，打开 Virtual Machine Manager
 ```
 
-vscode 远程开发
-
-> Remote Development插件，支持 SSH、Container(容器)、WSL
-
-```
-# ssh连接远程机器
-ssh gexc@192.168.80.90
-
-# 生成密钥, 复制公钥内容 ~/.ssh/id_rsa.pub
-ssh-keygen
-
-# 远程机器执行ssh-keygen，新建文件authorized_keys，保存本地公钥 
-
-```
 
