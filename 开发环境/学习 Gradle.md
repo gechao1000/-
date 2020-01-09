@@ -1,17 +1,30 @@
-### Repository
+#### plugins 代码块
 
-1. ###### aliyun 镜像
+```
+plugins {
+    id 'java-library'
+}
 
-    ```
-    maven { url 'https://maven.aliyun.com/repository/public' }
-    mavenLocal()
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+version = '1.2.1'
+```
+
+#### repository  代码块
+
+>  https://developer.aliyun.com/mirror/maven 
+
+```
+mavenLocal()
 mavenCentral()
-    
-    maven { url 'https://maven.aliyun.com/repository/google' }
-    maven { url 'https://maven.aliyun.com/repository/spring/'}
-    ```
 
-### Dependencies
+maven { url 'https://maven.aliyun.com/repository/public' }
+```
+
+#### dependencies 代码块
 
 1. ###### implementation、api 和 compile 区别
 
@@ -58,4 +71,51 @@ mavenCentral()
     或
     implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:2.1.4.RELEASE"))
     ```
+
+#### buildscript 代码块
+
+> 声明是gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等
+
+1. 比如：解析 csv文件
+
+```groovy
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.apache.commons:commons-csv:1.7'
+    }
+}
+
+import org.apache.commons.csv.CSVFormat
+
+task printCSV() {
+    doLast {
+        def records = CSVFormat.EXCEL.parse(new FileReader('config/sample.csv'))
+        for (item in records) {
+            print item.get(0) + ' '
+            println item.get(1)
+        }
+
+    }
+}
+```
+
+####  **allprojects** 代码块
+
+>  用于多项目构建，为所有项目提供共同所需依赖包 
+
+```
+allprojects {
+    repositories {
+    	...
+    }
+    dependencies {
+    	...
+    }
+}
+```
 
