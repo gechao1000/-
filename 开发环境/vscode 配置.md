@@ -8,7 +8,7 @@ Sublime Importer for VS Code
 Web Template Studio
 Simple React Snippets
 Live Server
-
+Vibrancy (毛玻璃特效，和 One Monokai Theme 冲突)
 ```
 
 #### 接口测试
