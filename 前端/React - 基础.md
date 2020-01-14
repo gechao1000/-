@@ -6,7 +6,7 @@
 # vscode插件
 Simple React Snippets，Web Template Studio
 
-# chrome插件
+# chrome插件 (开启 highlight Updates)
 React Developer Tools
 ```
 
@@ -133,12 +133,29 @@ componentWillReceiveProps----子组件接收到父组件传递过来的参数，
 componentWillUnmount----组件从页面中删除的时候执行
 ```
 
+#### ` shouldComponentUpdate ` 改善程序性能
+
+> 快捷键：`scu`
+
+```
+shouldComponentUpdate(nextProps,nextState) {
+    if(nextProps.content !== this.props.content){
+        return true
+    } else {
+        return false
+    }
+}
+```
+
 #### Axios
 
 > 在`componentDidMount`生命周期函数里请求ajax
 
 ```
 npm install -save axios
+或
+yarn add axios
+
 import axios from 'axios'
 
 axios.get('改为你自己的接口URL')
