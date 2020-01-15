@@ -8,7 +8,9 @@
 
 ##### `useState` 函数
 
->  用来声明状态变量 
+>   返回一个 state，以及更新 state 的函数 
+>
+>   如果在渲染期间执行了高开销的计算，则可以使用 `useMemo` 来进行优化 
 
 ```
 import React, { useState } from 'react';
@@ -17,36 +19,36 @@ const [count, setCount] = useState(0);
 const [age, setAge] = useState(18);
 
 参数：状态的初始值(Initial state)
-0位：当前的状态值
-1位：改变状态值的方法函数
+
+# 函数式更新 (接收先前的 state，并返回一个更新后的值)
+setCount(prevCount => prevCount - 1)
+
+# 惰性初始 state (此函数只在初始渲染时被调用)
+useState(() => { ... })
 ```
 
 ##### `useEffect` 函数
 
-> 代替常用的生命周期函数
+> 副作用， 浏览器绘制后延迟执行 
 
 ```
 import React, { useState, useEffect } from 'react';
 
-useEffect(() => {
-	...
-	return () => {} 
-})
+# 默认情况下，effect 将在每轮渲染结束后执行 (componentDidMonut、componentDidUpdate)
+useEffect(() => { ... })
 
-周期：首次渲染和之后的每次渲染 (componentDidMonut、componentDidUpdate)
-useEffect中定义的函数是异步执行，componentDidMonut中的代码是同步执行
-
-# 解绑副作用函数 (实现 componentWillUnmount)
+# 解绑副作用函数 (componentWillUnmount)
+# 在执行下一个 effect 之前，上一个 effect 就已被清除
 useEffect(() => {
 	...
 	return () => { ... } 
-}, [])	// 当组件将被销毁时才进行解绑
+})
 
-# 只要count状态发生变化，都会执行解绑副作用函数
-useEffect(()=>{}, [count])
+# 在只有某些值改变的时候才执行 (只要有一个元素发生变化，就会执行effect函数)
+useEffect(()=>{}, [x,y,z])
 ```
 
-##### `useEContext` 函数
+##### `useContext` 函数
 
 >   接收一个 context 对象（`React.createContext` 的返回值）并返回该 context 的当前值 
 
@@ -82,11 +84,14 @@ action: 业务逻辑
 
 ##### `useMemo` 函数
 
+> 在渲染期间执行 
+
 ```
 import React, { useMemo } from 'react';
 
-useMemo(() => { ... }, [name])
-参数匹配成功，才会执行
+useMemo(() => { ... }, [a,b])
+参数：'创建'函数、依赖项数组
+仅会在某个依赖项改变时才重新计算 memoized 值
 ```
 
 ##### `useCallback` 函数
