@@ -1,4 +1,6 @@
-#### 特点
+#### 简介
+
+>  https://zh-hans.reactjs.org/docs/hooks-intro.html 
 
 1.   所有的组件都可以用函数来声明
 2.  使用预函数的形式管理`state` 
@@ -46,12 +48,12 @@ useEffect(()=>{}, [count])
 
 ##### `useEContext` 函数
 
->  组件之间传值， 对它所包含的组件树提供全局共享数据  
+>   接收一个 context 对象（`React.createContext` 的返回值）并返回该 context 的当前值 
 
 ```
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState , useContext } from 'react';
 
-const XXXContext = createContext();
+const XXXContext = React.createContext();
 <XXXContext.Provider value={xxx}>
 	...
 </XXXContext.Provider>
@@ -62,6 +64,8 @@ const xxx = useContext(CountContext)
 
 #####  `useReducer`  函数
 
+>   `useState` 的替代方案 
+>
 >  使用`useContext`和`useReducer`是可以实现类似`Redux`的效果 
 
 ```
@@ -77,8 +81,6 @@ action: 业务逻辑
 ```
 
 ##### `useMemo` 函数
-
->  解决使用React hooks产生的无用渲染的性能问题 ( shouldCompnentUpdate )
 
 ```
 import React, { useMemo } from 'react';
