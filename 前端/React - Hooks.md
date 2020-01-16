@@ -122,3 +122,34 @@ function useWinSize(){
 }
 ```
 
+------
+
+#### 实例：管理表单状态
+
+>  https://blog.csdn.net/EthanQ/article/details/100650253 
+
+1. 使用 `useState` 或 `useReducer`
+2.  表单输入可以是几种不同的类型，如文本，数字，日期输入 
+3.  有嵌套信息，例如用户的地址信息，它具有子字段，例如address.addressLine1 
+4.  根据当前状态更新表单状态，例如**toggle切换按钮** 
+
+###### 使用 `useState`
+
+```
+const [count, setCount] = useState(0)
+
+# 根据旧的state计算新的state
+setCount(prev => prev + 1)
+```
+
+使用 `useReducer`
+
+```
+const [state, dispatch] = useReducer((state, action) => {
+    const {name ,value} = action;
+    return {...state, [name] : value}
+}, {})
+  
+onChange={e => dispatch({ name: 'lastName', value: e.target.value })}
+```
+

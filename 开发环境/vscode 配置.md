@@ -3,12 +3,17 @@
 ```
 Bracket Pair Colorizer
 One Monokai Theme
-Visual Studio IntelliCode, 
+Visual Studio IntelliCode 
 Sublime Importer for VS Code
-Web Template Studio
-Simple React Snippets
 Live Server
-Vibrancy (毛玻璃特效，和 One Monokai Theme 冲突)
+
+Simple React Snippets
+JavaScript Booster
+Web Template Studio
+Npm Intellisense
+
+// Vibrancy (毛玻璃特效，和 One Monokai Theme 冲突)
+windows opacity (毛玻璃特效)
 ```
 
 #### 接口测试
