@@ -91,7 +91,7 @@ myhostname
 ::1		localhost
 127.0.1.1	myhostname.localdomain	myhostname
 
-# dns (可不配置)
+# dns (aliyun)
 > vim /etc/resolv.conf
 nameserver 223.5.5.5
 nameserver 223.6.6.6
@@ -165,5 +165,8 @@ DNS=10.1.10.1
 # 允许 root 远程登录
 > vim /etc/ssh/sshd_config
 PermitRootLogin yes
+
+# 保存公钥
+> vim ~/.ssh/authorized_keys
 ```
 

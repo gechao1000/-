@@ -21,4 +21,4 @@ switchhosts
 wkhtmltopdf
 yarn
 
-ssh-copy-id
+ssh-copy-id (依赖gow, 与busybox冲突)
