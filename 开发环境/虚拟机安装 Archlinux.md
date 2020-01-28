@@ -142,6 +142,11 @@ reboot
 ###### 设置静态 ip
 
 ```
+# NetworkManager (centos推荐)
+> systemctl status NetworkManager
+> nmcli connection reload/up/show/modify xxx (修改后必须reload和up)
+> nmtui (伪GUI)
+
 # systemd-networkd （内置DHCP）
 > systemctl enable systemd-networkd
 
