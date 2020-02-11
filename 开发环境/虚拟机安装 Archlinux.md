@@ -124,9 +124,13 @@ pacman -S xfce4 xfce4-goodies
 # kde
 pacman -S plasma kde-applications
 
+# deepin (推荐)
+pacman -S deepin deepin-extra
+
 # 桌面管理器
-systemctl enable sddm (适合 kde)
 systemctl enable gdm (适合 gnome)
+systemctl enable sddm (适合 kde)
+systemctl enable lightdm (适合 deepin)
 ```
 
 ###### 重启
@@ -142,7 +146,7 @@ reboot
 ###### 设置静态 ip
 
 ```
-# NetworkManager (centos推荐)
+# NetworkManager (pacman -S networkmanager, deepin包)
 > systemctl status NetworkManager
 > nmcli connection reload/up/show/modify xxx (修改后必须reload和up)
 > nmtui (伪GUI)
