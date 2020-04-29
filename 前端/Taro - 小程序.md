@@ -77,11 +77,67 @@ import 'taro-ui/dist/style/index.scss'
 ```
 tyarn add redux @tarojs/redux @tarojs/redux-h5 redux-thunk redux-logger
 
-import { Provider } from '@tarojs/redux'
 import { connect, useSelector, useDispatch } from '@tarojs/redux'
 
 // useSelector代替connect
 const counter = useSelector(state => state.counter)
 let dispatch = useDispatch()
+```
+
+###### store/index.js
+
+```js
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import rootReducer from '../reducers'
+
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) : compose
+
+const middlewares = [
+  thunkMiddleware
+]
+
+if (process.env.NODE_ENV === 'development' && process.env.TARO_ENV !== 'quickapp') {
+  middlewares.push(require('redux-logger').createLogger())
+}
+
+const enhancer = composeEnhancers(
+  applyMiddleware(...middlewares),
+  // other store enhancers if any
+)
+
+export default function configStore () {
+  const store = createStore(rootReducer, enhancer)
+  return store
+}
+```
+
+###### reducer/index.js
+
+```js
+import { combineReducers } from 'redux'
+import counter from './counter'
+
+export default combineReducers({
+  counter
+})
+```
+
+###### app.jsx
+
+```jsx
+import { Provider } from '@tarojs/redux'
+import configStore from './store'
+
+const store = configStore()
+
+<Provider store={store}>
+	<Index />
+</Provider>
 ```
 
