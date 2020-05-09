@@ -1,16 +1,25 @@
-#### 开发环境
+# React
+
+A JavaScript library for building user interfaces (用于构建用户界面的JavaScript库)
+
+#### 1. 开发环境
 
 >  https://create-react-app.dev/docs/getting-started/ 
 
 ```
 # vscode插件
-Simple React Snippets，Web Template Studio
+ES7 React/Redux/GraphQL/React-Native snippets
+Web Template Studio
 
 # chrome插件 (开启 highlight Updates)
 React Developer Tools
+
+# 脚手架
+npm install -g create-react-app
+create-react-app myapp
 ```
 
-#### 引入React
+#### 2. 引入React
 
 ```js
 import React from 'react'
@@ -20,7 +29,7 @@ import App from './App'
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-#### JSX简介
+#### 3. JSX简介
 
 > JSX = javascript + xml，由React发明，利用HTML语法来创建虚拟DOM
 >
@@ -43,7 +52,7 @@ class App extends Component {
 }
 ```
 
-#### 数据绑定
+#### 4. 数据绑定
 
 > `React`不建议你直接操作`DOM`元素,而是要通过数据进行驱动，改变界面中的效果
 >
@@ -61,7 +70,7 @@ constructor(props){
 <input value={this.state.inputValue} /> 
 ```
 
-#### 绑定事件
+绑定事件
 
 ```jsx
 <input value={this.state.inputValue} onChange={this.onChange.bind(this)} />
@@ -73,7 +82,7 @@ onChange(e) {
 }
 ```
 
-### 陷阱
+#### 5. 陷阱
 
 ```
 # class样式
@@ -84,7 +93,7 @@ onChange(e) {
 <input id="aaa" />
 ```
 
-#### 组件传值
+#### 6. 组件传值
 
 > 单向数据流，函数式编程
 
@@ -96,7 +105,7 @@ onChange(e) {
 # PropTypes校验传递值
 import PropTypes from 'prop-types';
 XiaojiejieItem.propTypes = {
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string.isRequired, //必传值
     content: PropTypes.string,
     index: PropTypes.number,
     handleClick: PropTypes.func
@@ -105,7 +114,7 @@ XiaojiejieItem.propTypes = {
 # defaultProps默认值
 ```
 
-#### 生命周期函数
+#### 7. 生命周期函数
 
 > 生命周期函数指在某一个时刻组件会自动调用执行的函数
 >
@@ -133,9 +142,7 @@ componentWillReceiveProps----子组件接收到父组件传递过来的参数，
 componentWillUnmount----组件从页面中删除的时候执行
 ```
 
-#### ` shouldComponentUpdate ` 改善程序性能
-
-> 快捷键：`scu`
+` shouldComponentUpdate ` 改善程序性能
 
 ```
 shouldComponentUpdate(nextProps,nextState) {
@@ -147,7 +154,7 @@ shouldComponentUpdate(nextProps,nextState) {
 }
 ```
 
-#### Axios
+#### 8. Axios
 
 > 在`componentDidMount`生命周期函数里请求ajax
 
@@ -159,7 +166,7 @@ yarn add axios
 import axios from 'axios'
 
 axios.get('改为你自己的接口URL')
-        .then((res)=>{})
-        .catch((error)=>{})
+    .then(res=>{})
+    .catch(err=>{})
 ```
 
