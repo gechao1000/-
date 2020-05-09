@@ -12,8 +12,17 @@
 #### 1. 安装
 
 ```
-yarn add redux react-redux
+yarn add redux react-redux redux-thunk
 yarn add -D redux-devtools
+
+# redux
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { combineReducers } from "redux";
+
+# react-redux
+import { Provider } from 'react-redux'
+import {connect} from 'react-redux'
 ```
 
 #### 2. Reducer
@@ -22,27 +31,13 @@ yarn add -D redux-devtools
 * 描述了 action 如何把 state 转变成下一个 state
 * 当 state 变化时需要返回全新的对象，而不是修改传入的参数
 
+###### 有副作用的操作，如 API 调用或路由跳转。这些应该在 dispatch action 前发生
 
 ###### **永远不要**在 reducer 里做这些操作
 
 * 修改传入参数;
 * 执行有副作用的操作，如 API 请求和路由跳转;
 * 调用非纯函数，如 `Date.now()` 或 `Math.random()`。
-
-###### 有副作用的操作，如 API 调用或路由跳转。这些应该在 dispatch action 前发生
-
-```
-function counter(state = 0, action) {
-  switch (action.type) {
-  case 'INCREMENT':
-    return state + 1;
-  case 'DECREMENT':
-    return state - 1;
-  default:
-    return state;
-  }
-}
-```
 
 
 #### 3. store
@@ -57,11 +52,31 @@ function counter(state = 0, action) {
 let store = createStore(todoApp, window.STATE_FROM_SERVER)
 ```
 
-#### 4. 异步 action
+#### 4. 示例
 
-redux-thunk 中间件
+快捷键 `rxaction` `rxreducer` `rxconst`
 
+```
+// action.js
+export const actionName = (payload) => ({
+  type: type,
+  payload
+})
 
+// reducer.js
+const initialState = {};
+
+export default (state = initialState, { type, payload }) => {
+  switch (type) {
+    case typeName:
+      return { ...state, ...payload };
+
+    default:
+      return state;
+  }
+};
+
+```
 
 
 
