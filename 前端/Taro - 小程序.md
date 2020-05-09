@@ -1,4 +1,9 @@
-## 愚蠢的机器
+# 愚蠢的机器
+
+```
+AppID: wx5d8470850ba6338b
+AppSecret: 1cfd9e7cd54e953a27a394b4eb7eb29a
+```
 
 开发者账号
 
@@ -7,14 +12,9 @@ gechao1001@gmail.com
 mscp2020
 ```
 
-```
-AppID(小程序ID)： wx5d8470850ba6338b
-AppSecret(小程序密钥)：1cfd9e7cd54e953a27a394b4eb7eb29a
-```
+# Taro
 
-## tarojs
-
-##### 1. 开发环境
+#### 1. 开发环境
 
 > https://taro.aotu.io/
 
@@ -33,7 +33,7 @@ yarn dev:weapp
 taro create --name blog
 ```
 
-##### 2. 语法
+#### 2. 语法
 
 ```
 import Taro, {  useState } from '@tarojs/taro'
@@ -49,7 +49,7 @@ this.$router.params.blogTitle
 Taro.request({url:''}).then(res => console.log(res))
 ```
 
-##### 3. taro ui
+#### 3. taro ui
 
 ```
 yarn add taro-ui
@@ -72,7 +72,7 @@ import 'taro-ui/dist/style/index.scss'
 @import "~taro-ui/dist/style/components/button.scss";
 ```
 
-##### 4. taro redux
+#### 4. taro redux
 
 ```
 tyarn add redux @tarojs/redux @tarojs/redux-h5 redux-thunk redux-logger
@@ -82,8 +82,5 @@ import { connect, useSelector, useDispatch } from '@tarojs/redux'
 // useSelector代替connect，(不完善，h5不能用)
 const counter = useSelector(state => state.counter)
 let dispatch = useDispatch()
-
-// 快捷键
-rfcredux
 ```
 

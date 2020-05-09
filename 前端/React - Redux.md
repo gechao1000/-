@@ -22,7 +22,7 @@ import { combineReducers } from "redux";
 
 # react-redux
 import { Provider } from 'react-redux'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 ```
 
 #### 2. Reducer
@@ -74,6 +74,33 @@ export default (state = initialState, { type, payload }) => {
     default:
       return state;
   }
+};
+
+```
+
+#### 5. 异步 action
+
+redux-thunk，异步过程放在 action 级别
+
+```jsx
+// 错误
+export const xxx = (payload) => {
+  setTimeout(() => {
+    return {
+      type: 'XXX',
+      payload
+    }
+  }, 1000);
+}
+
+// 正确
+export const xxx = (payload) => (dispatch) => {
+  setTimeout(() => {
+    dispatch({
+      type: "XXX",
+      payload,
+    });
+  }, 1000);
 };
 
 ```

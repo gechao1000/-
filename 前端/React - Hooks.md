@@ -1,4 +1,4 @@
-#### 简介
+# React Hooks
 
 >  https://zh-hans.reactjs.org/docs/hooks-intro.html 
 
@@ -6,11 +6,10 @@
 2.  使用预函数的形式管理`state` 
 3.  React Hooks不能出现在条件判断语句中，因为它必须有完全一样的渲染顺序
 
-##### `useState` 函数
+#### 1. `useState` 
 
 >   返回一个 state，以及更新 state 的函数 
 >
->   如果在渲染期间执行了高开销的计算，则可以使用 `useMemo` 来进行优化 
 
 ```
 import React, { useState } from 'react';
@@ -27,14 +26,15 @@ setCount(prevCount => prevCount - 1)
 useState(() => { ... })
 ```
 
-##### `useEffect` 函数
+#### 2. `useEffect`
 
-> 副作用， 浏览器绘制后延迟执行 
+> 副作用， 异步执行 （生命周期函数，同步执行）
+>
+> 默认情况下，在每轮渲染结束后执行 (componentDidMonut、componentDidUpdate)
 
 ```
 import React, { useState, useEffect } from 'react';
 
-# 默认情况下，effect 将在每轮渲染结束后执行 (componentDidMonut、componentDidUpdate)
 useEffect(() => { ... })
 
 # 解绑副作用函数 (componentWillUnmount)
@@ -48,9 +48,9 @@ useEffect(() => {
 useEffect(()=>{}, [x,y,z])
 ```
 
-##### `useContext` 函数
+#### 3. `useContext`
 
->   接收一个 context 对象（`React.createContext` 的返回值）并返回该 context 的当前值 
+>   组件之间值传递（redux统一管理状态）
 
 ```
 import React, { useState , useContext } from 'react';
@@ -61,14 +61,12 @@ const XXXContext = React.createContext();
 </XXXContext.Provider>
 
 # 子组件
-const xxx = useContext(CountContext)
+const xxx = useContext(XXXContext)
 ```
 
-#####  `useReducer`  函数
+####  4. `useReducer`
 
->   `useState` 的替代方案 
->
->  使用`useContext`和`useReducer`是可以实现类似`Redux`的效果 
+>   使用`useContext`和`useReducer`是可以实现类似`Redux`的效果 
 
 ```
 import React, { useReducer } from 'react';
@@ -82,7 +80,7 @@ action: 业务逻辑
 {() => dispatch('定义的action') }
 ```
 
-##### `useMemo` 函数
+#### 5. `useMemo`
 
 > 在渲染期间执行 
 
@@ -94,7 +92,7 @@ useMemo(() => { ... }, [a,b])
 仅会在某个依赖项改变时才重新计算 memoized 值
 ```
 
-##### `useCallback` 函数
+#### 6. `useCallback` 
 
 > 自定义 Hooks 函数
 
