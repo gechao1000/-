@@ -33,23 +33,45 @@ yarn dev:weapp
 taro create --name blog
 ```
 
-#### 2. 语法
+#### 2. 目录结构
+
+```
+├── dist                   编译结果目录
+├── config                 配置目录
+|   ├── dev.js             开发时配置
+|   ├── index.js           默认配置
+|   └── prod.js            打包时配置
+├── src                    源码目录
+|   ├── pages              页面文件目录
+|   |   ├── index          index 页面目录
+|   |   |   ├── index.js   index 页面逻辑
+|   |   |   └── index.css  index 页面样式
+|   ├── app.css            项目总通用样式
+|   └── app.js             项目入口文件
+└── package.json
+```
+
+#### 3. 语法
 
 ```
 import Taro, {  useState } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 
 # 页面跳转
 Taro.navigateTo({url:'/pages/index/index'})
+redirectTo，switchTab，navigateBack
 
 # 参数
 this.$router.params.blogTitle
+
+# 图片引入
+<Image src={require('../../static/newbbd0001.jpg')} />
 
 # 网络请求
 Taro.request({url:''}).then(res => console.log(res))
 ```
 
-#### 3. taro ui
+#### 4. taro ui
 
 ```
 yarn add taro-ui
@@ -72,7 +94,7 @@ import 'taro-ui/dist/style/index.scss'
 @import "~taro-ui/dist/style/components/button.scss";
 ```
 
-#### 4. taro redux
+#### 5. taro redux
 
 ```
 tyarn add redux @tarojs/redux @tarojs/redux-h5 redux-thunk redux-logger
