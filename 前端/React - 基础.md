@@ -10,6 +10,7 @@ A JavaScript library for building user interfaces (用于构建用户界面的Ja
 # vscode插件
 ES7 React/Redux/GraphQL/React-Native snippets
 Web Template Studio
+Prettier - Code formatter
 
 # chrome插件 (开启 highlight Updates)
 React Developer Tools
