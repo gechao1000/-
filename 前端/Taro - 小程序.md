@@ -78,7 +78,7 @@ yarn add taro-ui
 
 # config/index.js
 h5: {
-  esnextModules: ['taro-ui']
+  esnextModules: ['taro-ui'],
 }
 
 // page.js
@@ -104,5 +104,64 @@ import { connect, useSelector, useDispatch } from '@tarojs/redux'
 // useSelector代替connect，(不完善，h5不能用)
 const counter = useSelector(state => state.counter)
 let dispatch = useDispatch()
+```
+
+#### 6. defineConstants
+
+配置方式类似  [Webpack DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
+
+编译期间替换
+
+```
+// config/xxx.js
+defineConstants: {
+	BASE_URL: JSON.stringify('http://localhost:3721/')
+},
+
+// action.js
+console.log(BASE_URL)
+```
+
+#### 7. tabbar
+
+```
+// app.js
+tabBar: {
+  list: [
+	{
+	  pagePath: "pages/home/index",
+	  text: "首页",
+	  iconPath: "./assets/tab_home.png",
+	  selectedIconPath: "./assets/tab_home_f.png"
+	},
+	{
+	  pagePath: "pages/index/index",
+	  text: "测试",
+	  iconPath: "./assets/tab_me.png",
+	  selectedIconPath: "./assets/tab_me_f.png"
+	}
+  ],
+  color: "#a6a6a6",
+  selectedColor: "#78a4fa",
+  backgroundColor: "#ffffff",
+  borderStyle: "black"
+}
+```
+
+#### 8. 异步编程
+
+Taro 2.x 版本中使用 `async-await` 不再需要 `@tarojs/async-await`
+
+```
+tyarn add @tarojs/async-await
+
+// app.js
+import "@tarojs/async-await"
+
+
+async fn() {
+	let response = await Taro.request({url: 'xxx'})
+	console.log(response.data)
+}
 ```
 

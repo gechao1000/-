@@ -73,3 +73,11 @@ const release = {
 module.exports = release
 ```
 
+##### Mock.js
+
+```
+import Mock from 'mockjs'
+或
+const Mock = require('mockjs')
+```
+

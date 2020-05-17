@@ -1,4 +1,40 @@
-###### 设置淘宝镜像 (tyarn最好)
+# 依赖管理工具
+
+
+###### yarn 快速入门
+
+> https://yarn.bootcss.com/docs/usage/
+
+```
+# 安装
+npm i yarn tyarn -g
+
+# 初始化一个新项目
+yarn init
+
+# 添加依赖包
+yarn add [package]
+yarn add [package]@[version]
+yarn add [package]@[tag]
+
+# 将依赖项添加到不同依赖项类别中
+yarn add [package] --dev		//devDependencies
+yarn add [package] --peer		//peerDependencies
+yarn add [package] --optional	//optionalDependencies 
+
+# 升级依赖包
+yarn upgrade [package]
+yarn upgrade [package]@[version]
+yarn upgrade [package]@[tag]
+
+# 移除依赖包
+yarn remove [package]
+
+# 安装项目的全部依赖
+yarn
+```
+
+###### 国内源 (tyarn不需要)
 
 ```
 # NPM
@@ -10,25 +46,8 @@ npm get registry
 yarn config get registry
 淘宝镜像：yarn config set registry http://registry.npm.taobao.org/
 官方镜像：yarn config set registry https://registry.yarnpkg.com
-
-# 未测试
-需要执行以下命令更改: npm config set registry https://registry.npm.taobao.org --global npm config set disturl https://npm.taobao.org/dist --global 更改完成使用命令  npm config get registry 查看本地镜像源
 ```
 
-###### 设置淘宝镜像 （使用第三方软件）
-
-```
-npm install -g yrm
-
-# 列出当前可用的所有镜像源
-yrm ls
-
-# 使用淘宝镜像源
-yrm use taobao
-
-# 测试访问速度
-yrm test taobao
-```
 
 ###### 初始化项目 ( 安装脚手架 )
 
