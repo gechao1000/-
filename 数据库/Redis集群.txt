@@ -1,0 +1,69 @@
+docker create --name redis-node01 -v /data/node01:/data -p 6379:6379 redis:5 --cluster-eanbled yes --cluster-config-file cluster-node01.conf
+
+docker create --name redis-node02 -v /data/node02:/data -p 6380:6379 redis:5 --cluster-eanbled yes --cluster-config-file cluster-node02.conf
+
+docker create --name redis-node03 -v /data/node03:/data -p 6381:6379 redis:5 --cluster-eanbled yes --cluster-config-file cluster-node03.conf
+
+
+
+# 搭建集群 (错误方案)
+
+docker exec --it redis-node01 bash
+
+# 搭建集群
+
+docker create --name redis-node01 --net host --port 6379 -v /data/node01:/data redis:5 --cluster-eanbled yes --cluster-config-file cluster-node01.conf
+
+docker create --name redis-node02 --net host --port 6380 -v /data/node02:/data redis:5 --cluster-eanbled yes --cluster-config-file cluster-node02.conf
+
+docker create --name redis-node03 --net host --port 6381 -v /data/node03:/data redis:5 --cluster-eanbled yes --cluster-config-file cluster-node03.conf
+
+// 查看具体IP
+docker inspect redis-node01
+
+redis-cli --cluster create ip:6379 ip:6380 ip:6381 --cluster-replicas 0
+
+
+# 集群情况
+cluster nodes
+
+
+# docker 网络设置
+
+None: 没有网络，--net=none
+Container: 与另一个运行中的容器共享Network Namespace, --net=container.containerID
+Host: 与主机共享Network Namespace, --net=host
+Bridge：默认，NAT网络模型
+
+
+
+
+
+# 依赖
+
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+    <version>2.2.5.RELEASE</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>3.2.0</version>
+</dependency>
+
+
+# 配置文件
+spring:
+	redis:	
+		timeout: 10
+		cluster:
+			nodes: ip:6379,ip:6380,ip:6381
+			max-redirects=5
+		jedis:
+			pool:
+				max-wait: 5000
+				max-idle: 100
+				min-idle: 10

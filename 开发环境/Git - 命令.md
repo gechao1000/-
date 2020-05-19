@@ -3,6 +3,9 @@
 ```
 git config --global user.name "gexc"
 git config --global user.email "gexc@budata.com"
+
+# 查看
+git config --global -l
 ```
 
 本地仓库
@@ -67,5 +70,13 @@ git push -f
 
 # 回滚某个 commit
 git revert -n 版本号
+```
+
+GitHub
+
+```
+# 设置代理，无效
+git config --global https.proxy http://127.0.0.1:9999
+git config --global --unset https.proxy
 ```
 

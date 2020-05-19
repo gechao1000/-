@@ -19,7 +19,7 @@ const [age, setAge] = useState(18);
 
 参数：状态的初始值(Initial state)
 
-# 函数式更新 (接收先前的 state，并返回一个更新后的值)
+# 函数式更新 (新的 state 需要通过使用先前的 state 计算得出)
 setCount(prevCount => prevCount - 1)
 
 # 惰性初始 state (此函数只在初始渲染时被调用)

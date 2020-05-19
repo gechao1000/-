@@ -106,20 +106,33 @@ const counter = useSelector(state => state.counter)
 let dispatch = useDispatch()
 ```
 
-#### 6. defineConstants
+#### 6. 编译配置  
 
-配置方式类似  [Webpack DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
+defineConstants，常量
 
-编译期间替换
+编译期间替换, 配置方式类似  [Webpack DefinePlugin](https://webpack.js.org/plugins/define-plugin/)
 
 ```
-// config/xxx.js
 defineConstants: {
 	BASE_URL: JSON.stringify('http://localhost:3721/')
 },
 
-// action.js
+# 使用
 console.log(BASE_URL)
+```
+
+alias，目录别名
+
+使用 `@/` 开头而非仅用 `@` 开头，避免冲突（如：[@tarojs/taro](https://npm.im/@tarojs/taro), [@babel/core](https://npm.im/@babel/core)）
+
+```
+alias: {
+  '@/components': path.resolve(__dirname, '..', 'src/components'),
+  '@/store': path.resolve(__dirname, '..', "src/store"),
+}
+
+# 使用
+import A from '@/components/A'
 ```
 
 #### 7. tabbar
@@ -148,20 +161,46 @@ tabBar: {
 }
 ```
 
-#### 8. 异步编程
+#### 8. 网络请求
 
-Taro 2.x 版本中使用 `async-await` 不再需要 `@tarojs/async-await`
+Taro.request 没有文档，使用 ` taro-axios`
+
+> https://github.com/fjc0k/taro-axios
 
 ```
-tyarn add @tarojs/async-await
+# 安装
+yarn add taro-axios			(Taro 3)
+yarn add taro-axios@0.7.0	(Taro 1、Taro 2)
 
-// app.js
-import "@tarojs/async-await"
+# 引用
+import { axios } from 'taro-axios'
+import axios from 'taro-axios'
+import { axios, PostData, FileData } from 'taro-axios'
 
+# 基本使用
+axios.get('https://jsonplaceholder.typicode.com/todos')
+	.then(res => console.log(res))
+	.catch(err => console.error(err))
+  
+# 上传文件
+import { axios, PostData, FileData } from 'taro-axios'
 
-async fn() {
-	let response = await Taro.request({url: 'xxx'})
-	console.log(response.data)
+async function uploadImage() {
+  const { tempFilePaths } = await Taro.chooseImage({ count: 1 })
+  Taro.showLoading({ title: '图片上传中...' })
+  const res = await axios.post(
+    'https://sm.ms/api/upload',
+    new PostData({
+      smfile: new FileData(tempFilePaths[0]),
+      ssl: true,
+      format: 'json',
+    }),
+  )
+  Taro.hideLoading()
+  Taro.showModal({
+    title: '返回结果',
+    content: JSON.stringify(res.data),
+  })
 }
 ```
 

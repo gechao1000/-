@@ -1,0 +1,86 @@
+# my.cnf
+server-id=1
+log-bin=mysql-bin
+# 指定同步的数据库
+binlog-do-db=my_test
+
+
+# my.cnf
+server-id=2
+
+
+
+
+
+# 搭建主库  
+
+docker create --name percona-master01 -v /data/mysql/master01/data:/var/lib/mysql -v /data/mysql/master01/conf:/etc/my.cnf.d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root percona:5.7
+
+docker start percona-master01 && docker logs -f percona-master01
+
+# 创建用户
+create user 'itcast'@'%' identified by 'itcast';
+grant replication slave on *.* to 'itcast'@'%';
+flush privileges;
+
+show master status;
+
+
+# 搭建从库
+docker create --name percona-slave01 -v /data/mysql/slave01/data:/var/lib/mysql -v /data/mysql/slave01/conf:/etc/my.cnf.d -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root percona:5.7
+
+docker start percona-slave01 && docker logs -f percona-slave01
+
+
+# 开启同步
+change master to 
+    master_host='192.168.80.128',
+    master_user='itcast',
+    master_password='itcast',
+    master_port=3306,
+    master_log_file='mysql-bin.000005',
+    master_log_pos=502;
+
+start slave;
+
+show slave status; (SLAVE_IO_RUNNING=yes, SLAVE_SQL_RUNNING=yes)
+
+# 关闭同步
+stop slave;
+
+
+# 主从复制模式 master
+STATEMENT: 基于sql语句(减少binlog日志量，节约IO, 函数可以不一直，比如now())
+ROW: 基于行(产生大量日志，alter table会让日志暴涨)
+MIXED: 混合
+
+show global variables like 'binlog%';
+
+修改my.cnf
+binlog_format=MIXED
+重启 master
+
+
+
+
+# MyCat (分库分表中间件)
+http://mycat.io
+
+server.xml
+schema.xml
+rule.xml
+
+
+# HAProxy (负载均衡)
+http://haproxy.org/
+
+haproxy.cfg
+
+
+# PXC集群 (强一致性,针对mysql，基于Percona Server)
+所有节点都是可读可写
+节点越多，数据同步越慢
+只支持InnoDB
+
+
+docker pull percona/percona-xtradb-cluster

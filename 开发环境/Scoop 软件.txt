@@ -1,0 +1,53 @@
+
+---------------------------------------- 2020-5-19 ---------------------------------------------
+
+  7zip 19.00
+  calibre 4.16.0 [extras]
+  ccleaner 5.66.7716 [extras]
+  github 2.5.0 [extras]
+  gradle 6.4.1
+  idea-ultimate 2020.1.1 [extras]
+  maven 3.6.3
+  minio 2020-05-16T01-33-21Z
+  minio-client 2020-05-16T01-44-37Z
+  mobaxterm 20.2 [extras]
+  nginx 1.17.10 *hold*
+  nodejs-lts 12.16.3
+  openjdk 14-36 [java]
+  pandoc 2.9.2.1
+  postman 7.24.0 [extras]
+  redis 3.2.100
+  sharex 13.1.0 [extras]
+  snipaste 1.16.2 [extras]
+  sqlyog-community 13.1.6 [extras]
+  switchhosts 3.5.4 [extras]
+  wkhtmltopdf 0.12.5-1
+
+
+---------------------------------------- 2019-x-x ---------------------------------------------
+
+busybox
+draw.io
+fooobar2000
+github
+heidisql
+idea-ultimate
+maven
+mobaxternm
+mongodb
+nginx
+nodejs
+obs-studio
+ojdkbuild8-full
+pandoc
+protobuf
+redis
+rufus
+rustup
+snipaste
+switchhosts
+wkhtmltopdf
+yarn
+
+ssh-copy-id (依赖gow, 与busybox冲突)
+

@@ -1,53 +1,72 @@
-## win7 X64位安装mysql-5.7
+## MySQL衍生版本 percona
+
+https://www.percona.com/software/mysql-database 
+
+提升了高负载下InnoDB的性能，性能诊断工具
+
+```
+docker pull percona:5.7
+
+./data 需要w权限
+```
 
 
-* 官网下载https://dev.mysql.com/downloads/file/?id=482487
-	解压目录E:\DB\mysql-5.7.25
-	bin添加到环境变量
-* 修改my.ini
 
-  [mysql]  
+## windows
 
-  #设置mysql客户端默认字符集  
+##### 1. 下载安装包
 
-  default-character-set=utf8  
+https://dev.mysql.com/downloads/file/?id=482487
 
-  [mysqld]  
+解压目录E:\DB\mysql-5.7.25，bin添加到环境变量
 
-  #设置3306端口  
+##### 2. 修改my.ini
 
-  port = 3306   
+```
+[mysql]  
 
-  #设置mysql的安装目录  
+#设置mysql客户端默认字符集  
+default-character-set=utf8  
 
-  basedir=E:\DB\mysql-5.7.25
+[mysqld]  
 
-  #设置mysql数据库的数据的存放目录  
+#设置3306端口  
+port = 3306   
 
-  datadir=E:\DB\mysql-5.7.25\data  
+#设置mysql的安装目录  
+basedir=E:\DB\mysql-5.7.25
 
-  #允许最大连接数  
+#设置mysql数据库的数据的存放目录  
+datadir=E:\DB\mysql-5.7.25\data  
 
-  max_connections=200  
+#允许最大连接数  
+max_connections=200  
 
-  #服务端使用的字符集默认为8比特编码的latin1字符集  
+#服务端使用的字符集默认为8比特编码的latin1字符集  
+character-set-server=utf8  
 
-  character-set-server=utf8  
+#创建新表时将使用的默认存储引擎  
+default-storage-engine=INNODB  
 
-  #创建新表时将使用的默认存储引擎  
+#允许执行导入导出命令
+secure_file_priv=''
+```
 
-  default-storage-engine=INNODB  
+##### 3. 安装mysql服务
 
-  #允许执行导入导出命令
+管理员身份打开cmd窗口后，切换到bin目录
 
-  secure_file_priv=''
+```
+mysqld install
 
-* 安装mysql服务
-  1. 管理员身份打开cmd窗口后，将目录切换到你解压文件的bin目录
-  2. mysqld install
-  3. mysqld --initialize-insecure --user=mysql
-  	建一个data文件夹，并且建好默认数据库，登录的用户名为root，密码为空
-  4. net start mysql 启动服务
+# 建一个data文件夹，并且建好默认数据库，登录的用户名为root，密码为空
+mysqld --initialize-insecure --user=mysql
+
+# 启动服务
+net start mysql 
+```
+
+##### 4. 修改密码
 
 ```mysql
 grant all privileges on *.* to root@'%'identified by '123456';

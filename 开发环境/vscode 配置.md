@@ -1,19 +1,15 @@
 #### 插件
 
 ```
-Bracket Pair Colorizer
-One Monokai Theme
-Visual Studio IntelliCode 
-Sublime Importer for VS Code
+Bracket Pair Colorizer 2
+ES7 React/Redux/GraphQL/React-Native snippets
 Live Server
+One Monokai Theme
+Prettier - Code formatter
+Sublime Text Keymap and Settings Importer
+Visual Studio IntelliCode
+Web Template Studio (staging-weekly)
 
-Simple React Snippets
-JavaScript Booster
-Web Template Studio
-Npm Intellisense
-
-// Vibrancy (毛玻璃特效，和 One Monokai Theme 冲突)
-windows opacity (毛玻璃特效)
 ```
 
 #### 接口测试

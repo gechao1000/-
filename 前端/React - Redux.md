@@ -103,6 +103,17 @@ export const xxx = (payload) => (dispatch) => {
   }, 1000);
 };
 
+// 正确
+export const getNewBooks = () => {
+  // 返回函数，异步dispatch
+  return async dispatch => {
+    let result = await API.get("/books/new");
+    dispatch({
+      type: HOME.GET_NEW_BOOK,
+      books: result
+    });
+  };
+};
 ```
 
 
@@ -130,6 +141,20 @@ store
 ```
 
 ##### 3. store/index.js
+
+基本
+
+```
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import reducers from "./reducer";
+
+const store = createStore(reducers, applyMiddleware(thunk));
+
+export default store;
+```
+
+完整
 
 ```js
 import { createStore, applyMiddleware, compose } from 'redux'
