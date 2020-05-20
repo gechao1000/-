@@ -149,22 +149,6 @@ pacman -S docker docker-compose
 pacman -S neofetch
 ```
 
-##### 配置环境变量
-
-```
-# 配置文件
-/etc/profile
-/etc/environment
-~/.bash_profile
-~/.bashrc
-
-#注意引用已经存在的环境变量，以冒号 : 分割两个环境变量，$ 调用已经存在的变量
-PATH=$PATH:<PATH 1>:<PATH 2>:<PATH 3>:——:<PATH 3>
-
-#然后启用它，注意：/etc/environment 中无需添加下面这条命令 
-export PATH
-```
-
 ##### 常用软件
 
 > 推荐： https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/#arch-linux 
