@@ -20,6 +20,7 @@ mscp2020
 
 ```
 yarn global add @tarojs/cli
+yarn global add @tarojs/cli@next
 
 taro init myapp
 

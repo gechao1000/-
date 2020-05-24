@@ -1,6 +1,7 @@
 #### 插件
 
 ```
+Auto Rename Tag
 Bracket Pair Colorizer 2
 ES7 React/Redux/GraphQL/React-Native snippets
 Live Server
@@ -9,7 +10,7 @@ Prettier - Code formatter
 Sublime Text Keymap and Settings Importer
 Visual Studio IntelliCode
 Web Template Studio (staging-weekly)
-
+koroFileHeader
 ```
 
 #### 接口测试

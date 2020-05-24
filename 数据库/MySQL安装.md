@@ -8,6 +8,8 @@ https://www.percona.com/software/mysql-database
 docker pull percona:5.7
 
 ./data 需要w权限
+
+docker run --name percona -e MYSQL_ROOT_PASSWORD=123456 -d percona
 ```
 
 
