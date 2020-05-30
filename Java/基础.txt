@@ -1,0 +1,32 @@
+特点：跨平台，面向对象，支持多线程
+
+面向对象，面向过程
+
+基本数据类型：byte,short,int,long		float,double	boolean,char
+
+重载Overload  重写Override
+
+equals 和 ==
+
+hashcode: 提高集合中查找元素的效率，每个对象可以计算出一个哈希码，可以将哈希码分组
+
+String: final char[]，只读
+StringBuilder：继承AbstractStringBuilder，char[]
+
+ArrayList,LinkList
+
+HashMap: 继承自AbstratMap，key可以为null，线程不安全
+ConcurrentHashMap: 线程安全，效率比HashTable高，使用了分段锁，并不是对整个数据进行锁定
+HashTable: 继承自Dictionary，elements()，key和value都不能是null
+
+强引用，弱引用，软引用，虚引用
+
+泛型
+
+创建对象方式：new，反射，clone，序列化
+
+hash冲突：链表法，开放寻址法，再hash
+
+浅拷贝，深拷贝
+
+final:类不可以继承，方法不可以重写，变量不可以修改
