@@ -4,7 +4,7 @@
 yarn add react-router-dom
 
 # 只需要在 index.jsx 引入
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
     <BrowserRouter>
