@@ -1,0 +1,22 @@
+https://www.keycloak.org/
+
+
+# 下载
+https://www.keycloak.org/downloads
+
+# 启动
+./bin/standalone.sh
+
+
+# 本地部署（创建admin用户）
+http://localhost:8080/auth 
+http://localhost:8080/auth/admin/
+
+# 创建Realm
+# 添加User（可以设置临时密码）
+
+# 新用户登陆
+http://localhost:8080/auth/realms/demo/account
+
+
+# Securing a JBoss Servlet Application

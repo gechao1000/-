@@ -32,6 +32,9 @@ podman run -dt -p 80:80 --name nginx -v /data:/data -e NGINX_VERSION=1.16 nginx:
 
 # mysql
 podman run --name mysql -p 3306:3306 -e TZ=Asia/Shanghai -e MYSQL_ROOT_PASSWORD=123456 -d percona:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --explicit_defaults_for_timestamp=true --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
+
+# postgres
+podman run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres:12
 ```
 
 基本命令 (类似 docker)
