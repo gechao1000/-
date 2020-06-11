@@ -1,8 +1,10 @@
 ## MySQL衍生版本 percona
 
-https://www.percona.com/software/mysql-database 
+>  https://www.percona.com/software/mysql-database 
 
-提升了高负载下InnoDB的性能，性能诊断工具
+>  提升了高负载下InnoDB的性能，性能诊断工具，只能在linux使用
+
+#### docker安装
 
 ```
 docker pull percona:5.7
@@ -12,9 +14,15 @@ docker pull percona:5.7
 docker run --name percona -e MYSQL_ROOT_PASSWORD=123456 -d percona
 ```
 
+#### rpm安装
+
+```
+https://www.percona.com/doc/percona-server/LATEST/installation/yum_repo.html
+```
 
 
-## windows
+
+## Windows
 
 ##### 1. 下载安装包
 

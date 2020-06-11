@@ -1,0 +1,69 @@
+## AdminLTE Bootstrap Admin Dashboard Template
+
+Best open source admin dashboard & control panel theme. Built on top of Bootstrap, AdminLTE provides a range of responsive, reusable, and commonly used components.
+
+> 官网：https://adminlte.io/
+>
+> 文档：https://adminlte.io/docs/3.0/index.html
+>
+> 旧版本，中文：https://github.com/itheima2017/adminlte2-itheima
+
+1. 安装
+
+```
+yarn add admin-lte
+
+git clone https://github.com/ColorlibHQ/AdminLTE.git
+```
+
+2. 依赖
+
+```
+- Bootstrap 4
+- jQuery 3.3.1+
+- Popper.js 1.14.7+
+- 其他Plugins
+
+# bootstrap.bundle.js 包含 Propper.js
+```
+
+3. 页面引用
+
+```
+<!--  Font Awesome Icons -->
+<link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
+<!-- Theme Style -->
+<link rel="stylesheet" href="./dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+<!-- REQUIRED SCRIPTS -->
+<script src="./plugins/jquery/jquery.min.js"></script>
+<script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./dist/js/adminlte.min.js"></script>
+
+<!-- Optional Scripts -->
+<script src="./plugins/chart.js/Chart.min.js"></script>
+<script src="./dist/js/demo.js"></script>
+<script src="./dist/js/pages/dashboard3.js"></script>
+```
+
+4. 图标 （Font Awesome）
+
+> 官网：http://www.fontawesome.com.cn/
+
+你可以通过设置CSS前缀`fa`和图标的具体名称，来把Font Awesome 图标放在任意位置。
+
+Font Awesome 被设计为用于行内元素
+
+```
+<i class="fa fa-camera-retro"></i>
+
+# 改变大小 (33% 递增)
+<i class="fa fa-camera-retro fa-lg"></i> fa-lg
+<i class="fa fa-camera-retro fa-2x"></i> fa-2x
+<i class="fa fa-camera-retro fa-3x"></i> fa-3x
+<i class="fa fa-camera-retro fa-4x"></i> fa-4x
+<i class="fa fa-camera-retro fa-5x"></i> fa-5x
+```
+
