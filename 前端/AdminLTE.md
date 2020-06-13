@@ -24,7 +24,8 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 - Popper.js 1.14.7+
 - 其他Plugins
 
-# bootstrap.bundle.js 包含 Propper.js
+# popper.min.js 用于设置弹窗、提示、下拉菜单
+# 目前 bootstrap.bundle.min.js 已经包含了 popper.min.js。
 ```
 
 3. 页面引用
