@@ -68,3 +68,45 @@ Font Awesome 被设计为用于行内元素
 <i class="fa fa-camera-retro fa-5x"></i> fa-5x
 ```
 
+5. 表单
+
+```html
+<div class="card card-primary">
+	<div class="card-header">
+		<h3 class="card-title">Quick Example</h3>
+	</div>
+	<form role="form">
+		<div class="card-body">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+			</div>
+		</div>
+		<div class="card-footer">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+</div>
+```
+
+```html
+<div class="card card-primary">
+	<div class="card-header">
+		<h3 class="card-title">Quick Example</h3>
+	</div>
+	<form role="form" class="form-horizontal">
+		<div class="card-body">
+			<div class="form-group row">
+				<label for="exampleInputEmail1" class="col-sm-2 col-form-label">Email address</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">
+			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-default float-right">Cancel</button>
+		</div>
+	</form>
+</div>
+```
