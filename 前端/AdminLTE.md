@@ -30,23 +30,23 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 
 3. 页面引用
 
-```
-<!--  Font Awesome Icons -->
+```html
+<!-- Font Awesome Icons -->
 <link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
+<!-- Toastr -->
+<link rel="stylesheet" href="./plugins/toastr/toastr.min.css">
 <!-- Theme Style -->
 <link rel="stylesheet" href="./dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-<!-- REQUIRED SCRIPTS -->
+<!-- Base -->
 <script src="./plugins/jquery/jquery.min.js"></script>
 <script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Toastr -->
+<script src="./plugins/toastr/toastr.min.js"></script>
+<!-- AdminLte -->
 <script src="./dist/js/adminlte.min.js"></script>
-
-<!-- Optional Scripts -->
-<script src="./plugins/chart.js/Chart.min.js"></script>
-<script src="./dist/js/demo.js"></script>
-<script src="./dist/js/pages/dashboard3.js"></script>
 ```
 
 4. 图标 （Font Awesome）
