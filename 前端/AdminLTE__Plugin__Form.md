@@ -3,6 +3,8 @@
 > CDN：https://cdnjs.com/libraries/jquery.serializeJSON
 
 ```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+
 let res = $('#quickForm').serializeJSON();
 
 -- checkbox
@@ -18,13 +20,13 @@ let res = $('#quickForm').serializeJSON();
 -- adminlte之前
 
 -- 内置验证规则：required,email,minlength,equalTo
-<script src="./plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="./static/plugins/jquery-validation/jquery.validate.min.js"></script>
 
 -- 扩展规则
-<script src="./plugins/jquery-validation/additional-methods.min.js"></script>
+<script src="./static/plugins/jquery-validation/additional-methods.min.js"></script>
 
 -- 中文提示
-<script src="./plugins/jquery-validation/localization/messages_zh.min.js"></script>
+<script src="./static/plugins/jquery-validation/localization/messages_zh.min.js"></script>
 ```
 
 页面
@@ -49,9 +51,9 @@ let res = $('#quickForm').serializeJSON();
 						service</a>.</label>
 			</div>
 		</div>
-		<div class="card-footer">
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
 </form>
 ```
 
@@ -117,16 +119,15 @@ jQuery.validator.setDefaults({
 > 官网：https://tempusdominus.github.io/bootstrap-4/
 
 ```html
--- adminlte之前引入
 -- 依赖moment.js
+<script src="./static/plugins/moment/moment.min.js"></script>
+<script src="./static/plugins/moment/locale/zh-cn.js"></script>
 
-<link rel="stylesheet" href="./plugins/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" href="./plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<link rel="stylesheet" href="./static/plugins/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" href="./static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
-<script src="./plugins/moment/moment.min.js"></script>
-<script src="./plugins/moment/locale/zh-cn.js"></script>
-<script src="./plugins/daterangepicker/daterangepicker.js"></script>
-<script src="./plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="./static/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="./static/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 ```
 
 选择日期
@@ -193,3 +194,35 @@ $('#reservation').daterangepicker({
 	showDropdowns: true,
 })
 ```
+
+### 4. Checkbox, Radio
+
+> GitHub：https://github.com/bantikyan/icheck-bootstrap
+
+```html
+<link rel="stylesheet" href="./static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+```
+
+使用
+
+```html
+<div class="form-group clearfix">
+	<div class="icheck-primary d-inline">
+		<input type="checkbox" id="checkboxPrimary1" checked>
+		<label for="checkboxPrimary1">
+		</label>
+	</div>
+	<div class="icheck-primary d-inline">
+		<input type="checkbox" id="checkboxPrimary2">
+		<label for="checkboxPrimary2">
+		</label>
+	</div>
+	<div class="icheck-primary d-inline">
+		<input type="checkbox" id="checkboxPrimary3" disabled>
+		<label for="checkboxPrimary3">
+			Primary checkbox
+		</label>
+	</div>
+</div>
+```
+

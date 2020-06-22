@@ -31,6 +31,9 @@ $('#example').DataTable({
   "info": true,
   "autoWidth": false,
   "responsive": true,
+    
+    lengthChange: true, // 分页下拉框
+    info: true, // `显示第 1 至 5 项结果，共 5 项`
 });
 
 -- 固定高度，不分页
@@ -82,7 +85,7 @@ $.fn.dataTable.defaults.oLanguage = {
 	}
 };
 
-// 其他设置、ajax设置中文
+// 中文，默认属性
 $.extend(true, $.fn.dataTable.defaults, {
     "searching": false,
     "ordering": false,
@@ -215,7 +218,7 @@ table.ajax.reload();
 <script src="./plugins/pdfmake/pdfmake.js"></script>
 <script src="./plugins/pdfmake/vfs_fonts.js"></script>
 
--- 内置button: copy,csv...
+-- 内置button
 <script src="./plugins/datatables-buttons/js/dataTables.buttons.js"></script>
 -- 样式
 <script src="./plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>
@@ -234,6 +237,11 @@ $('#example').DataTable({
 		'excel',
 		'csv',
 		'pdf',
+        // 编辑默认按钮
+        {
+            extend: 'copy',
+            text: '复制'
+        },
         // 自定义按钮
         {
             text: 'Reload',

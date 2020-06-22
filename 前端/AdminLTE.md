@@ -32,21 +32,21 @@ git clone https://github.com/ColorlibHQ/AdminLTE.git
 
 ```html
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
-<!-- Toastr -->
-<link rel="stylesheet" href="./plugins/toastr/toastr.min.css">
+<link rel="stylesheet" href="./static/plugins/fontawesome-free/css/all.min.css">
 <!-- Theme Style -->
-<link rel="stylesheet" href="./dist/css/adminlte.min.css">
+<link rel="stylesheet" href="./static/adminlte/css/adminlte.min.css">
+<!-- SweetAlert2 -->
+<link rel="stylesheet" href="./static/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 <!-- Base -->
-<script src="./plugins/jquery/jquery.min.js"></script>
-<script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Toastr -->
-<script src="./plugins/toastr/toastr.min.js"></script>
+<script src="./static/plugins/jquery/jquery.min.js"></script>
+<script src="./static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLte -->
-<script src="./dist/js/adminlte.min.js"></script>
+<script src="./static/adminlte/js/adminlte.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="./static/plugins/sweetalert2/sweetalert2.min.js"></script>
 ```
 
 4. 图标 （Font Awesome）

@@ -60,7 +60,7 @@ $('#summernote').summernote('disable');
 
 <link rel="stylesheet" href="./plugins/select2/css/select2.min.css">
 
-<script src="./plugins/select2/js/select2.full.min.js"></script>
+<script src="./plugins/select2/js/select2.min.js"></script>
 ```
 
 基本使用
@@ -130,26 +130,11 @@ $('#bmcpSelect').select2({
 })
 ```
 
-### 4. Toastr
+### 4. Lightbox 
 
-> GitHub：https://github.com/CodeSeven/toastr
-
-```html
--- adminlte之前引入
-<link rel="stylesheet" href="./plugins/toastr/toastr.min.css">
-<script src="./plugins/toastr/toastr.min.js"></script>
-```
-
-使用
+> 官网：http://ashleydw.github.io/lightbox/
 
 ```
-// no title
-toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
-// title
-toastr.success('Have fun storming the castle!', 'Miracle Max Says')
-toastr.error('xxx', 'Inconceivable!')
 
-// 配置
-toastr.success('We do have the Kapua suite available.', 'Turtle Bay Resort', {timeOut: 5000})
 ```
 
