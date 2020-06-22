@@ -89,6 +89,16 @@ $('.select2').select2()
 ```js
 -- array
 $('#bmcpSelect').select2({
+    placeholder: '分类',
+    或
+    placeholder: {
+        id: '-1', 
+        text: '分类'
+    },
+    minimumResultsForSearch: -1, // 隐藏搜索框
+    allowClear: true,
+    language: 'zh-CN',
+    theme: "bootstrap4", // 主题
 	data: [
 		{ "id": 1, "text": "Option 1" },
 		{ "id": 2, "text": "Option 2", "selected": true },

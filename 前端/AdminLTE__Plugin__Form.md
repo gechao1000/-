@@ -96,7 +96,11 @@ $('#quickForm').validate({
 	},
 	unhighlight: function (element, errorClass, validClass) {
 		$(element).removeClass('is-invalid');
-	}
+	},
+    submitHandler: function (form) {
+        let res = $(form).serializeJSON();
+        alert(JSON.stringify(res))
+    }
 });
 ```
 
