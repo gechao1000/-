@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: xxl_job_db
+    ports:
+      - 28889:3306
+    volumes:
+      - "./data:/var/lib/mysql"  
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - MYSQL_DATABASE=xxl_job
+    command: [
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci'
+    ]
+
+  admin:
+    image: xuxueli/xxl-job-admin:2.2.0
+    restart: always
+    container_name: xxl_job
+    ports:
+      - 28888:8080
+    volumes:
+      - "./tmp:/data/applogs"
+    environment:
+      - PARAMS="--spring.datasource.url=jdbc:mysql://localhost:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true --spring.datasource.password=123456"
+    depends_on: 
+      - mysql
+    links:
+      - mysql

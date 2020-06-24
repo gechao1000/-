@@ -136,3 +136,24 @@ XxlJobExecutor.registJobHandler("demoJobHandler", new DemoJobHandler())
 public ReturnT<String> execute(String param)
 ```
 
+
+
+## Docker 部署
+
+#### 1. 镜像
+
+```
+docker pull percona:5.7
+docker pull xuxueli/xxl-job-admin:2.2.0
+```
+
+#### 2. 部署
+
+```
+https://github.com/SKYhuangjing/xxl-job-docker/blob/master/docker-compose.yml
+https://github.com/xuxueli/xxl-job/pull/633
+
+# 初始化
+https://github.com/xuxueli/xxl-job/blob/master/doc/db/tables_xxl_job.sql
+```
+
