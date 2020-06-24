@@ -1,33 +1,38 @@
-version: '3'
+version: '3.8'
 services:
-  mysql:
+  xxl_job_db:
     image: mysql:5.7
-    restart: always
     container_name: xxl_job_db
-    ports:
-      - 28889:3306
-    volumes:
-      - "./data:/var/lib/mysql"  
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=123456
       - TZ=Asia/Shanghai
       - MYSQL_DATABASE=xxl_job
-    command: [
-      '--character-set-server=utf8mb4',
-      '--collation-server=utf8mb4_unicode_ci'
-    ]
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    ports:
+      - 28889:3306
+    volumes:
+      - "./data:/var/lib/mysql"  
+      - "./initdb:/docker-entrypoint-initdb.d"
 
-  admin:
+  xxl_job:
     image: xuxueli/xxl-job-admin:2.2.0
-    restart: always
     container_name: xxl_job
+    restart: always
+    environment:
+      PARAMS: |
+        --spring.datasource.url=jdbc:mysql://xxl_job_db:3306/xxl_job?Unicode=true&characterEncoding=UTF-8
+        --spring.datasource.username=root
+        --spring.datasource.password=123456
     ports:
       - 28888:8080
     volumes:
-      - "./tmp:/data/applogs"
-    environment:
-      - PARAMS="--spring.datasource.url=jdbc:mysql://localhost:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true --spring.datasource.password=123456"
+      - "./applogs:/data/applogs"
     depends_on: 
-      - mysql
-    links:
-      - mysql
+      - xxl_job_db
+

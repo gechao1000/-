@@ -150,10 +150,14 @@ docker pull xuxueli/xxl-job-admin:2.2.0
 #### 2. 部署
 
 ```
-https://github.com/SKYhuangjing/xxl-job-docker/blob/master/docker-compose.yml
-https://github.com/xuxueli/xxl-job/pull/633
-
-# 初始化
+# 先配置数据库，初始化表，再启动admin项目
 https://github.com/xuxueli/xxl-job/blob/master/doc/db/tables_xxl_job.sql
+
+# docker容器访问宿主机，直接使用IP
+environment:
+  PARAMS: |
+	--spring.datasource.url=jdbc:mysql://172.17.0.1:3306/xxl_job?Unicode=true&characterEncoding=UTF-8
+	--spring.datasource.username=root
+	--spring.datasource.password=123456
 ```
 
