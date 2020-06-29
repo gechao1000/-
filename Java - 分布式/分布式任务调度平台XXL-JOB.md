@@ -161,3 +161,21 @@ environment:
 	--spring.datasource.password=123456
 ```
 
+#### 3.自定义任务
+
+> 问题：无法根据容器名解析ip
+
+```shell
+docker create --name sample --restart always --network xxl_job_default bmcp/job-sample
+
+xxl.job.adminAddresses=http://xxl_job:8080/xxl-job-admin
+```
+
+解决方案
+
+```
+# 手动解析hostname
+InetAddress host = InetAddress.getByName("xxl_job");
+System.out.println(host.getHostAddress());
+```
+

@@ -1,6 +1,15 @@
-## link
+## 自定义 bridge, 默认 bridge
 
-> 此方法对容器创建的顺序有要求，如果集群内部多个容器要互访，使用就不太方便
+- bridge网络用于同一主机上的docker容器相互通信
+
+- 启动docker时会创建一个bridge网络，新创建的容器默认会连接到这个网络
+
+- docker文档建议使用自定义bridge，默认的bridge有一定缺陷
+- 连接到同一个bridge的容器可以互相访问彼此任意一个端口
+
+1. Link
+
+> 只能使用默认的bridge
 
 
 ```
@@ -9,32 +18,21 @@ docker run -it --rm --name b1 busybox
 docker run -it --rm --name b2 --link b1 busybox
 ```
 
-## network
-
-> 若访问容器中服务，可以使用这用方式访问 <网络别名>：<服务端口号> 
-
-1. 创建一个docker网络
+2. 创建 bridge
 
 ```
 docker network ls
-docker network inspect my_bridge
-
-#如果容器没有显示指定使用的网络，默认使用bridge
-#-d 指定类型 my_bridge为名称
-docker network create testnet
-docker network create -d bridge my_bridge  
-
-# 使用
-docker run -d --name busybox_3 --network my_bridge ...
+docker network create my_net
+docker network inspect my_net
+docker network rm my_net
 ```
 
-2. 运行容器连接到testnet网络
+3. 运行容器连接到testnet网络
 
 ```
 # 参数
 docker run -it --name <容器名> ---network <bridge> --network-alias <网络别名> <镜像名>
 
-docker run -it --rm --name centos-1 --network testnet --network-alias centos-1 docker.io/centos:latest
 
-docker run -it --rm --name centos-2 --network testnet --network-alias centos-2 docker.io/centos:latest
 ```
+
