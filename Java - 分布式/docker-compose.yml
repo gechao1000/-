@@ -32,7 +32,7 @@ services:
     ports:
       - 28888:8080
     volumes:
-      - "./applogs:/data/applogs"
+      - "/var/log/applogs:/data/applogs"
     depends_on: 
       - xxl_job_db
 

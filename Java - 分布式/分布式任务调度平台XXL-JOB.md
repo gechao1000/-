@@ -166,7 +166,10 @@ environment:
 > 问题：无法根据容器名解析ip
 
 ```shell
-docker create --name sample --restart always --network xxl_job_default bmcp/job-sample
+docker create --name sample --restart always bmcp/job-sample
+
+-v /var/log/applogs:/data/applogs
+--network xxl_job_default
 
 xxl.job.adminAddresses=http://xxl_job:8080/xxl-job-admin
 ```
