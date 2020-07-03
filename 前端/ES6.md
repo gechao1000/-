@@ -222,24 +222,20 @@ class Lisi extends User {
 }
 ```
 
-#### 9. Generator函数
-
-异步编程解决方案，每次next返回一个对象，{value: xxx, done: bool}
+#### 9. 异步相关
 
 ```
-function* hello() {
-	yield 'hello'; // 定义内部状态
-	yield 'world';
-	return 'done';
+Promise.resolve();
+
+// Generator函数
+function* fn(params) {
+	yield ...异步动作...
 }
 
-let h = hello();
-console.log(h.next());
-console.log(h.next());
-console.log(h.next());
-console.log(h.next());
-
-for (le v of h) { ... }
+// 异步函数：promise+generator
+aysnc function fn(params) {
+	await ...异步动作...
+}
 ```
 
 #### 10. 修饰器（当前版本chrome不支持，需要转码器）

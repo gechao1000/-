@@ -1,187 +1,140 @@
-#### 1. 脚手架 `create-umi`
+# UmiJS
 
-- **project**，通用项目脚手架，支持选择是否启用 TypeScript，以及 [umi-plugin-react](https://umijs.org/zh/plugin/umi-plugin-react.html) 包含的功能
-- **ant-design-pro**，仅包含 [ant-design-pro](https://github.com/ant-design/ant-design-pro) 布局的脚手架，具体页面可通过 [umi block](https://umijs.org/zh/guide/block.html) 添加
-- **block**，区块脚手架
-- **plugin**，插件脚手架
-- **library**，依赖（组件）库脚手架，基于 [umi-plugin-library](https://github.com/umijs/umi-plugin-library)
+> https://umijs.org/zh-CN
 
-```
-$ mkdir myapp && cd myapp
-$ yarn create umi
-```
+插件化的企业级前端应用框架
 
-#### 2. 目录
+以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展
 
-/mock， 此目录下所有的 `.js` 文件（包括 `_` 前缀的）都会被解析为 mock 文件 
+#### 1. 开发环境
 
 ```
-# /mock/users.js
-export default {
-  '/api/users': ['a', 'b'],
-};
+mkdir myapp && cd myapp
+# 脚手架 create-umi（生产级别，可以选择antd模版）
+yarn create umi
+# 脚手架 create-umi-app（入门级别）
+yarn create @umijs/umi-app
 
-# curl http://localhost:8000/api/users
+# vscode 设置
+勾选 JavaScript › Implicit Project Config: Check JS
 ```
 
-/src， 源码目录 
+#### 2. 目录结构
+
+如果配置比较复杂需要拆分，可以放到 `config/config.ts` 中
 
 ```
-# 全局布局
-src/layouts/index.js
-
-# pages
-约定 pages 下所有的 js、jsx、ts 和 tsx 文件即路由
-
-# 覆盖默认的html模板
-src/pages/document.ejs
-
-# 全局样式
-src/global.(css|less|sass|scss)
-
-# 运行时配置文件
-src/app.js
-```
-
-配置文件
-
-```
-.umirc.(js|ts) 和 config/config.(js|ts)
-
-编译时配置文件，.umirc.js 优先
+.
+├── package.json
+├── .umirc.ts	// 配置文件,包含 umi 内置功能和插件的配置
+├── .env	// 环境变量
+├── dist	// 输出
+├── mock	// 所有 js 和 ts 文件会被解析为 mock 文件
+├── public	// 所有文件会被 copy 到输出路径
+└── src
+    ├── .umi	// 临时文件目录, 自动生成
+    ├── layouts/index.tsx	// 约定式路由时的全局布局文件
+    ├── pages
+        ├── index.less
+        └── index.tsx
+    └── app.ts	//运行时配置文件, 可以修改路由
 ```
 
 #### 3. 路由
 
->  umi 会根据 `pages` 目录自动生成路由配置 
-
-动态路由， 带 `$` 前缀的目录或文件为动态路由 
+单页应用，页面跳转不需要请求服务器获取html，页面切换就是不同组件切换
 
 ```
-+ pages/
-  + $post/
-    - index.js
-    - comments.js
-  + users/
-    $id.js
-  - index.js
+routes: [
+	{ path: '/login', component: 'login' },
+	{
+	  path: '/',
+	  component: '@/layouts/index',
+	  routes: [
+		{ path: '/list', component: 'list' },
+		{ path: '/admin', component: 'admin' },
+	  ],
+	}, 
+],
+
+# component属性
+React组件路径，相对路径从src/pages开始找，@指向src目录
+
+# 子路由
+layout中需要指定 props.children
 ```
 
-嵌套路由， 目录下有 `_layout.js` 时会生成嵌套路由，以 `_layout.js` 为该目录的 layout  
+#### 4. 页面跳转
 
 ```
-+ pages/
-  + users/
-    - _layout.js
-    - $id.js
-    - index.js
+# 声明式，作为 React 组件使用
+import { Link } from 'umi'
+<Link to="/users">Users Page</Link>
+
+# 命令式，在事件处理中被调用
+import { history } from 'umi'
+history.push('/list')
 ```
 
-配置式路由
+#### 5. Mock数据
 
 ```
-# 配置文件，不会对 src/pages 目录做约定式的解析
+# 关闭 Mock
 export default {
-  routes: [
-    { path: '/', component: './a' },
-    { path: '/list', component: './b', Routes: ['./routes/PrivateRoute.js'] },
-    { path: '/users', component: './users/_layout',
-      routes: [
-        { path: '/users/detail', component: './users/detail' },
-        { path: '/users/:id', component: './users/id' }
-      ]
-    },
-  ],
+  mock: false,
 };
-```
 
-#### 4. 页面间跳转
-
-声明式，作为 React 组件
-
-```
-import Link from 'umi/link';
-
-export default () => (
-  <Link to="/list">Go to list page</Link>
-);
-```
-
-命令式，事件处理中被调用
-
-```
-import router from 'umi/router';
-
-function goToListPage() {
-  router.push('/list');
-}
-```
-
-#### 5. Mock
-
- mock 文件夹下的文件或者 page(s) 文件夹下的 _mock 文件 
-
-```
+# 示例 /mock/xxx.js
 export default {
   // 支持值为 Object 和 Array
   'GET /api/users': { users: [1, 2] },
-
-  // GET POST 可省略
+  // GET 可忽略
   '/api/users/1': { id: 1 },
-
   // 支持自定义函数，API 参考 express@4
-  'POST /api/users/create': (req, res) => { res.end('OK'); },
-};
-```
+  'POST /api/users/create': (req, res) => {
+    // 添加跨域请求头
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.end('ok');
+  },
+}
 
-引入 Mock.js
-
-```
-import mockjs from 'mockjs';
+# 引入mockjs
+import mockjs from 'mockjs'
 
 export default {
-  // 使用 mockjs 等三方库
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }],
   }),
 };
 ```
 
-#### 6. dva 
+#### 6. 样式和资源
 
-> https://dvajs.com/ 
->
-> dva =  React-Router + Redux + Redux-saga
+全局样式  `src/global.css`
 
 ```
-# yarn add umi-plugin-react
+Umi 内置支持 less，不支持 sass 和 stylus
 
-export default {
-  plugins: [
-    [
-      'umi-plugin-react',
-      {
-      	dva: true,
-      	//或者：开启 dva-immer 以简化 reducer 编写
-        dva: {
-          immer: true
-        }
-      }
-    ],
-  ],
-};
+# 引入ant样式
+@import '~antd/es/style/themes/default.less';
 ```
 
-model
+使用图片
 
 ```
-# 全局model,所有页面都可以引用
-/src/models/
+# 通过 require 引用相对路径的图片，@指向 src 目录
+<img src={require('./foo.png')} />
+<img src={require('@/foo.png')} />
 
-# 页面model，不能被其它页面引用
-/src/pages/**/models/**/*.js
+# 如果图片小于 10K，会被编译为 Base64，否则会被构建为独立的图片文件
+inlineLimit=10000 (10k)
+```
 
-# 约定 model.js 为单文件 model，解决只有一个 model 时不需要建 models 目录的问题
-# 有 model.js 则不去找 models/**/*.js
+#### 7. Umi UI
+
+不能独立使用
+
+```
+yarn add @umijs/preset-ui -D
 ```
 
