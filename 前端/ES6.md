@@ -117,6 +117,15 @@ arr.reduce((a,b) => a+b)
 arr.reduce((a,b) => a*b)
 
 arr.reduce((a,b) => a*b, -1) //指定初始值
+
+// 计算平均值
+let result = arr.reduce((tmp, item, index) => {
+  if (index == arr.length - 1) {    //最后一次
+    return (tmp + item) / arr.length;
+  } else {
+    return tmp + item;
+  }
+})
 ```
 
 #### 6. 扩展运算符
@@ -150,6 +159,14 @@ let p = new Promise((resolve, reject) => {
 
 p.then(res => {//成功回调})
 .cache(err => {//失败回调})
+
+# jquery ajax会直接返回 promise
+let p = $.ajax(...)
+
+# 必须全部成功
+Promise.all([p1, p2])
+    .then(([res1,res2]) => console.log(res1, res2))
+    .catch(err => console.log(err))
 ```
 
 #### 8. set和map
@@ -190,7 +207,9 @@ for(let k of map.keys()) {
 console.log(...map.values())
 ```
 
-#### 9. class类
+#### 9. 面向对象
+
+机器语言=》汇编语言=》低级语言(面向过程)=》高级语言(面向对象)=》模块系统=》框架=》系统接口
 
 ```
 class User {
@@ -224,18 +243,31 @@ class Lisi extends User {
 
 #### 9. 异步相关
 
-```
-Promise.resolve();
+`generateor/yield`  已经被  `async/await` 取代
 
-// Generator函数
+```
 function* fn(params) {
 	yield ...异步动作...
 }
 
-// 异步函数：promise+generator
 aysnc function fn(params) {
 	await ...异步动作...
 }
+
+# 处理 promise 异常（方法1：函数内部处理）
+async function query() {
+    let a = 12
+    let b
+    try {
+        b  = await $.ajax({url: './data/array2.json',dataType: 'json',})
+    } catch (error) {
+        console.log(error)
+    }
+    console.log(a, b)
+}
+
+# 处理 promise 异常（方法2：返回值会被封装成Promise）
+let promise = query()
 ```
 
 #### 10. 修饰器（当前版本chrome不支持，需要转码器）
@@ -259,42 +291,23 @@ function T(target) {
 console.log(User.country)
 ```
 
-转码器 Babel, Traceur(google公司), UmiJs(阿里)
-
->  https://umijs.org/zh/ 
-
-```
-UmiJs（乌米），基于Babel，可插拔的企业级 react 应用框架
-
-# tyarn使用npm.taobao.org
-npm -i yarn tyarn -g
-tyarn global add umi
-
-# 测试
-umi
-# 生成 package.json
-tyarn init -y 
-# 添加 index.js
-umi g page index
-# 启动umi后台服务
-umi dev
-```
-
 #### 11. 模块化
 
-代码拆分，方便重复利用，类似java中的package
+浏览器不支持，需要webpack
 
 ```
-# Util.js
-class Util {
-	static sum = (a,b) => a+b;
-}
+# 导出
+export const a = 12
+export {a,b,c}
+export function xxx() {...}
+export class Person {...}
+export default xxx	// 默认成员
 
-// 导出该类
-export default Util;
 
+# 导入
+import * as Util from './Util' 
+import { a,b,c } from './Util'
 
-# index.js
-import Util from './Util';
-Util.sum(1,2);
+# 导入（默认成员）
+import xxx from './Util'
 ```
