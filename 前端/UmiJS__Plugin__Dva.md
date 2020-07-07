@@ -85,21 +85,10 @@ setup({ dispatch, history }) {
 ```
 import { connect } from 'umi'
 
+# 使用dispatch
 const UserInfo = ({users,dispatch}) => {}
 
-const mapStateToProps = ({users}) => ({
-    users
-})
-
-export default connect(
-  mapStateToProps
-)(Index)
-
-# 使用dispatch
-dispatch({
-	type: 'users/edit',
-	payload: {}
-})
+export default connect(({ users }) => ({ users }))(UserInfo)
 ```
 
 #### 3. Service 定义
@@ -132,29 +121,97 @@ const data = yield call(getRemoteList)
 <Table> 设置 rowKey="字段名"
 ```
 
-```
-# form赋值问题
+form 赋值问题
 
+```
 const [form] = Form.useForm();
 
 // 延迟赋值
 useEffect(() => {
-  form.setFieldsValue(props.record)
-}, [props.record])
+  if (record) {
+    form.setFieldsValue(record)
+  } else {
+    form.resetFields();
+  }
+}, [record]);
 
-<Form name="basic" form={form} ></Form>
+<Form name="basic" form={form} >
+```
+form 提交
+
+```
+// 绑定到 Modal 确定按钮
+<Modal onOk={() => form.submit()}
+
+// 父组件传入 onSubmit 方法，Function(values)
+<Form onFinish={handleSubmit}
+
+dispatch({
+  type: 'users/formSubmit',
+  payload: values
+})
 ```
 
+Table 加载状态
 ```
-# Table 属性loading
+<Table loading={loading} />
 
-export default connect(({ login, loading }) => ({
-  userLogin: login,
-  submitting: loading.effects['login/login'],
+export default connect(({ users, loading }) => ({
+  users,
+  loading: loading.models.users,
 }))(Login);
 ```
 
-#### 4. ProTable
+#### 4. TypeScript 静态类型检查
+
+函数组件
+
+```jsx
+import { FC } from 'react'
+import { Dispatch, Loading } from 'umi'
+
+interface UserPageProps {
+  users: any,
+  dispatch: Dispatch,
+  loading: boolean
+}
+
+const UserListPage: FC<UserPageProps> = ({ users, dispatch, loading }) => {...}
+
+// Loading 类型
+connect(({ users, loading })
+        
+// useState 使用泛型
+useState<SingleUserType | undefined>(undefined);
+```
+
+定义data.d.ts
+
+```typescript
+export interface SingleUserType {
+  id: number;
+  name: string;
+  email: string;
+  create_time: string;
+  update_time: string;
+  status: number;
+}
+export interface FormValues {
+  [name: string]: any;
+}
+export interface UserState {
+  data: SingleUserType[],
+  meta: {
+    total: number,
+    per_page: number,
+    page: number
+  }
+}
+```
+
+
+
+#### 5. ProTable
 
 > https://pro.ant.design/blog/protable-cn
 

@@ -266,7 +266,7 @@ async function query() {
     console.log(a, b)
 }
 
-# 处理 promise 异常（方法2：返回值会被封装成Promise）
+# 处理 promise 异常（方法2：异步函数会返回Promise）
 let promise = query()
 ```
 
