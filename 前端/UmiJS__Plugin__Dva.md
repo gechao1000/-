@@ -46,19 +46,25 @@ effect调用reducer：put
 
 #### 2. Model定义
 
-```
+```typescript
 import { Reducer, Effect, Subscription } from 'umi';
 
-interface UserModelType {
-  namespace: 'users';	// 固定值
-  state: {
-      data: []
+// 数据行的类型BasicListItemDataType 在data.d.ts中定义
+export interface StateType {
+  list: BasicListItemDataType[];
+}
+
+export interface ModelType {
+  namespace: string;
+  state: StateType;
+  effects: {
+    fetch: Effect;
+    appendFetch: Effect;
+    submit: Effect;
   };
   reducers: {
-    getList: Reducer
-  };
-  effects: {
-    query: Effect
+    queryList: Reducer<StateType>;
+    appendList: Reducer<StateType>;
   };
   subscriptions: {
     setup: Subscription;
@@ -66,9 +72,10 @@ interface UserModelType {
 }
 ```
 
-setup函数，进入页面的时候触发action
+进入页面的时候触发action
 
 ```
+// 方法1，使用 Subscription
 setup({ dispatch, history }) {
   return history.listen(({ pathname }) => {
 	if (pathname === '/users') {
@@ -78,6 +85,8 @@ setup({ dispatch, history }) {
 	}
   });
 },
+
+// 方法2：在页面使用 useEffect + dispatch
 ```
 
 页面使用connect
@@ -96,8 +105,11 @@ export default connect(({ users }) => ({ users }))(UserInfo)
 > request文档：https://github.com/umijs/umi-request/blob/master/README_zh-CN.md
 
 ```
-import { request } from 'umi'
-export const getRemoteList = async (params) => { ... }
+import request from 'umi-request';
+
+export async function queryList (params?: TableListParams) { 
+	return request(...)
+}
 
 # 代理服务器，跨域问题（只在开发阶段有效）
 config -> proxy
@@ -107,8 +119,8 @@ model中调用
 
 ```
 # 只能在effects中
-import { getRemoteList } from './service'
-const data = yield call(getRemoteList)
+import { queryList } from './service'
+const data = yield call(queryList)
 ```
 
 #### 4. Modal、Form 陷阱
@@ -119,6 +131,12 @@ const data = yield call(getRemoteList)
 
 # Table问题：没有key值
 <Table> 设置 rowKey="字段名"
+
+# List向Form传值，Partial表示每一个属性都可选
+const [current, setCurrent] = useState<Partial<BasicListItemDataType> | undefined>(undefined);
+
+# 子组件需要的属性
+const { done, visible, current, onDone, onCancel, onSubmit } = props;
 ```
 
 form 赋值问题
@@ -126,14 +144,22 @@ form 赋值问题
 ```
 const [form] = Form.useForm();
 
+// 重置表单
+useEffect(() => {
+	if (form && !visible) {
+		form.resetFields();
+	}
+}, [visible])
+
 // 延迟赋值
 useEffect(() => {
-  if (record) {
-    form.setFieldsValue(record)
-  } else {
-    form.resetFields();
+  if (current) {
+    form.setFieldsValue({
+    	...current,
+    	createdAt: current.createdAt ? moment(current.createdAt) : null,
+    });
   }
-}, [record]);
+}, [current]);
 
 <Form name="basic" form={form} >
 ```
@@ -152,15 +178,46 @@ dispatch({
 })
 ```
 
-Table 加载状态
+form 组件传值
+
 ```
+# DatePicker组件，接收moment类型数据
+{ create_time: moment(record.create_time) }
+
+# Switch组件，不是使用value属性，接收boolean类型数据
+<Form.Item label="状态" name="status" valuePropName="checked">
+  <Switch />
+</Form.Item>
+```
+
+form 固定宽度
+
+```
+# 24等分
+const layout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 20 },
+};
+
+<Form {...layout} >
+```
+
+加载状态
+
+```
+# Table 查询状态
 <Table loading={loading} />
 
 export default connect(({ users, loading }) => ({
   users,
   loading: loading.models.users,
 }))(Login);
+
+# Modal 确认按钮 加载状态
+const [confirmLoading, setConfirmLoading] = useState(false);
+<Modal confirmLoading={confirmLoading} >
 ```
+
 
 #### 4. TypeScript 静态类型检查
 
@@ -176,7 +233,7 @@ interface UserPageProps {
   loading: boolean
 }
 
-const UserListPage: FC<UserPageProps> = ({ users, dispatch, loading }) => {...}
+const UserListPage: FC<UserPageProps> = (props) => {...}
 
 // Loading 类型
 connect(({ users, loading })
@@ -188,7 +245,7 @@ useState<SingleUserType | undefined>(undefined);
 定义data.d.ts
 
 ```typescript
-export interface SingleUserType {
+export interface TableListItem {
   id: number;
   name: string;
   email: string;
@@ -196,44 +253,14 @@ export interface SingleUserType {
   update_time: string;
   status: number;
 }
-export interface FormValues {
-  [name: string]: any;
+
+export interface TableListParams {
+  sorter?: string;
+  status?: string;
+  name?: string;
+  desc?: string;
+  key?: number;
+  pageSize?: number;
+  currentPage?: number;
 }
-export interface UserState {
-  data: SingleUserType[],
-  meta: {
-    total: number,
-    per_page: number,
-    page: number
-  }
-}
 ```
-
-
-
-#### 5. ProTable
-
-> https://pro.ant.design/blog/protable-cn
-
-```
-// request 直接请求接口，不调用store
-<ProTable request={requestHandler}
-
-const requestHandler = async ({pageSize, current}) => {
-  let result =  await getRemoteList();
-  return {
-    data: result.data,
-    success: true,
-    total: result.meta.total
-  }
-}
-
-# 关闭搜索表单 search={false}
-```
-替换默认分页 <Pagination /> （意义不大）
-```
-# 关闭默认分页： pagination={false}
-
-不使用request属性请求，通过dispatch调用effect
-```
-

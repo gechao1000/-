@@ -105,6 +105,20 @@ export default {
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }],
   }),
+  '/api/list': (req, res) => {
+    const { current, pageSize = 5 } = req.query
+    let data = mockjs.mock({
+      total: 55,
+      [`list|${pageSize}`]: [{
+        id: '@guid',
+        name: '@cname',
+        'gender|1': ['male', 'female'],
+        email: '@email',
+        disabled: false
+      }],
+    })
+    res.json(data)
+  }
 };
 ```
 
