@@ -148,3 +148,15 @@ $('#bmcpSelect').select2({
 
 ```
 
+### 5. 穿梭框
+
+> GitHub：https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox
+
+```
+不能分页，不能加载大量数据
+
+# 使用远程数据，只能手动添加 option
+selectorx.append('<option value="9" selected>ops-coffee.cn</option>');
+selectorx.bootstrapDualListbox('refresh');
+```
+
