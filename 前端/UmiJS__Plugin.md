@@ -109,11 +109,3 @@ import { useModel } from 'umi'
 // 文件名 zhang.ts
 const { myName } = useModel('zhang')
 ```
-
-
-
-
-
-## @umijs/plugin-layout
-
-简易配置 [@ant-design/pro-layout](https://www.npmjs.com/package/@ant-design/pro-layout)

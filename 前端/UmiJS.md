@@ -78,11 +78,15 @@ history.push('/list')
 
 #### 5. Mock数据
 
-```
+```js
 # 关闭 Mock
 export default {
   mock: false,
 };
+
+# 支持自定义函数
+# https://www.expressjs.com.cn/4x/api.html#res
+import { Request, Response } from 'express';
 
 # 示例 /mock/xxx.js
 export default {
@@ -96,9 +100,15 @@ export default {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.end('ok');
   },
+  'POST /api/forms': (_: Request, res: Response) => {
+    res.send({ message: 'Ok' });
+  },
 }
+```
 
-# 引入mockjs
+使用 mockjs
+
+```js
 import mockjs from 'mockjs'
 
 export default {
