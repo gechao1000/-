@@ -20,7 +20,7 @@ sudo pacman-mirrors -i -c China -m rank
 # 添加archlinuxcn源 /etc/pacman.conf
 https://mirrors.sjtug.sjtu.edu.cn
 # https://github.com/archlinuxcn/mirrorlist-repo (所有国内镜像)
-sudo pacman -S archlinuxcn-keyring
+sudo pacman -Sy archlinuxcn-keyring
 
 # AUR(Arch User Repository)助手：yay 
 ## 修改 aururl 

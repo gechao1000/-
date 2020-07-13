@@ -217,6 +217,8 @@ class User {
 		this.name = name;
 		this.age = age;
 	}
+	// 简写
+    constructor(public name: string) {}
 
 	sayHello() {
 		return 'hello, ' + this.name;

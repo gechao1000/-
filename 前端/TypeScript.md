@@ -34,8 +34,15 @@ let count: number = 10.12
 // 可以使用模版字符串
 let person: string = `asdf ${1 + 2}`
 
-// 数组，元组
+// 类型可选
+let tmp : number|string = 123
+tmp = 'adsf'
+
+// 数组
 let arr: number[] = [1,2,3]
+let arr: (number|string)[] = [1,2,'asd']
+
+// 元组
 let x: [number,string] = [12, 'xiao']
 
 // 枚举
@@ -60,8 +67,8 @@ interface Person {
 let p: Person = {
   name: 'xiao',
   gender: 0,
-  aa: true,
-  bb: false,
+  aa: true,		// 额外的属性
+  bb: false,	// 额外的属性
   say() {
     return '123'
   }
