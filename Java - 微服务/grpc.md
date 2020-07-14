@@ -18,7 +18,7 @@ https://github.com/grpc/grpc-java/tree/master/examples/build.gradle
 <dependency>
 	<groupId>net.devh</groupId>
 	<artifactId>grpc-spring-boot-starter</artifactId>
-	<version>2.7.0.RELEASE</version>
+	<version>2.9.0.RELEASE</version>
 </dependency>
 ```
 

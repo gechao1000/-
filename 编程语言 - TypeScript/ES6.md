@@ -85,7 +85,7 @@ function add(a, b=10) {
 ```
 let sum = (a,b) => a + b;
 或
-let sum = (a,b) => { return a+b;}
+let sum = (a,b) => { return a+b; }
 ```
 
 对象的函数属性
@@ -158,7 +158,7 @@ let p = new Promise((resolve, reject) => {
 });
 
 p.then(res => {//成功回调})
-.cache(err => {//失败回调})
+.catch(err => {//失败回调})
 
 # jquery ajax会直接返回 promise
 let p = $.ajax(...)
@@ -303,13 +303,12 @@ export const a = 12
 export {a,b,c}
 export function xxx() {...}
 export class Person {...}
-export default xxx	// 默认成员
-
 
 # 导入
 import * as Util from './Util' 
 import { a,b,c } from './Util'
 
-# 导入（默认成员）
+# 默认成员
+export default xxx
 import xxx from './Util'
 ```

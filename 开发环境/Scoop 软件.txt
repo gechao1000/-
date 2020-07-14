@@ -1,3 +1,36 @@
+---------------------------------------- 2020-7-14 ---------------------------------------------
+
+  7zip 19.00
+  calibre 4.20.0 [extras]
+  ccleaner 5.68.7820 [extras]
+  dbeaver 7.1.2 [extras]
+  deno 1.1.3
+  draw.io 13.3.9 [extras]
+  eclipse-mat 1.10.0.20200225 [extras]
+  github 2.5.3 [extras]
+  gradle 6.5.1
+  idea-ultimate 2020.1.3 [extras]
+  innounp 0.49
+  jmeter 5.3 [extras]
+  maven 3.6.3
+  minio 2020-07-12T19-14-17Z
+  minio-client 2020-07-11T05-18-52Z
+  mobaxterm 20.2 [extras]
+  nginx 1.19.0 *hold*
+  nodejs-lts 12.18.2
+  openjdk 14.0.1-7 [java]
+  pandoc 2.10
+  postman 7.28.0 [extras]
+  ppsspp 1.10.3 [extras]
+  redis 3.2.100
+  rustup 1.22.1
+  sharex 13.1.0 [extras]
+  snipaste 1.16.2 [extras]
+  sqlyog-community 13.1.6 [extras]
+  switchhosts 3.5.4 [extras]
+  tomcat 9.0.37 [extras]
+  wkhtmltopdf 0.12.5-1
+
 
 ---------------------------------------- 2020-5-19 ---------------------------------------------
 
