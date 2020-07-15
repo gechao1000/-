@@ -50,21 +50,18 @@ effect调用reducer：put
 import { Reducer, Effect, Subscription } from 'umi';
 
 // 数据行的类型BasicListItemDataType 在data.d.ts中定义
-export interface StateType {
+export interface IndexModelState {
   list: BasicListItemDataType[];
 }
 
-export interface ModelType {
+export interface IndexModelType {
   namespace: string;
-  state: StateType;
+  state: IndexModelState;
+  reducers: {
+    save: Reducer<IndexModelState>;
+  };
   effects: {
     fetch: Effect;
-    appendFetch: Effect;
-    submit: Effect;
-  };
-  reducers: {
-    queryList: Reducer<StateType>;
-    appendList: Reducer<StateType>;
   };
   subscriptions: {
     setup: Subscription;
@@ -80,7 +77,7 @@ setup({ dispatch, history }) {
   return history.listen(({ pathname }) => {
 	if (pathname === '/users') {
 	  dispatch({
-		type: 'getList',
+		type: 'fetch',
 	  });
 	}
   });

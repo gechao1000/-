@@ -13,7 +13,9 @@ mkdir myapp && cd myapp
 # 脚手架 create-umi（生产级别，可以选择antd模版）
 yarn create umi
 # 脚手架 create-umi-app（入门级别）
-yarn create @umijs/umi-app
+tyarn create @umijs/umi-app
+
+tyarn global add umi
 
 # vscode 设置
 勾选 JavaScript › Implicit Project Config: Check JS
@@ -42,7 +44,7 @@ yarn create @umijs/umi-app
 
 #### 3. 路由
 
-单页应用，页面跳转不需要请求服务器获取html，页面切换就是不同组件切换
+单页应用，不需要请求服务器获取html，页面切换就是不同组件切换
 
 ```
 routes: [
