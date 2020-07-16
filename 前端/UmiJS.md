@@ -11,7 +11,7 @@
 ```
 mkdir myapp && cd myapp
 # 脚手架 create-umi（生产级别，可以选择antd模版）
-yarn create umi
+tyarn create umi
 # 脚手架 create-umi-app（入门级别）
 tyarn create @umijs/umi-app
 
@@ -102,7 +102,8 @@ export default {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.end('ok');
   },
-  'POST /api/forms': (_: Request, res: Response) => {
+  'POST /api/forms': (req: Request, res: Response) => {
+    cosnt { username } = req.body;
     res.send({ message: 'Ok' });
   },
 }
@@ -117,8 +118,8 @@ export default {
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }],
   }),
-  '/api/list': (req, res) => {
-    const { current, pageSize = 5 } = req.query
+  'GET /api/list': (req, res) => {
+    const { current = 1, pageSize = 10 } = req.query
     let data = mockjs.mock({
       total: 55,
       [`list|${pageSize}`]: [{
@@ -141,8 +142,8 @@ export default {
 ```
 Umi 内置支持 less，不支持 sass 和 stylus
 
-# 引入ant样式
-@import '~antd/es/style/themes/default.less';
+# 引入ant样式（可选）
+@import '~antd/dist/antd.css';
 ```
 
 使用图片
