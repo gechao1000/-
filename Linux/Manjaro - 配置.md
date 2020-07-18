@@ -220,7 +220,7 @@ sdk install java
 sdk install maven
 ```
 
-dwm （动态窗口管理器，极简主义）
+dwm （动态窗口管理器，装逼用）
 
 >  https://dwm.suckless.org/ 
 >

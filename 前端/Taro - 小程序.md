@@ -19,7 +19,7 @@ mscp2020
 > https://taro.aotu.io/
 
 ```
-yarn global add @tarojs/cli
+tyarn global add @tarojs/cli
 
 taro init myapp
 
@@ -97,11 +97,9 @@ import 'taro-ui/dist/style/index.scss'
 #### 5. taro redux
 
 ```
-tyarn add redux @tarojs/redux @tarojs/redux-h5 redux-thunk redux-logger
+import { connect, useSelector, useDispatch } from 'react-redux'
 
-import { connect, useSelector, useDispatch } from '@tarojs/redux'
-
-// useSelector代替connect，(不完善，h5不能用)
+// useSelector代替connect
 const counter = useSelector(state => state.counter)
 let dispatch = useDispatch()
 ```
