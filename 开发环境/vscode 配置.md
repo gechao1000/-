@@ -5,12 +5,16 @@ Auto Rename Tag
 Bracket Pair Colorizer 2
 ES7 React/Redux/GraphQL/React-Native snippets
 Live Server
-One Monokai Theme
+Rust Extension Pack
 Prettier - Code formatter
 Sublime Text Keymap and Settings Importer
 Visual Studio IntelliCode
 Web Template Studio (staging-weekly)
 koroFileHeader
+
+# 主题
+One Monokai Theme
+GitHub Theme
 ```
 
 #### 接口测试
