@@ -91,5 +91,12 @@ select @@validate_password_length;
 SHOW VARIABLES LIKE 'validate_password%';
 
 set password=password("123456");
+
+## 官方文档
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+FLUSH PRIVILEGES;
+
+## navicat 2059错误
+不支持新的加密规则，idea可以连接，sqlyog可以连接
 ```
 
