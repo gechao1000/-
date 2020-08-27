@@ -19,6 +19,8 @@ docker run -p 9000:9000 minio/minio server /data
 # 自定义 用户名，密码，数据目录
 docker run -p 9000:9000 -e MINIO_ACCESS_KEY=admin -e MINIO_SECRET_KEY=admin -v /data:/data minio/minio server /data
 
+# bitnami/minio
+minio / miniosecret
 
 # linux
 wget https://dl.min.io/server/minio/release/linux-amd64/minio

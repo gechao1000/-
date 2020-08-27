@@ -62,3 +62,30 @@ firewall-cmd --reload
 firewall-cmd --state
 ```
 
+#### 编译环境
+
+> https://www.cnblogs.com/jixiaohua/p/11732225.html
+
+```
+# 基本环境
+yum groupinstall "Development Tools"
+
+# 升级gcc
+sudo yum install centos-release-scl
+sudo yum install devtoolset-8-gcc*
+scl enable devtoolset-8 bash
+```
+
+```
+# 编译安装gcc
+make
+make install PREFIX=/usr/local/redis 
+
+cp redis.conf /usr/local/redis
+ln -s /usr/local/redis/bin/redis-server /usr/local/bin
+ln -s /usr/local/redis/bin/redis-cli /usr/local/bin
+
+redis-server
+redis-cli -h 地址 -p 端口 -a 密码
+```
+

@@ -54,3 +54,8 @@ doc.add(image);
 doc.close();
 ```
 
+## Jasper Report
+
+报表生成工具，能够展示丰富的页面内容，并将之转换成PDF，HTML，或者XML格式
+
+完全由Java写成，可以用于在各种Java应用程序，包括J2EE，Web应用程序中生成动态内容
