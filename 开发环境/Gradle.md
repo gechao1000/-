@@ -1,3 +1,12 @@
+#### 中文乱码问题
+
+> https://discuss.kotliner.cn/t/topic/1152/5
+
+```
+Help -> Edit Custom VM Options…
+输入 ：-Dfile.encoding=UTF-8
+```
+
 #### plugins  代码块
 
 >  https://plugins.gradle.org/ 
