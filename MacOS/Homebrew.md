@@ -4,17 +4,42 @@
 >
 > 软件加速下载	https://www.newbe.pro/Others/All-Mirror/index.html
 
+###### CommandLineTools
+
+```
+# 直接安装XCode
+
+# 在线安装
+xcode-select --install
+
+# 下载安装包
+https://developer.apple.com/download/more/
+```
 
 ###### 国内安装脚本
 
 ```shell
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+
+# 可修改脚本，使用git clone --depth=1减小下载体积
 ```
 
-https://ohmyz.sh/
+###### ohmyzsh国内镜像（终端还是很丑）
 
-```
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```shell
+# https://touka.dev/tech/oh-my-zsh-china-mirror/
+wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh
+
+# 修改install.sh
+REPO=${REPO:-mirrors/oh-my-zsh}
+REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}
+
+# 运行install.sh
+
+# 修改仓库地址
+cd ~/.oh-my-zsh
+git remote set-url origin https://gitee.com/mirrors/oh-my-zsh.git
+git pull
 ```
 
 
@@ -29,8 +54,10 @@ brew
 # 在线搜索软件包
 https://formulae.brew.sh/
 
-brew serach xxx
-brew install xxx
+brew serach wget
+brew install wget
+# 查看安装路径
+brew list wget
 
 # 安装Casks
 brew cask install xxx 
@@ -48,24 +75,25 @@ brew cask install brave-browser
 ###### 环境
 
 ```shell
-brew install rust
+brew install rust # 编译需要gcc，下载非常慢，或者Command Line Tools
 brew install node
 brew cask install github
 brew cask install staruml
 brew cask install another-redis-desktop-manager
+brew cask install postman
 
 # 编辑器
-brew install vim
-brew cask install kindle
+brew install vim # 默认已安装
+brew cask install kindle # 下载失败，在AppStore安装
 brew cask install typora
 brew cask install yuque
 
 # Java
 brew install openjdk@11
 brew cask install intellij-idea
+brew cask install docker
 brew install maven
 brew install gradle
-brew cask install docker
 brew install kotlin
 
 # 数据库工具
@@ -82,7 +110,7 @@ brew cask install wechat
 brew cask install qq
 
 # 播放器
-brew cask install qqplayer
+brew cask install qqplayer # 不能运行，兼容问题
 brew cask install iina
 
 # 游戏
