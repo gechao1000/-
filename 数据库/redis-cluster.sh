@@ -25,6 +25,15 @@ do \
 done
 
 
+## 移除容器
+for port in $(seq 7001 7006); \
+do \
+  docker stop redis-${port}  \
+  && docker rm redis-${port} \
+  && rm -rf ${port}; \
+done
+
+
 ## 查看ip
 docker network inspect redis-net | grep -i -E "name|ipv4address"
 
