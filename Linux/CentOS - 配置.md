@@ -33,16 +33,12 @@ yum -y install ntp ntpdate
 ntpdate cn.pool.ntp.org
 ```
 
-#### vim 	
+#### epel（软件版本太旧了，不推荐，不如用源码安装）
 
-```shell
-vim /etc/vimrc 
-
-# tab键默认4空格
-set ts=4
-set expandtab
-set autoindent
 ```
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+```
+
 
 #### firewalld
 
@@ -67,17 +63,20 @@ firewall-cmd --state
 > https://www.cnblogs.com/jixiaohua/p/11732225.html
 
 ```
-# 基本环境
+# 默认环境（gcc版本4.8）
 yum groupinstall "Development Tools"
 
-# 升级gcc
-sudo yum install centos-release-scl
-sudo yum install devtoolset-8-gcc*
-scl enable devtoolset-8 bash
+# 高版本 (安装目录/opt/rh/devtoolset-*)
+yum install -y centos-release-scl
+yum install -y devtoolset-8
+scl enable devtoolset-8 bash	(本次会话有效)
 ```
 
+###### 编译安装redis（需要高版本gcc）
 ```
-# 编译安装gcc
+wget https://download.redis.io/releases/redis-6.0.9.tar.gz
+
+# 编译安装
 make
 make install PREFIX=/usr/local/redis 
 
@@ -87,5 +86,28 @@ ln -s /usr/local/redis/bin/redis-cli /usr/local/bin
 
 redis-server
 redis-cli -h 地址 -p 端口 -a 密码
+```
+
+###### 编译安装vim
+
+```
+# 别名 .bashrc
+alias vi=vim
+```
+
+###### 编译安装openresty
+
+```
+wget https://openresty.org/download/openresty-1.17.8.2.tar.gz
+# 依赖
+yum install -y pcre-devel openssl-devel
+
+# 编译安装，默认安装到/usr/local/openresty
+./configure
+make
+make install
+
+# 配置 .bashrc
+export PATH=/usr/local/openresty/bin:$PATH
 ```
 

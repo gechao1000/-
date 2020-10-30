@@ -5,7 +5,6 @@ Auto Rename Tag
 Bracket Pair Colorizer 2
 ES7 React/Redux/GraphQL/React-Native snippets
 Live Server
-Rust Extension Pack
 Prettier - Code formatter
 Sublime Text Keymap and Settings Importer
 Visual Studio IntelliCode
@@ -15,6 +14,15 @@ koroFileHeader
 # 主题
 One Monokai Theme
 GitHub Theme
+
+# Lua插件
+Lua
+Code Runner
+
+# vue开发
+Vue VS Code Extension Pack
+Element UI Snippets
+Form Generator Plugin
 ```
 
 #### 接口测试
@@ -49,4 +57,3 @@ ssh-keygen -C "gexc@budata.com"
 ssh-copy-id gexc@192.168.80.90
 公钥追加到服务端$HOME/.ssh/authorized_keys文件
 ```
-
