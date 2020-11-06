@@ -9,13 +9,11 @@ http://get.daocloud.io/
 > https://docs.docker.com/install/linux/docker-ce/centos/
 
 ```shell
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+yum install -y yum-utils device-mapper-persistent-data lvm2
   
-sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-    
-sudo yum install -y docker-ce docker-ce-cli containerd.io
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+yum install -y docker-ce
 ```
 
 #### APT 安装

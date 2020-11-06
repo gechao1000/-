@@ -88,26 +88,56 @@ redis-server
 redis-cli -h 地址 -p 端口 -a 密码
 ```
 
-###### 编译安装vim
+###### 配置vim
 
 ```
-# 别名 .bashrc
-alias vi=vim
+# yum 安装
+yum install vim-enhanced
+
+# 源码安装
+https://www.cnblogs.com/yxhblogs/p/8971964.html
+## 依赖
+yum -y remove vim*  （谨慎操作，sudo命令依赖vim-minimal）
+yum -y install ncurses-devel 
+## 编译
+./configure --prefix=/opt/vim8
+make
+make install 
+## 环境变量
+export PATH=/opt/vim8/bin:$PATH
 ```
 
-###### 编译安装openresty
+###### 编译openresty
 
 ```
+# 编译lua (可选)，https://www.lua.org/download.html
+make linux test
+make install
+
+# 源码
 wget https://openresty.org/download/openresty-1.17.8.2.tar.gz
+
 # 依赖
 yum install -y pcre-devel openssl-devel
+# opm依赖
+yum install -y perl-Digest-MD5
 
 # 编译安装，默认安装到/usr/local/openresty
 ./configure
 make
 make install
 
-# 配置 .bashrc
+# 环境变量
 export PATH=/usr/local/openresty/bin:$PATH
+```
+
+###### 安装AppImage软件
+
+```
+# 依赖 epel-release
+yum install fuse fuse-libs ack -y
+
+# 放在/usr/local/bin目录
+chmod +x nvim
 ```
 
