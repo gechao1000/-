@@ -134,10 +134,11 @@ export PATH=/usr/local/openresty/bin:$PATH
 ###### 安装AppImage软件
 
 ```
-# 依赖 epel-release
+# 使用FUSE（依赖 epel-release）
 yum install fuse fuse-libs ack -y
 
-# 放在/usr/local/bin目录
-chmod +x nvim
+# 不使用FUSE
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
 ```
 
