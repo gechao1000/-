@@ -10,5 +10,9 @@ https://cmder.net/
 
 ```
 解压，双击Cmder.exe
+
+
+卸载
+cmder.exe /UNREGISTER ALL
 ```
 

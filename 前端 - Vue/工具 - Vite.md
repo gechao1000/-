@@ -1,5 +1,7 @@
 脚手架，Rollup打包器
 
+> https://github.com/vitejs/vite/tree/main/packages/create-app
+
 ```
 # 搭建Vue3
 yarn create vite-app <project>
