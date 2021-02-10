@@ -25,12 +25,9 @@ NETMASK=255.255.255.0
 :wq
 service network restart
 
-# 联网后安装ifconfig
+# 联网后安装
 yum -y install net-tools
-
-# ntp服务器
-yum -y install ntp ntpdate
-ntpdate cn.pool.ntp.org
+netstat -anultp | grep kbase
 ```
 
 #### epel（软件版本太旧了，不推荐，不如用源码安装）
@@ -58,6 +55,28 @@ firewall-cmd --reload
 firewall-cmd --state
 ```
 
+#### NTP
+
+```
+yum -y install ntpdate
+date	# 查看当前时间
+
+# 同步
+ntpdate ntp.aliyun.com
+# 写入硬盘
+hwclock -w
+```
+
+#### RPM软件包
+
+```
+rpm -ivh aaa.rpm
+rpm -e aaa
+
+rpm -qa | grep aaa
+rpm -ql aaa
+```
+
 #### 编译环境
 
 > https://www.cnblogs.com/jixiaohua/p/11732225.html
@@ -72,7 +91,7 @@ yum install -y devtoolset-8
 scl enable devtoolset-8 bash	(本次会话有效)
 ```
 
-###### 编译安装redis（需要高版本gcc）
+#### 编译安装redis（需要高版本gcc）
 ```
 wget https://download.redis.io/releases/redis-6.0.9.tar.gz
 
@@ -88,7 +107,7 @@ redis-server
 redis-cli -h 地址 -p 端口 -a 密码
 ```
 
-###### 配置vim
+#### 编译安装vim（没成功过）
 
 ```
 # yum 安装
@@ -107,7 +126,7 @@ make install
 export PATH=/opt/vim8/bin:$PATH
 ```
 
-###### 编译openresty
+#### 编译openresty
 
 ```
 # 编译lua (可选)，https://www.lua.org/download.html
@@ -131,7 +150,7 @@ make install
 export PATH=/usr/local/openresty/bin:$PATH
 ```
 
-###### 安装AppImage软件
+#### 安装AppImage软件
 
 ```
 # 使用FUSE（依赖 epel-release）
