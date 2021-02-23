@@ -1,9 +1,27 @@
+私有云 OpenMediaVault
 
-###### 私有云 OpenMediaVault
+> https://github.com/sjf0213/rpi/blob/master/OpenMediaVault/
 
 ```
 wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
 
-# 参考教程
-https://github.com/sjf0213/rpi/blob/master/OpenMediaVault/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85OMV%E8%AF%B4%E6%98%8E.md
+
+首次登陆wen管理用户名和密码不是安装时输入的root账户密码，root账户用在控制台。
+默认web管理密码
+用户名：admin
+密码：openmediavault
 ```
+
+镜像
+
+> https://mirror.tuna.tsinghua.edu.cn/help/raspbian/
+
+```
+# 编辑 `/etc/apt/sources.list` 文件，删除原文件所有内容，用以下内容取代：
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+
+# 编辑 `/etc/apt/sources.list.d/raspi.list` 文件，删除原文件所有内容，用以下内容取代：
+deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
+```
+
