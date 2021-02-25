@@ -58,4 +58,10 @@ set shiftwidth=4
 set backspace=2
 
 colorscheme deus
+
+
+
+# backspace不能删除
+set nocompatible
+set backspace=2
 ```
