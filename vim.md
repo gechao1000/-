@@ -1,6 +1,10 @@
 #### 准备
 
 ```
+# 安装
+yum install -y vim-enhanced
+sudo apt install vim
+
 # 修改 /etc/hosts（防止DNS污染）
 199.232.68.133 raw.githubusercontent.com
 
