@@ -54,13 +54,3 @@ scoop bucket add extras
 scoop bucket add java
 scoop bucket add nerd-fonts
 ```
-
-#### 修改hosts
-
-```
-改完之后立刻刷新，
-Windows：ipconfig /flushdns
-Ubuntu：sudo systemctl restart nscd
-Mac：sudo killall -HUP mDNSResponder
-```
-

@@ -5,9 +5,6 @@
 yum install -y vim-enhanced
 sudo apt install vim
 
-# 修改 /etc/hosts（防止DNS污染）
-199.232.68.133 raw.githubusercontent.com
-
 # 下载plug-vim，放在autoload目录
 wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
