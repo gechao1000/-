@@ -1,5 +1,7 @@
 # knife4j
 
+> https://doc.xiaominfo.com/knife4j/documentation/
+
 knife4j是为Java MVC框架集成Swagger生成Api文档的增强解决方案
 
 swagger-bootstrap-ui的最后一个版本是1.9.6,已更名为knife4j
