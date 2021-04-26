@@ -12,6 +12,11 @@ cargo new foobar
 cargo new --lib foobar
 ```
 
+```toml
+[lib]
+crate-type = ["cdylib", "rlib"]
+```
+
 ### crate type
 
 ```
