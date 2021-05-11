@@ -4,9 +4,13 @@ https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2021-202
 
 
 
+基本语法
+
+http://www.biexiaoyu1994.com/实用工具/2019/10/21/latex_summary/
 
 
-VsCode 插件
+
+VSCode 插件
 
 ```
 LaTeX Workshop
