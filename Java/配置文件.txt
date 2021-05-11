@@ -1,0 +1,4 @@
+XML — Extensible Markup Language
+JSON — JavaScript Object Notation
+YAML — YAML Ain’t Markup Language
+TOML — Tom’s Obvious, Minimal Language

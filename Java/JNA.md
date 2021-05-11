@@ -38,3 +38,31 @@ RustLib.INSTANCE.lib_test();
 ### Java native方法
 
 > https://github.com/astonbitecode/j4rs-java-call-rust
+
+
+
+
+
+## 依赖
+
+```xml
+<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
+<dependency>
+    <groupId>net.java.dev.jna</groupId>
+    <artifactId>jna-platform</artifactId>
+    <version>5.8.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+<dependency>
+    <groupId>net.java.dev.jna</groupId>
+    <artifactId>jna</artifactId>
+    <version>5.8.0</version>
+</dependency>
+
+```
+
+
+
+-Djna.nosys=true
+
+https://github.com/java-native-access/jna/issues/384

@@ -1,0 +1,48 @@
+Domain = ""
+Name = "Journal"
+Caption = "期刊"
+Description = "中国学术期刊网络出版总库"
+ProductName = "CJFD"
+DataSource = "Default"
+DataView = "CJFDTotal"
+
+
+Info = '''
+<h3>中国学术期刊网络出版总库</h3>
+<b>英文名称</b>
+<p>China Academic Journal Network Publishing Database（简称CAJD）</p>
+<b>简介</b>
+<p>《中国学术期刊（网络版）》是世界上最大的连续动态更新的中国学术期刊全文数据库，是“十一五”国家重大网络出版工程的子项目，是《国家“十一五”时期文化发展规划纲要》中国家“知识资源数据库”出版工程的重要组成部分。</p>
+<b>出版内容</b>
+<p>以学术、技术、政策指导、高等科普及教育类期刊为主，内容覆盖自然科学、工程技术、农业、哲学、医学、人文社会科学等各个领域。收录国内学术期刊8千种，全文文献总量5300万篇。</p>
+'''
+
+
+[Settings]
+search = ["Subject","SMARTS","Title","Keyword","Summary","Author","Organization","Year"]
+brief = "Subject,SMARTS,Title,Keyword,Summary,Author,Organization,Year"
+group = "Year|Year DESC,CCL3"
+order = "FFD,PubDate,Cited,Download"
+navi = "CCL2"
+detail = "Title,Author,Organization,Source@CN,Summary,Fund,Keyword,DOI,Category,Download,PageNum,PageSpan,FileSize"
+similar = "Journal,Thesis,Conference,Newspaper"
+cite = "Journal,Thesis,Conference,Newspaper"
+cited = "Journal,Thesis,Conference,Newspaper"
+recommend = "Journal,Thesis,Conference,Newspaper"
+
+
+[[Properties]]
+Name = "Type"
+Caption = "类型"
+
+[[Properties]]
+Name = "Id"
+Caption = "标识"
+Mapping = "文件名"
+IsKey = true
+
+[[Properties]]
+Name = "Title"
+Caption = "中英文篇名"
+Mapping = "题名"
+Format = "MakeFlag;Subscripe"
