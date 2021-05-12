@@ -4,9 +4,9 @@ https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2021-202
 
 
 
-基本语法
+一份（不太）简短的LaTeX介绍
 
-http://www.biexiaoyu1994.com/实用工具/2019/10/21/latex_summary/
+https://github.com/CTeX-org/lshort-zh-cn
 
 
 
