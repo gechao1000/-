@@ -46,8 +46,14 @@ git config --global url."https://hub.fastgit.org/".insteadOf "https://github.com
 git protocol.http.allow always
 
 
++++++++++++++++++++++ Vim Plus（Manjaro可用，捐赠50） ++++++++++++++
 
-+++++++++++++++++++++ Vim Plus ++++++++++++++
+git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh
+
+
++++++++++++++++++++++ Vim Plus Plus（不好用，有作者签名） ++++++++++++++
 
 yum install fontconfig  mkfontscale
 
@@ -56,3 +62,26 @@ git clone https://github.com/FLHonker/vim-plus-plus.git
 cd vim-plus-plus
 sudo ./install.sh
 
+
++++++++++++++++++++++ Linux 设置代理 ++++++++++++++
+
+packages.openmediavault.org
+
+
+
+export http_proxy="http://192.168.22.88:9999"
+export https_proxy="http://192.168.22.88:9999"
+export no_proxy="localhost, 127.0.0.1"
+
+
+
+wget https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install
+
++++++++++++++++++++++ Gradle 设置代理 ++++++++++++++
+
+~/.gradle/gradle.properties
+
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=9999
+systemProp.https.proxyHost=127.0.0.1
+systemProp.https.proxyPort=9999
