@@ -77,6 +77,33 @@ rpm -qa | grep aaa
 rpm -ql aaa
 ```
 
+#### 安装最新版 Git
+
+> https://computingforgeeks.com/how-to-install-latest-version-of-git-git-2-x-on-centos-7/
+
+```
+yum remove git*
+
+yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm
+
+yum install git
+```
+
+#### 安装 Nginx
+
+> https://www.nginx.com/resources/wiki/start/topics/tutorials/install/
+
+```
+$ /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+```
+
+
+
 #### 编译环境
 
 > https://www.cnblogs.com/jixiaohua/p/11732225.html
