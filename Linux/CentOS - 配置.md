@@ -134,24 +134,6 @@ redis-server
 redis-cli -h 地址 -p 端口 -a 密码
 ```
 
-#### 编译安装vim（没成功过）
-
-```
-# yum 安装
-yum install vim-enhanced
-
-# 源码安装
-https://www.cnblogs.com/yxhblogs/p/8971964.html
-## 依赖
-yum -y remove vim*  （谨慎操作，sudo命令依赖vim-minimal）
-yum -y install ncurses-devel 
-## 编译
-./configure --prefix=/opt/vim8
-make
-make install 
-## 环境变量
-export PATH=/opt/vim8/bin:$PATH
-```
 
 #### 编译openresty
 

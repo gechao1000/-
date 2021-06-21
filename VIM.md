@@ -1,3 +1,20 @@
+
+#### 编译 VIM
+
+> https://github.com/vim/vim
+>
+> https://vim.fandom.com/wiki/Building_Vim
+
+```
+# 依赖
+yum install ncurses-devel
+sudo apt install libncurses5-dev libncursesw5-dev
+
+# 安装目录/usr/local/bin
+./configure --with-features=huge 
+make
+make install
+```
 #### 准备
 
 ```
@@ -16,7 +33,8 @@ wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # 别名 (可选)
 ```
 
-#### VIM
+
+#### VIM配置
 
 ```
 mkdir -p .vim/autoload
@@ -30,7 +48,7 @@ Plug 'mg979/vim-visual-multi'
 call plug#end()
 ```
 
-### NVIM
+### NVIM配置
 
 ```
 mkdir -p .config/nvim/autoload
