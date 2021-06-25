@@ -168,7 +168,7 @@ git客户端: GitKraken(收费), Github Desktop
 音乐播放器：foobar2000, audacious(windows有乱码)
 视频播放器: mpv,vlc,SMPlayer
 邮件: Evolution, Thunderbird
-deepin-screenshot (深度截图)
+deepin-screenshot (深度截图) deepin-screen-capture
 
 # 软件库没有
 Freeplane (思维导图)
