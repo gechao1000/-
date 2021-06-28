@@ -52,3 +52,22 @@ assertNotNull(actual)
 BusinessException businessException = Assertions.assertThrows(BusinessException.class, this::buildStudentDescription);
 ```
 
+
+
+### 设置环境变量
+
+https://junit-pioneer.org/docs/system-properties/
+
+```
+<!-- https://mvnrepository.com/artifact/org.junit-pioneer/junit-pioneer -->
+<dependency>
+    <groupId>org.junit-pioneer</groupId>
+    <artifactId>junit-pioneer</artifactId>
+    <version>1.4.2</version>
+    <scope>test</scope>
+</dependency>
+
+@SetSystemProperty(key = "jna.debug_load", value = "true")
+@SetSystemProperty(key = "jna.library.path", value = "C:\\jna")
+```
+
