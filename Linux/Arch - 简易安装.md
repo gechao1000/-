@@ -15,9 +15,8 @@ sh archfi
 2. 一定要选择vim和dhcpcd
 ```
 
-#### 安装后
 
-###### 镜像源，网络，时区
+#### 镜像源，网络，时区
 
 ```
 > vim /etc/pacman.d/mirrorlist
@@ -34,7 +33,7 @@ nameserver 223.6.6.6
 ntpdate ntp.aliyun.com
 ```
 
-###### 配置ssh
+#### 配置ssh
 
 ```
 > pacman -S openssh
@@ -42,30 +41,6 @@ ntpdate ntp.aliyun.com
 # 允许root远程登录
 > vim /etc/ssh/sshd_config
 PermitRootLogin yes
-```
-
-###### 开发环境
-
-```
-> pacman -S which neofetch fontconfig
-
-# Java
-pacman -S jdk-openjdk
-pacman -S jdk8-openjdk
-
-# Rust
-pacman -S rust
-pacman -S gcc automake autoconf libtool make cmake
-
-# Nodejs
-pacman -S nodejs npm 
-
-# Python
-pacman -S python python-pip
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
-# vim
-git clone https://github.com/chxuan/vimplus.git ~/.vimplus
 ```
 
 

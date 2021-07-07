@@ -18,9 +18,11 @@
 sudo pacman-mirrors -i -c China -m rank
 
 # 添加archlinuxcn源 /etc/pacman.conf
-https://mirrors.sjtug.sjtu.edu.cn
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+
 # https://github.com/archlinuxcn/mirrorlist-repo (所有国内镜像)
-sudo pacman -Sy archlinuxcn-keyring
+sudo pacman -S archlinuxcn-keyring
 
 # AUR(Arch User Repository)助手：yay 
 ## 修改 aururl 
@@ -29,28 +31,6 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 yay -P -g
 ```
 
-##### pacman 常用命令
-
-```
-# 更新软件列表
-sudo pacman -Syy
-
-# 更新软件列表和软件
-sudo pacman -Syu
-
-# 搜索，安装
-pacman -Ss XXX
-pacman -Si XXX
-sudo pacman -S XXX
-
-# 查看已安装
-pacman -Q
-pacman -Qi XXX
-pacman -Ql XXX
-
-# 卸载
-sudo pacman -Rs XXX
-```
 
 ##### 字体，输入法
 
@@ -113,42 +93,6 @@ plugins=(其他的插件 zsh-syntax-highlighting)
 echo $ZSH_THEME
 ```
 
-##### 开发环境
-
-```
-# 卸载自带的JDK
-sudo pacman -R jdk8-openjdk
-sudo pacman -R jre8-openjdk
-sudo pacman -R jre8-openjdk-headless
-
-# JAVA
-pacman -S jdk8-openjdk
-pacman -S jdk-openjdk
-pacman -S intellij-idea-ultimate-edition
-pacman -S eclipse
-
-# Rust
-pacman -S rust
-pacman -S gcc automake autoconf libtool make cmake
-
-# Nodejs
-pacman -S nodejs npm 
-或
-pacman -S yarn
-
-# Python
-pacman -S python-pip
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
-# vscode
-pacman -S code
-
-# 其它工具
-pacman -S lazygit
-pacman -S docker docker-compose
-pacman -S neofetch
-```
-
 ##### 常用软件
 
 > 推荐： https://alim0x.gitbooks.io/awesome-linux-software-zh_cn/content/#arch-linux 
@@ -177,14 +121,13 @@ anoise (闭上眼睛听雨、听海、听自然)
 # tim，不是原生
 ysy -S deepin-wine-tim
 
-# 微信，AppImage包 (运行报错)
-wget https://github.com/eNkru/freechat/releases/download/v1.0.0/electron-wechat-1.0.0-x86_64.AppImage
-chmod a+x electron-wechat-1.0.0-x86_64.AppImage
-./electron-wechat-1.0.0-x86_64.AppImage
+# 微信AppImage (运行报错)
+https://github.com/eNkru/freechat
 
-# wps office 有bug，继续用libreoffice-still
-#sudo pacman -S wps-office 
-#sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
+
+# wps office（有bug）
+sudo pacman -S wps-office 
+sudo pacman -S ttf-wps-fonts ttf-ms-fonts wps-office-fonts wps-office-mime
 ```
 
 

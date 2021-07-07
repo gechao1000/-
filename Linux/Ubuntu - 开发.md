@@ -66,3 +66,19 @@ https://www.cnblogs.com/milanleon/p/13608875.html
 ```
 
 
+
+#### 安装 Nodejs
+
+> https://nodejs.org/en/download/package-manager/
+
+```
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
+
+npx create-electron-app my-app
+npm start
+npm make
+```
+
