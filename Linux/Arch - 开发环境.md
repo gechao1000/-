@@ -68,7 +68,7 @@ sudo pacman -S dpkg rpm-tools
 ### 常用软件
 
 ```
-pacman -S which fontconfig
+sudo pacman -S which nerd-fonts
 
 sudo pacman -S neofetch typora
 sudo pacman -S visual-studio-code-bin
@@ -83,6 +83,25 @@ sudo pacman -S docker docker-compose
 # VIM
 git config --global url."https://hub.fastgit.org/".insteadOf "https://github.com/"
 git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+
+sudo pacman -S goldendict （需要手动添加词典）
+sudo pacman -S gimp （默认安装）
+
+AUR 安装 albert （启动器，手动绑定F12）
+```
+
+
+
+### 输入法
+
+https://zhuanlan.zhihu.com/p/341637818
+
+```
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-zhwiki
+sudo pacman -S manjaro-asian-input-support-fcitx5（环境变量，必要）
+sudo pacman -S fcitx5-material-color（皮肤，不必要）
+
+切换输入法：Ctrl + Space
 ```
 
 
