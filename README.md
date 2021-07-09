@@ -54,3 +54,16 @@ scoop bucket add extras
 scoop bucket add java
 scoop bucket add nerd-fonts
 ```
+
+#### Wiz 笔记
+
+> https://www.wiz.cn/zh-cn/docker
+
+```
+docker pull  wiznote/wizserver
+
+mkdir wizdata
+
+docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -v  /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver
+```
+

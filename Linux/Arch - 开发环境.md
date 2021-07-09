@@ -84,7 +84,10 @@ sudo pacman -S docker docker-compose
 git config --global url."https://hub.fastgit.org/".insteadOf "https://github.com/"
 git clone https://github.com/chxuan/vimplus.git ~/.vimplus
 
+# 词典
 sudo pacman -S goldendict （需要手动添加词典）
+https://blog.yuanbin.me/posts/2013-01/2013-01-31_23-07-00/
+
 sudo pacman -S gimp （默认安装）
 
 AUR 安装 albert （启动器，手动绑定F12）
