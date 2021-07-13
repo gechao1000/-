@@ -4,12 +4,10 @@ org.springframework.boot:spring-boot-starter-jdbc
 ```
 2. 数据源配置
 ```plain
-spring:
-datasource:
-driver-class-name: com.mysql.cj.jdbc.Driver
-url: jdbc:mysql://192.168.115.128:3306/heima?useUnicode=true&characterEncoding=utf8
-username: root
-password: 123456
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://192.168.115.128:3306/heima?useUnicode=true&characterEncoding=utf8
+spring.datasource.username=root
+spring.datasource.password=123456
 ```
 3. 基本操作
 ```plain

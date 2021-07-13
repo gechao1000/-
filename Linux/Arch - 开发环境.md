@@ -70,7 +70,7 @@ sudo pacman -S dpkg rpm-tools
 ```
 sudo pacman -S which nerd-fonts
 
-sudo pacman -S neofetch typora
+sudo pacman -S neofetch typora gitg
 sudo pacman -S visual-studio-code-bin
 
 # 虚拟机
@@ -105,6 +105,31 @@ sudo pacman -S manjaro-asian-input-support-fcitx5（环境变量，必要）
 sudo pacman -S fcitx5-material-color（皮肤，不必要）
 
 切换输入法：Ctrl + Space
+```
+
+
+
+### QT
+
+https://zhuanlan.zhihu.com/p/343705305		https://wiki.archlinux.org/title/Qt_(简体中文)
+
+```
+sudo pacman -S qtcreator
+
+# 版本
+Qt 5.15.2
+Qt Creator 4.15.0
+
+# 项目
+https://github.com/wang-bin/QtAV
+https://github.com/WizTeam/WizQTClient
+https://github.com/xmuli/QtExamples
+
+# 中文输入问题
+https://forum.qt.io/topic/99146/can-t-input-chinese-in-qplaintextedit/8
+
+# AppImage
+https://apprepo.de/appimage/qt-creator
 ```
 
 

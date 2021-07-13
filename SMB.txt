@@ -14,3 +14,6 @@ admin/openmediavault
 
 
 
+---- Manjaro SMB
+sudo pacman -S samba gvfs-smb thunar-shares-plugin
+sudo pacman -S manjaro-settings-samba
