@@ -115,21 +115,27 @@ https://zhuanlan.zhihu.com/p/343705305		https://wiki.archlinux.org/title/Qt_(简
 
 ```
 sudo pacman -S qtcreator
+# 安装模块（报错Qt5WebSockets）
+sudo pacman -S qt5-websockets
 
 # 版本
 Qt 5.15.2
 Qt Creator 4.15.0
+GCC 11.1.0
+Cmake 3.20.3
 
 # 项目
 https://github.com/wang-bin/QtAV
 https://github.com/WizTeam/WizQTClient
 https://github.com/xmuli/QtExamples
 
+# Deepin 配置
+https://xmuli.blog.csdn.net/article/details/112239518
+
 # 中文输入问题
 https://forum.qt.io/topic/99146/can-t-input-chinese-in-qplaintextedit/8
-
-# AppImage
-https://apprepo.de/appimage/qt-creator
+pacman -Qi fcitx5-qt
+pacman -Qi fcitx-qt5
 ```
 
 
@@ -157,4 +163,10 @@ pacman -Ql XXX
 
 # 卸载
 sudo pacman -Rs XXX
+
+
+# 打包
+makepkg
+# 安装
+sudo pacman -U xxx.pkg.tar.xz
 ```
