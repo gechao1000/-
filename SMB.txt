@@ -17,3 +17,18 @@ admin/openmediavault
 ---- Manjaro SMB
 sudo pacman -S samba gvfs-smb thunar-shares-plugin
 sudo pacman -S manjaro-settings-samba
+
+
+---- 挂载
+https://www.myfreax.com/how-to-mount-cifs-windows-share-on-linux/
+
+--- 方式1
+sudo mkdir /mnt/public
+sudo mount -t cifs -o username=cnki,password=cnki //192.168.22.202/public /mnt/public
+sudo umount /mnt/public
+
+--- 方式2 /etc/fstab
+# <file system>             <dir>          <type> <options>                                                   <dump>  <pass>
+//192.168.22.202/public  /mnt/public  cifs  username=cnki,password=cnki,file_mode=0755,dir_mode=0755 0       0
+
+sudo mount /mnt/public

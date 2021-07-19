@@ -67,3 +67,8 @@ mkdir wizdata
 docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -v  /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver
 ```
 
+
+
+#### Git 约定式提交
+
+https://www.conventionalcommits.org/en/v1.0.0/

@@ -109,7 +109,7 @@ sudo pacman -S fcitx5-material-color（皮肤，不必要）
 
 
 
-### QT
+### QT（跨平台GUI开发框架）
 
 https://zhuanlan.zhihu.com/p/343705305		https://wiki.archlinux.org/title/Qt_(简体中文)
 
@@ -169,4 +169,7 @@ sudo pacman -Rs XXX
 makepkg
 # 安装
 sudo pacman -U xxx.pkg.tar.xz
+
+# 产看文件属于那个包
+pacman -Ql | grep qmake
 ```
