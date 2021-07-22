@@ -13,10 +13,13 @@ wsl --set-default-version 2  //安装ubuntu之前执行
 
 #### Ubuntu 安装 sshd、编译环境
 
-```
-# 端口2222
-https://www.jetbrains.com/help/clion/2020.3/how-to-use-wsl-development-environment-in-clion.html#wsl-tooclhain
+https://www.jetbrains.com/help/clion/2021.1/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain
 
+```
+sudo apt-get update
+sudo apt-get install cmake gcc clang gdb build-essential
+
+# 端口2222
 wget https://raw.githubusercontent.com/JetBrains/clion-wsl/master/ubuntu_setup_env.sh && bash ubuntu_setup_env.sh
 
 # CLion 远程开发

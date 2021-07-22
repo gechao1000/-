@@ -91,6 +91,9 @@ brew cask install postman
 brew cask install tableplus
 brew cask install querious
 brew cask install sequel-pro
+
+# QT
+https://www.jianshu.com/p/5b2387137e3a
 ```
 
 
