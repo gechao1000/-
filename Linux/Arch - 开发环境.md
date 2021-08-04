@@ -42,9 +42,9 @@ sudo pacman -R jre8-openjdk
 sudo pacman -R jre8-openjdk-headless
 
 # JAVA
-sudo pacman -S jdk-openjdk
-sudo pacman -S jdk8-openjdk
+sudo pacman -S jdk11-openjdk
 sudo pacman -S gradle maven
+sudo pacman -S java11-openjfx（不需要，gradle会自动下载）
 
 # Rust
 sudo pacman -S rust
@@ -109,7 +109,7 @@ sudo pacman -S fcitx5-material-color（皮肤，不必要）
 
 
 
-### QT（跨平台GUI开发框架）
+### QT（跨平台GUI开发框架）- 垃圾
 
 https://zhuanlan.zhihu.com/p/343705305		https://wiki.archlinux.org/title/Qt_(简体中文)
 
@@ -173,3 +173,24 @@ sudo pacman -U xxx.pkg.tar.xz
 # 产看文件属于那个包
 pacman -Ql | grep qmake
 ```
+
+
+
+#### Android-SDK 安装（不会用）
+
+https://snapcraft.io/install/androidsdk/manjaro
+
+```
+Manjaro 默认已经安装 snapd
+
+sudo snap install androidsdk
+
+androidsdk --list 
+androidsdk 'platforms;android-29' 
+
+--- 相关命令
+snap list
+snap version
+
+```
+
