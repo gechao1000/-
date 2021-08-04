@@ -109,9 +109,13 @@ sudo pacman -S fcitx5-material-color（皮肤，不必要）
 
 
 
-### QT（跨平台GUI开发框架）- 垃圾
+### QT（跨平台GUI开发框架）
 
-https://zhuanlan.zhihu.com/p/343705305		https://wiki.archlinux.org/title/Qt_(简体中文)
+https://zhuanlan.zhihu.com/p/343705305		
+
+https://wiki.archlinux.org/title/Qt_(简体中文)
+
+https://wiki.deepin.org/wiki/Dtk
 
 ```
 sudo pacman -S qtcreator
@@ -128,6 +132,7 @@ Cmake 3.20.3
 https://github.com/wang-bin/QtAV
 https://github.com/WizTeam/WizQTClient
 https://github.com/xmuli/QtExamples
+https://github.com/linuxdeepin/dtkwidget.git
 
 # Deepin 配置
 https://xmuli.blog.csdn.net/article/details/112239518

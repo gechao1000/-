@@ -1,0 +1,8 @@
+Package: cajviewer
+Version: 1.0.4.0
+Section: text
+Priority: optional
+Architecture: amd64
+Installed-Size: 30000
+Maintainer: Zhang Bin <zhangbin@gmail.com>
+Description: Small epic script that prints some stuff(20210225 on UOS)
