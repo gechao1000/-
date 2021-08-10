@@ -49,6 +49,8 @@ Description: A program that greets you.
 
 #### Manjaro 打包 deb
 
+https://askubuntu.com/questions/735883/what-user-file-owner-to-use-when-creating-debian-packages
+
 ```
 dpkg-deb --build --root-owner-group <package-dir>
 
@@ -59,6 +61,9 @@ dpkg-deb --build --root-owner-group helloworld_1.0-1_arm64
 sudo pacman -S base-devel
 sudo pacman -S dpkg 
 sudo pacman -S rpm-tools
+
+-----
+These days you can use --root-owner-group instead of fakeroot to create a package where all files will be deployed as root.
 ```
 
 
