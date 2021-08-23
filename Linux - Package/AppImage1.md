@@ -2,7 +2,7 @@ https://appimage-builder.readthedocs.io/en/latest/intro/overview.html
 
 
 
-#### 依赖 appimage-tool
+#### 依赖 appimage-tool, appimage-builder
 
 https://github.com/AppImage/AppImageKit/releases
 
@@ -13,9 +13,9 @@ sudo pacman -Sy python-pip python-setuptools binutils patchelf desktop-file-util
 pacman -S appimagetool-bin
 ```
 
-
-
-#### 安装 appimage-builder
+```
+sudo apt install -y python3-pip python3-setuptools patchelf desktop-file-utils libgdk-pixbuf2.0-dev fakeroot strace fuse
+```
 
 ```
 sudo pip3 install appimage-builder
