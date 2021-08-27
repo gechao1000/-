@@ -84,3 +84,9 @@ colorscheme deus
 set nocompatible
 set backspace=2
 ```
+
+
+
+### 插件
+
+https://github.com/neoclide/coc.nvim
