@@ -45,6 +45,8 @@ https://doc.fastgit.org/zh-cn/guide.html
 git config --global url."https://hub.fastgit.org/".insteadOf "https://github.com/"
 git protocol.http.allow always
 
+git config --local url."https://hub.fastgit.org/".insteadOf "https://github.com/"
+
 
 +++++++++++++++++++++ Vim Plus（Manjaro可用，捐赠50） ++++++++++++++
 
