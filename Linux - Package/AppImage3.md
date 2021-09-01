@@ -60,3 +60,17 @@ armhfs  aarch64
 下载镜像 appimage:appimagebuild
 ```
 
+
+
+查看所有依赖
+
+```
+ldd cajviewer
+
+有的提示 not found
+在linuxdeployqt报错
+
+--FT台式机
+/usr/lib/aarch64-linux-gnu/qt5/
+```
+
