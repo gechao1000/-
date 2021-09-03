@@ -87,7 +87,12 @@ const kernel32 = ffi.Library("kernel32", {
 })
 kernel32.SetDllDirectoryA("pathToAdd")
 
-//方法二（推荐），设置Path环境环境
+//方法二（推荐，失败），设置Path环境环境
 process.env.PATH = `${process.env.PATH}${path.delimiter}${pathToAdd}`
+
+
+//方法三（全路径）
+ffi.Library('../build/libm')
+ffi.Library('/home/cnki/build/libm')
 ```
 

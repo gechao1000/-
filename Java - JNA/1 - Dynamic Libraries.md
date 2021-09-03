@@ -48,6 +48,16 @@ JNA_EXPORT int add(int a, int b);
 
 ```
 
+```
+被 extern "C" 修饰的变量和函数是按照 C 语言方式编译和链接的
+__declspec(dllexport)用于Windows中的动态库中，声明导出函数、类、对象等供外面调用，省略给出.def文件。即将函数、类等声明为导出函数，供其它程序调用，作为动态库的对外接口函数、类等。
+
+extern "C"
+{
+    __declspec(dllexport) int add(int a, int b);
+}
+```
+
 
 
 ### Rust 创建 dll
