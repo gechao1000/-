@@ -119,9 +119,22 @@ https://code.visualstudio.com/docs/cpp/cmake-linux
 
 ```
 C/C++
-C++ Intellisense
+C++ Intellisense  （没什么用）
 CMake
 CMake Tools
+tabnine （自动补全）
 ```
 
 不需要配置task和launch.json
+
+
+
+### QT5
+
+```
+sudo apt install qt5-default qtcreator
+
+# 中文字体，虚拟键盘
+sudo apt install tty-wqy-zenhei matchbox-keyboard
+```
+

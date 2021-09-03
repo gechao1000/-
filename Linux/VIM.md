@@ -87,6 +87,24 @@ set backspace=2
 
 
 
-### 插件
+### 可行方案
 
 https://github.com/neoclide/coc.nvim
+
+```
+Neovim + tabnine + coc + defx（文件浏览器）
+```
+
+
+
+### SpaceVim
+
+https://github.com/SpaceVim/SpaceVim
+
+```
+curl -sLf https://spacevim.org/install.sh | bash
+
+docker pull spacevim/spacevim
+docker run -it --rm spacevim/spacevim nvim
+```
+
