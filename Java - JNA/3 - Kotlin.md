@@ -11,10 +11,17 @@ interface LibC : Library {
     fun cosh(value: Double): Double
 }
 
-object LL {
+object DyLib {
     val C by lazy {
-        Native.load("msvcrt", LibC::class.java) as LibC
+        Native.load("c", LibC::class.java) as LibC
     }
+}
+
+interface LibC: Library {
+    companion object {
+        val INSTANCE by lazy { Native.load("c", LibC::class.java) }
+    }
+    // ...
 }
 
 // Native.load(if(Platform.isWindows()) "msvcrt" else "c", LibC::class.java) as LibC
