@@ -120,3 +120,21 @@ https://github.com/java-native-access/jna/issues/384
 * jni 是 java 和 cpp 混合开发，需要编译，代码复杂
 * jna 进行了解耦，代码简单
 * jni 比 jna 效率高
+
+
+
+
+
+JNA-so路径
+
+```
+jna.library.path
+jna.boot.library.path
+jna.platform.library.path
+```
+
+GUI框架：javafx
+
+依赖管理工具：gradle
+
+openjdk11 + kotlin + junit5

@@ -34,6 +34,14 @@ repositories {
     maven("https://maven.aliyun.com/repository/public/")
     mavenCentral()
 }
+
+repositories {
+    mavenCentral()
+    maven {
+        allowInsecureProtocol true
+        url "http://10.120.130.165:8081/repository/maven-public/"
+    }
+}
 ```
 
 
@@ -45,5 +53,26 @@ repositories {
 ```
 Help -> Edit Custom VM Options…
 输入 ：-Dfile.encoding=UTF-8
+```
+
+
+
+#### Java版本
+
+```
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+```
+
+
+
+排除依赖
+
+```
+implementation('net.cnki.webx:webx-hfs:1.1.0') {
+	exclude group: "net.java.dev.jna"
+}
 ```
 
