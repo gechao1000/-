@@ -1,23 +1,25 @@
+基础 https://blog.csdn.net/ClaireSy/article/details/108422945
+核心 https://blog.csdn.net/ClaireSy/article/details/108423047
+提高 https://blog.csdn.net/ClaireSy/article/details/108423061
+
+
+
+#### win10 wsl ubuntu（端口2222）
+
+```
 wsl -l -v
 wsl --set-default-version 2 
 
-
-
 https://www.jetbrains.com/help/clion/2021.1/how-to-use-wsl-development-environment-in-product.html#wsl-tooclhain
-
 
 sudo apt update
 sudo apt install  build-essential gdb cmake
 
-
 sudo apt-get install cmake gcc clang gdb build-essential
 
-端口2222
 
 wget https://raw.githubusercontent.com/JetBrains/clion-wsl/master/ubuntu_setup_env.sh && bash ubuntu_setup_env.sh
-
-
----
+```
 
 #### 编译过程
 
@@ -72,7 +74,7 @@ ar rs libswap.a swap.o  //归档，libswap.a
 cd ..
 g++ main.cpp -Iinclude -Lsrc -lswap -o staticmain //调用
 
------------ 动态库
+----------- 动态库（具有可执行权限）
 cd src
 g++ swap.cpp -I../include -fPIC -shared -o libswap.so //生成libswap.so
 cd ..
@@ -82,8 +84,6 @@ g++ main.cpp -Iinclude -Lsrc -lswap -o sharemain //调用
 ./staticmain
 LD_LIBRARY_PATH=src ./sharemain 指定动态库路径
 ```
-
-动态库swap.so 具有可执行权限
 
 
 
@@ -126,35 +126,13 @@ CRLF 换行\r\n, Windows
 C/C++
 CMake
 CMake Tools
-
------ laruch.json
-C++(CGB/LLDB)
-
-# 可执行文件绝对路径
-program: "${workspaceFolder}/build/main"
-
-# 调试之前执行
-prelaunchTask: "Build"
-
-F5开始调试
-
-
------- task.json
-Ternimal -> Configure Default Build Task -> Others
-
-创建 Build Task
-{
-	"label": "Build",
-	"dependsOrder": "sequence",
-	"dependsOn": ["cmake", "make"]
-}
 ```
 
 
 
 
 
-# CMake
+#### CMake
 
 ```
 指令不区分大小写，变量区分
