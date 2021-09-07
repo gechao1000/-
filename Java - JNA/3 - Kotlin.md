@@ -1,8 +1,15 @@
 https://www.hicode.club/articles/2020/01/19/1579404425222.html
 
-
-
 https://discuss.kotlinlang.org/t/what-is-the-kotlin-equivalent-of-this-jna-code/13697/2
+
+依赖
+
+```
+// https://mvnrepository.com/artifact/net.java.dev.jna/jna
+implementation("net.java.dev.jna:jna:5.9.0")
+// https://mvnrepository.com/artifact/org.junit-pioneer/junit-pioneer
+testImplementation("org.junit-pioneer:junit-pioneer:1.4.2")
+```
 
 
 
