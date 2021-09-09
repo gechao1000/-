@@ -4,9 +4,7 @@ https://mirrors.huaweicloud.com/home
 
 
 
-### 镜像（全局设置）
-
-**~/.gradle/init.gradle**
+#### 镜像（全局） **~/.gradle/init.gradle**
 
 ```
 allprojects{
@@ -27,7 +25,7 @@ allprojects{
 
 
 
-### 镜像（项目设置）
+#### 镜像（项目）
 
 ```
 repositories {
@@ -36,19 +34,19 @@ repositories {
 }
 
 repositories {
-    mavenCentral()
     maven {
         allowInsecureProtocol true
         url "http://10.120.130.165:8081/repository/maven-public/"
     }
+    mavenCentral()
 }
 ```
 
 
 
-### IDEA中文乱码问题
+#### IDEA中文乱码问题
 
-> https://discuss.kotliner.cn/t/topic/1152/5
+https://discuss.kotliner.cn/t/topic/1152/5
 
 ```
 Help -> Edit Custom VM Options…
@@ -57,18 +55,7 @@ Help -> Edit Custom VM Options…
 
 
 
-#### Java版本
-
-```
-compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
-}
-```
-
-
-
-排除依赖
+#### 排除依赖
 
 ```
 implementation('net.cnki.webx:webx-hfs:1.1.0') {
@@ -76,3 +63,31 @@ implementation('net.cnki.webx:webx-hfs:1.1.0') {
 }
 ```
 
+
+
+#### 引入本地 jar
+
+```
+implementation files("lib/webx-hfs-1.0.0.jar")
+```
+
+
+
+#### 打包为 shadowjar
+
+```
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version "7.0.0"
+}
+
+mainClassName = 'example.App'
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+```
+
+ 
