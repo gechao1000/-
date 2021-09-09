@@ -1,6 +1,18 @@
 ### nexus是一个强大的maven仓库管理器
 
-> https://www.sonatype.com/download-nexus-repo-oss
+https://www.sonatype.com/download-nexus-repo-oss
+https://hub.docker.com/r/sonatype/nexus3
+https://www.jianshu.com/p/edf57ba6a159
+
+```
+docker pull sonatype/nexus3
+docker run -d -p 8081:8081 --name nexus sonatype/nexus3
+
+用户名：admin
+初始密码：/nexus-data/admin.password
+```
+
+
 
 #### 上传 jar 包到私服上
 
