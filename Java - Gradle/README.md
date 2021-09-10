@@ -110,3 +110,10 @@ tasks.test {
 }
 ```
 
+
+
+#### 插件 java 和 java-library
+
+https://discuss.gradle.org/t/when-should-we-use-java-plugin-and-when-java-library-plugin/25377
+
+https://docs.gradle.org/current/userguide/java_library_plugin.html?_ga=2.60327725.1449614518.1631068496-330503399.1631068496#sec:java_library_known_issues
