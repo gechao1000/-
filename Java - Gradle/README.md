@@ -40,6 +40,12 @@ repositories {
     }
     mavenCentral()
 }
+
+--- kts
+maven {
+	isAllowInsecureProtocol = true
+	url = uri("http://192.168.22.31:8081/repository/maven-public/")
+}
 ```
 
 
@@ -55,20 +61,22 @@ Help -> Edit Custom VM Options…
 
 
 
-#### 排除依赖
+#### 依赖
 
 ```
+
+-- 引入本地 jar
+implementation files("lib/webx-hfs-1.0.0.jar")
+
+
+-- 引入项目
+implementation project(":hfs-lib")
+
+
+-- 排除依赖
 implementation('net.cnki.webx:webx-hfs:1.1.0') {
 	exclude group: "net.java.dev.jna"
 }
-```
-
-
-
-#### 引入本地 jar
-
-```
-implementation files("lib/webx-hfs-1.0.0.jar")
 ```
 
 
@@ -91,3 +99,14 @@ compileJava {
 ```
 
  
+
+#### 设置环境变量
+
+```
+tasks.test {
+    useJUnitPlatform()
+    systemProperty("jna.debug_load", "true")
+    systemProperty("jna.library.path", "D:\\webx")
+}
+```
+
