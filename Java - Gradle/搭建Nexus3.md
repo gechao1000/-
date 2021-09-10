@@ -24,7 +24,7 @@ URL 字段http://maven.aliyun.com/nexus/content/groups/public/
 
 
 
-## 配置 maven
+### 配置 maven
 
 全局 settings.xml
 
@@ -70,12 +70,15 @@ URL 字段http://maven.aliyun.com/nexus/content/groups/public/
 
 
 
-## Gradle推送
+### 配置 gradle
 
-https://docs.gradle.org/current/userguide/publishing_maven.html
+```
+repositories {
+    maven {
+        allowInsecureProtocol = true
+        url = "http://localhost:8081/repository/maven-public/"
+    }
+    mavenCentral()
+}
+```
 
-https://blog.csdn.net/w_monster/article/details/117440340
-
-https://docs.gradle.org/current/samples/sample_building_kotlin_libraries.html
-
-https://developerlife.com/2021/02/06/publish-kotlin-library-as-gradle-dep/

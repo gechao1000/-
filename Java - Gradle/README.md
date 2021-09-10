@@ -64,14 +64,11 @@ Help -> Edit Custom VM Options…
 #### 依赖
 
 ```
-
 -- 引入本地 jar
 implementation files("lib/webx-hfs-1.0.0.jar")
 
-
 -- 引入项目
 implementation project(":hfs-lib")
-
 
 -- 排除依赖
 implementation('net.cnki.webx:webx-hfs:1.1.0') {
@@ -117,3 +114,21 @@ tasks.test {
 https://discuss.gradle.org/t/when-should-we-use-java-plugin-and-when-java-library-plugin/25377
 
 https://docs.gradle.org/current/userguide/java_library_plugin.html?_ga=2.60327725.1449614518.1631068496-330503399.1631068496#sec:java_library_known_issues
+
+
+
+```
+plugins {
+	id 'java-library'
+}
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+java {
+	withSourceJar()
+}
+```
+
