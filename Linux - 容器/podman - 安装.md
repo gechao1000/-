@@ -15,7 +15,7 @@ podman version
 镜像
 
 ```
-# vim /etc/containers/registries.conf
+# vi /etc/containers/registries.conf
 
 unqualified-search-registries = ["docker.io"]
 

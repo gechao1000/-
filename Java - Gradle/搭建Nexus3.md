@@ -1,3 +1,5 @@
+### Docker 安装
+
 https://hub.docker.com/r/sonatype/nexus3
 https://www.jianshu.com/p/edf57ba6a159
 
@@ -9,9 +11,28 @@ docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 初始密码：/nexus-data/admin.password
 ```
 
+### CentOS 安装
+
+https://help.sonatype.com/repomanager3/download
+
+```
+$ vi  /etc/security/limits.conf
+root soft     nproc          65536
+root hard     nproc          65536
+root soft     nofile         65536
+root hard     nofile         65536
+
+前台启动
+./nexus run
+
+后台启动
+./nexus start
+./nexus stop
+```
 
 
-添加阿里云maven代理
+
+### 添加阿里云maven代理
 
 ```
 settings -> Repository -> Repositories
@@ -20,6 +41,12 @@ settings -> Repository -> Repositories
 Name字段aliyun-maven
 URL 字段http://maven.aliyun.com/nexus/content/groups/public/
 重新配置maven-public组，包含aliyun-maven，并且上移到第一位
+
+<mirror>
+    <id>huaweicloud</id>
+    <mirrorOf>*</mirrorOf>
+    <url>https://repo.huaweicloud.com/repository/maven/</url>
+</mirror>
 ```
 
 
