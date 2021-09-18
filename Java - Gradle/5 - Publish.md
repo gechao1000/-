@@ -39,7 +39,15 @@ compileJava {
 
 java {
     withSourcesJar()
+    withJavadocJar()
 }
+
+// 失败，windows不能使用utf-8
+// 类注释格式有要求，普通字段随意
+// 输出的结构是html4，考虑声称html5
+//javadoc {
+//    options.encoding = 'UTF-8'
+//}
 
 
 publishing {

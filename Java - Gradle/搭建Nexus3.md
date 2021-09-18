@@ -109,3 +109,29 @@ repositories {
 }
 ```
 
+
+
+
+
+#### 重复 publish 问题
+
+```
+默认不允许重复deploy
+
+方法1：删除之前的Directory
+方法2：maven-release设置Deployment policy 为 Allow redeploy
+```
+
+
+
+#### 强制更新 dependencies
+
+```
+implementation ('org.example:demo-lib:1.0') { changing = true }
+
+configurations.all {
+    // Check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+```
+
