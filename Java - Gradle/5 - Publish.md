@@ -42,12 +42,14 @@ java {
     withJavadocJar()
 }
 
-// 失败，windows不能使用utf-8
-// 类注释格式有要求，普通字段随意
-// 输出的结构是html4，考虑声称html5
-//javadoc {
-//    options.encoding = 'UTF-8'
-//}
+// javadoc 中文乱码问题
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
 
 
 publishing {
@@ -81,5 +83,19 @@ publishing {
 如果是 implement 'net.java.dev.jna:jna:5.9.0'
 
 在g2中导入g1-lib，只有runtime可以调用jna
+```
+
+
+
+javadoc 中文乱码
+
+```
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
 ```
 
