@@ -7,6 +7,8 @@ https://www.jianshu.com/p/edf57ba6a159
 docker pull sonatype/nexus3
 docker run -d -p 8081:8081 --name nexus sonatype/nexus3
 
+docker update --restart unless-stopped nexus
+
 用户名：admin
 初始密码：/nexus-data/admin.password
 ```
