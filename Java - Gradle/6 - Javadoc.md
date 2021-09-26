@@ -28,3 +28,36 @@ tasks.withType(Javadoc) {
 }
 ```
 
+
+
+IDEA 生成 javadoc  
+
+```
+【Tools】 => Generate Javadoc
+选择输出路径
+Other command line arguments：-encoding utf-8 -charset utf-8
+```
+
+
+
+IDEA 插件 javadoc
+
+```
+# Java
+https://plugins.jetbrains.com/plugin/7157-javadoc
+https://plugins.jetbrains.com/plugin/12977-easy-javadoc	
+
+# Kotlin
+https://plugins.jetbrains.com/plugin/14778-kdoc-er--kotlin-doc-generator
+```
+
+
+
+Kotlin 生成文档
+
+```
+https://github.com/Kotlin/dokka
+
+id("org.jetbrains.dokka") version "1.4.30"
+```
+
