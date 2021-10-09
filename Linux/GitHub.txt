@@ -54,6 +54,17 @@ git clone https://github.com/chxuan/vimplus.git ~/.vimplus
 cd ~/.vimplus
 ./install.sh
 
+自定义插件 .vimrc.custom.plugins
+UnPlug 'Valloric/YouCompleteMe'
+Plug 'tabnine/YouCompleteMe'
+Plug 'cdelledonne/vim-cmake'
+
+
+cmake插件
+https://github.com/cdelledonne/vim-cmake
+https://jalcine.github.io/cmake.vim/
+
+
 
 +++++++++++++++++++++ Vim Plus Plus（不好用，有作者签名） ++++++++++++++
 
