@@ -1,13 +1,20 @@
-Simple hello world
+CMakeLists.txt
+
+> 参数说明 https://blog.csdn.net/long123444/article/details/109547392
 
 ```
----CMakeLists.txt
+# 设置cmake的最低版本
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+# 设置工程名称和版本
 project(hello VERSION 1.0)
+# 指定为C++17版本
+set(CMAKE_CXX_STANDARD 17)
+# 版本必须，默认为OFF，指定版本不可用时会使用上一版本
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# 生成可执行文件，程序名hello
 add_executable(hello main.cpp)
+# 生成动态库
+add_library(h1 SHARED library.cpp library.h)
 
 
 ---GCC过程
@@ -19,7 +26,7 @@ Running CMake
 ```
 cmake . && make && ./hello
 
-----方式2
+----方式2（推荐）
 mkdir build && cd build
 cmake ..
 make
