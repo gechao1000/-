@@ -79,3 +79,22 @@ pub extern fn add(a:i32, b:i32) -> i32 {
 cargo build [--release]
 cargo clean
 ```
+
+
+
+### Gradle 创建 lib
+
+>  https://docs.gradle.org/current/userguide/cpp_library_plugin.html
+
+```
+gradle init
+
+不支持交叉编译
+https://github.com/gradle/gradle-native/issues/989
+```
+
+
+
+webx
+
+可以尝试将 cpp-library, java-library 都发布到 maven
