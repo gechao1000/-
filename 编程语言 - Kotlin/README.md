@@ -20,57 +20,6 @@ dependencies {
 ```
 
 
-
-### Kotlin 文档注释
-
-```kotlin
-plugins {
-    kotlin("jvm") version "1.5.10"
-    application
-    id("org.jetbrains.dokka") version "1.4.30"
-}
-
-tasks.dokkaHtml.configure {
-    outputDirectory.set(buildDir.resolve("dokka"))
-}
-
-/**
- * HFS 文件描述
- *
- * @property name 文件名
- * @property type 后缀名
- * @property size 文件大小
- * @property dirname 目录
- * @property cDate 创建日期
- * @property mDate 修改日期
- * @constructor Create empty File info
- */
-data class FileInfo (
-    val name: String,
-    val type: String,
-    val size: Long,
-    val dirname: String,
-    val cDate: String,
-    val mDate: String,
-)
-```
-
-Java 文档注释
-
-```
-/**
- * obtaining the absolute value (or magnitude) of a number
- * @param number 整数
- * @return 非负数
- */
-int abs(int number);
-    
-IDEA工具栏 -> Tools -> Generate Javadoc
-设置参数（Other command line arguments）：-encoding utf-8 -charset utf-8
-```
-
-
-
 ### 案例
 
 1. todo-app

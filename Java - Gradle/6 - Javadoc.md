@@ -36,6 +36,13 @@ IDEA 生成 javadoc
 【Tools】 => Generate Javadoc
 选择输出路径
 Other command line arguments：-encoding utf-8 -charset utf-8
+
+/**
+ * obtaining the absolute value (or magnitude) of a number
+ * @param number 整数
+ * @return 非负数
+ */
+int abs(int number);
 ```
 
 
@@ -53,11 +60,39 @@ https://plugins.jetbrains.com/plugin/14778-kdoc-er--kotlin-doc-generator
 
 
 
-Kotlin 生成文档
+Kotlin 生成文档	
 
-```
 https://github.com/Kotlin/dokka
 
-id("org.jetbrains.dokka") version "1.4.30"
+```kotlin
+plugins {
+    kotlin("jvm") version "1.5.10"
+    application
+    id("org.jetbrains.dokka") version "1.4.30"
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(buildDir.resolve("dokka"))
+}
+
+/**
+ * HFS 文件描述
+ *
+ * @property name 文件名
+ * @property type 后缀名
+ * @property size 文件大小
+ * @property dirname 目录
+ * @property cDate 创建日期
+ * @property mDate 修改日期
+ * @constructor Create empty File info
+ */
+data class FileInfo (
+    val name: String,
+    val type: String,
+    val size: Long,
+    val dirname: String,
+    val cDate: String,
+    val mDate: String,
+)
 ```
 

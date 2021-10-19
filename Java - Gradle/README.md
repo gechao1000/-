@@ -115,8 +115,6 @@ https://discuss.gradle.org/t/when-should-we-use-java-plugin-and-when-java-librar
 
 https://docs.gradle.org/current/userguide/java_library_plugin.html?_ga=2.60327725.1449614518.1631068496-330503399.1631068496#sec:java_library_known_issues
 
-
-
 ```
 plugins {
 	id 'java-library'
@@ -130,5 +128,22 @@ compileJava {
 java {
 	withSourceJar()
 }
+```
+
+
+
+#### 插件 cpp-library
+
+```
+org.gradle.nativeplatform.internal.DefaultTargetMachineFactory$TargetMachineImpl
+
+在aarch64机器build失败，应该是只支持x86平台
+
+Linux, Windows, MacOS
+
+支持编译器ToolChain
+visualCpp (Visual Studio)
+gcc (GNU GCC)
+clang (CLang)
 ```
 
