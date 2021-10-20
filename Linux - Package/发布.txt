@@ -1,0 +1,40 @@
+https://packager.io/gh/gogs/gogs
+Distributing and installing modern web applications is a pain.
+
+
+
+
+---- GitHub Release With software
+
+https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases
+https://github.com/neovim/neovim/releases
+
+
+
+---- 应用商店
+
+https://syncloud.org/
+https://github.com/syncloud/platform
+
+
+[lfs]
+STORAGE = local
+OBJECTS_PATH = data/lfs-objects
+
+
+
+----- create your own ubuntu repository
+
+https://www.percona.com/blog/2020/01/02/how-to-create-your-own-repositories-for-packages/
+
+
+https://earthly.dev/blog/creating-and-hosting-your-own-deb-packages-and-apt-repo/
+
+
+https://linuxconfig.org/how-to-create-a-ubuntu-repository-server
+
+
+
+------
+
+使用 nexus 发布deb

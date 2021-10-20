@@ -15,6 +15,10 @@ export PLUGIN_PATH=/usr/lib/qt/plugins:$PLUGIN_PATH
 # 没有qmake
 export PATH=/home/georgeca/Qt/5.14.2/gcc_64/bin/:$PATH
 
+# 解决style问题
+复制/usr/lib/qt/plugins 到 usr/plugins
+复制plugins/{platformthemes, styles}模块
+
 ---- Project
 https://launchpad.net/qpdfview
 
