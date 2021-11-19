@@ -1,0 +1,15 @@
+商店打包规范
+https://doc.chinauos.com/content/M7kCi3QB_uwzIp6HyF5J
+
+
+
+Terminal=true
+https://askubuntu.com/questions/436891/create-a-desktop-file-that-opens-and-execute-a-command-in-a-terminal
+
+
+下载deb
+https://askubuntu.com/questions/608578/where-are-deb-package-control-files-located
+
+
+install desktop
+https://newbedev.com/how-to-force-unity-reload-local-share-applications

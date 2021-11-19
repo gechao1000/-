@@ -33,7 +33,7 @@ setup() {
 
 `<script setup>`
 
-https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+https://juejin.cn/post/7006108454028836895
 
 ```vue
 <script setup>

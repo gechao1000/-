@@ -199,3 +199,10 @@ snap version
 
 ```
 
+
+
+#### Virtualbox 网络
+
+https://blog.csdn.net/yushupan/article/details/78404395
+
+
