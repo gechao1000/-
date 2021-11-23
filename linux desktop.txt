@@ -1,0 +1,19 @@
+https://www.maketecheasier.com/create-desktop-file-linux/
+
+
+https://wiki.archlinux.org/title/desktop_entries
+
+
+https://wiki.archlinux.org/title/Creating_packages
+
+
+
+# snapcraft
+https://snapcraft.io/install/snapcraft/manjaro
+https://ubuntu.com/tutorials/create-your-first-snap#1-overview
+
+https://topic.alibabacloud.com/a/how-to-font-classtopic-s-color00c1depackagefont-a-qt-font-classtopic-s-color00c1deapplicationfont-as-a-snap-font-classtopic-s-color00c1deapplicationfont-snapcraft-scriptlets-font-classtopic-s-color00c1deapplicationfont-example_8_8_10252882.html
+https://titanwolf.org/Network/Articles/Article?AID=9d9ce6bb-cce9-4e23-928a-11a1ce22e60b
+
+https://discourse.ubuntu.com/t/installing-multipass-on-linux/8328
+https://multipass.run/docs/installing-on-linux

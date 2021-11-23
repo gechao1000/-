@@ -13,3 +13,26 @@ https://askubuntu.com/questions/608578/where-are-deb-package-control-files-locat
 
 install desktop
 https://newbedev.com/how-to-force-unity-reload-local-share-applications
+
+
+
+默认qt lib
+/usr/lib/aarch64-linux-gnu/qt5/plugins/platforms/libwayland.so
+
+
+
+
+群公告
+各位同学大家好啊：
+最新架构师课程模块会不定期开放。
+现在开通第七篇大数据综合应用实战和第八篇玩儿爆大型项目性能优化的内容
+链接：https://pan.baidu.com/s/11INrgAr7m3QszSBzcr2YFQ 
+提取码：ocqt
+
+全部课程资料：
+百度网盘链接：https://pan.baidu.com/s/18MeaEX5imuaGDFCiYueSwQ 
+提取码：sog1
+
+为了方便解答同学们的问题，大家可以把自己的问题发在咱们技术交流区里面，老师看到后会统一解答哦，这样也会省时省力，效率加倍。
+1期技术交流问答区：
+https://l38ezrnl32.feishu.cn/sheets/shtcnUPUzwD9Kj167LUZ1cT051d
