@@ -13,8 +13,6 @@ https://www.devdungeon.com/content/use-jpackage-create-native-java-app-installer
 
 
 
-
-
 基础镜像 ubuntu + jdk + mvn
 
 ```
@@ -53,3 +51,22 @@ mvn clean compile javafx:jlink jpackage:jpackage
 docker system prune
 ```
 
+
+
+java11 模块
+
+```
+java --list-modules
+```
+
+
+
+
+
+---
+
+注意
+
+JDK 最低 11
+
+jpackage 打包 app-image失败

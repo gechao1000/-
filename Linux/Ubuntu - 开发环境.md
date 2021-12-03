@@ -138,3 +138,8 @@ sudo apt install qt5-default qtcreator
 sudo apt install tty-wqy-zenhei matchbox-keyboard
 ```
 
+
+
+### JDK
+
+https://linuxize.com/post/install-java-on-ubuntu-18-04/

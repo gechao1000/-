@@ -35,6 +35,23 @@ https://github.com/kaiwinter/docker-java8-maven/blob/master/Dockerfile
 
 
 
+安装 JDK
+
+https://linuxize.com/post/install-java-on-ubuntu-18-04/
+
+```
+sudo apt install default-jdk
+sudo apt install openjdk-8-jdk
+```
+
+
+
+分阶段
+
+https://blogs.oracle.com/javamagazine/post/containerizing-apps-with-jlink
+
+
+
 ---
 
 
