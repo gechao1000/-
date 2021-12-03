@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.acme</groupId>
+  <artifactId>treefx</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>TreeFX</name>
+
+  <properties>
+      <maven.compiler.source>11</maven.compiler.source>
+      <maven.compiler.target>11</maven.compiler.target>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.test.skip>true</maven.test.skip>
+    <mainClass>com.acme.treefx.TreeFX</mainClass>
+  </properties>
+
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>16</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>16</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.6</version>
+        <configuration>
+          <compress>2</compress>
+          <noHeaderFiles>true</noHeaderFiles>
+          <stripDebug>true</stripDebug>
+          <noManPages>true</noManPages>
+          <launcher>treefx</launcher>
+          <mainClass>treefx/${mainClass}</mainClass>
+          <jlinkImageName>treefx</jlinkImageName>
+          <jlinkZipName>treefx</jlinkZipName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.panteleyev</groupId>
+        <artifactId>jpackage-maven-plugin</artifactId>
+        <version>1.5.1</version>
+        <configuration>
+          <type>APP_IMAGE</type>
+          <name>TreeFX</name>
+          <appVersion>1.0.0</appVersion>
+          <vendor>org.acme</vendor>
+          <destination>target/dist</destination>
+          <module>treefx/${mainClass}</module>
+          <runtimeImage>target/treefx</runtimeImage>
+          <linuxShortcut>true</linuxShortcut>
+          <linuxPackageName>treefx</linuxPackageName>
+          <linuxAppCategory>Utilities</linuxAppCategory>
+          <linuxMenuGroup>Utilities</linuxMenuGroup>
+          <icon>${project.basedir}/duke.png</icon>
+          <javaOptions>
+            <option>-Dfile.encoding=UTF-8</option>
+          </javaOptions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

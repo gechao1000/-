@@ -1,31 +1,55 @@
+教程
+
 https://dev.to/cherrychain/javafx-jlink-and-jpackage-h9
 
-
-
-
-
-
-
-
-https://gitee.com/openjfx/javafx-maven-plugin
-
-
-
-### 示例
+示例
 
 https://gitlab.com/lucaguada/treefx.
 
+`jlink` 和 `jpackage` 
+
+https://www.devdungeon.com/content/use-jpackage-create-native-java-app-installers
+
+
+
+
+
+
+基础镜像 ubuntu + jdk + mvn
+
 ```
-<dependencies>
-  <dependency>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-controls</artifactId>
-    <version>16</version>
-  </dependency>
-  <dependency>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-media</artifactId>
-    <version>16</version>
-  </dependency>
-</dependencies>
+docker volume create m2
+docker inspect m2
+# 复制 settings.xml 到 m2实际目录
+sudo cp ./settings.xml /var/lib/docker/volumes/m2/_data
+# 查看 volume 实际大小
+sudo du -h /var/lib/docker/volumes/m2/_data
+
+---
+下载 openjdk 和 maven
+docker build -t gg .
 ```
+
+
+
+构建环境
+
+```
+docker build -t myapp .
+
+---
+docker run -it --rm -v m2:/root/.m2 -v "$(pwd)":/dist myapp
+
+mvn clean compile javafx:jlink jpackage:jpackage
+
+复制deb到/dist目录
+```
+
+
+
+清除有问题的 image 和 container
+
+```
+docker system prune
+```
+
