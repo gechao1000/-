@@ -1,0 +1,13 @@
+pkgname="hello-world"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Hello world in your terminal!"
+arch=("x86_64")
+license=("custom")
+source=("hello-world.sh")
+sha512sums=("SKIP")
+package() {
+    mkdir -p "${pkgdir}/usr/bin"
+    cp "${srcdir}/hello-world.sh" "${pkgdir}/usr/bin/hello-world"
+    chmod 755 "${pkgdir}/usr/bin/hello-world"
+}

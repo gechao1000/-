@@ -1,0 +1,44 @@
+https://gitee.com/clggxxx/linuxdeployqt/releases/20210531
+
+
+https://lichtg.github.io/post/022.html
+
+
+https://programmer.help/blogs/publish-qt-programs-under-linux-using-linuxdeployqt.html
+
+
+
+https://medium.com/swlh/how-to-deploy-your-qt-applications-to-linux-operating-system-with-linuxdeployqt-3c004a43c67a
+
+
+
+https://travis-ci.org/github/probonopd/linuxdeployqt/jobs/774436649
+
+===============================================
+
+
+
+https://itsfoss.com/create-pkgbuild/
+https://wiki.archlinux.org/title/PKGBUILD_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#pkgbase
+
+https://www.theurbanpenguin.com/creating-arch-linux-packages/
+
+
+
+
+https://github.com/HanSolo
+
+
+依赖 fakeroot
+
+mkdir foss
+cd foss
+makepkg 
+
+
+sudo pacman -U <xxx.z>
+
+sudo pacman -Q | grep xxx
+sudo pacman -Qi xxx
+
+sudo pacman -Rs xxx

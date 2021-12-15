@@ -73,10 +73,6 @@ sudo pacman -S which nerd-fonts
 sudo pacman -S neofetch typora gitg
 sudo pacman -S visual-studio-code-bin
 
-# 虚拟机
-sudo pacman -S virtualbox linux510-virtualbox-host-modules
-sudo gpasswd -a $USER vboxusers
-
 sudo pacman -S thunar-shares-plugin
 sudo pacman -S docker docker-compose
 
@@ -201,8 +197,33 @@ snap version
 
 
 
-#### Virtualbox 网络
+#### VirtualBox
 
-https://blog.csdn.net/yushupan/article/details/78404395
+https://www.techrepublic.com/article/how-to-install-virtualbox-guest-additions-on-a-gui-less-ubuntu-server-host/
 
+```
+# 宿主机
+sudo pacman -S virtualbox linux510-virtualbox-host-modules 
+virtualbox-guest-iso virtualbox-guest-utils
+
+# 网络
+默认NAT，可以联网
+HOST-ONLY，不能联网
+
+sudo gpasswd -a $USER vboxusers
+```
+
+虚拟机
+
+https://stackoverflow.com/questions/26740113/virtualbox-shared-folder-permissions
+
+```
+# 文件共享，ShareFolder
+设备 ->  Guest Additions ISO -> 执行 Linux.run -> 检查lsmod | grep vboxguest
+
+# 共享文件夹权限问题
+sudo adduser your-user vboxsf
+或者
+sudo usermod -a -G vboxsf <user>
+```
 
