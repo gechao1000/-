@@ -1,0 +1,18 @@
+pkgname="treefx"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="JavaFX package example!"
+arch=("x86_64")
+license=("custom")
+source=("treefx.zip")
+sha512sums=("SKIP")
+package() {
+    
+    mkdir -p "${pkgdir}/opt/treefx"
+    cp -r "${srcdir}/bin/" "${pkgdir}/opt/treefx"
+	cp -r "${srcdir}/conf/" "${pkgdir}/opt/treefx"
+	cp -r "${srcdir}/legal/" "${pkgdir}/opt/treefx"
+	cp -r "${srcdir}/lib/" "${pkgdir}/opt/treefx"
+	cp "${srcdir}/release" "${pkgdir}/opt/treefx"
+    
+}
