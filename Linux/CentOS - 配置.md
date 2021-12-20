@@ -30,6 +30,32 @@ yum -y install net-tools
 netstat -anultp | grep kbase
 ```
 
+#### 校验
+
+```
+sha256sum /path/to/file
+
+# 安装 shasum
+yum install perl-Digest-SHA -y
+
+------- 生成校验码 -----
+MD5 验证:md5 /tmp/1.iso
+SHA-1 验证:shasum -a 1 /tmp/1.iso
+SHA-256 验证:shasum -a 256 /tmp/1.iso
+
+-------- 校验文件 sha256sums.txt -----
+<sha256><两个空格><文件名>
+
+shasum -a 256 -c sha256sums.txt
+sha256sum -c sha256sums.txt
+
+-------- 生成校验文件
+sha256sum * > sha256sums.txt
+find . -type f -exec sha256sum {} > sha256sums.txt \; （删除最后一行）
+```
+
+
+
 #### epel（软件版本太旧了，不推荐，不如用源码安装）
 
 ```
