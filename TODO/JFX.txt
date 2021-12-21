@@ -1,0 +1,42 @@
+https://github.com/gradle/native-samples
+
+
+https://docs.gradle.org/current/samples/sample_building_cpp_libraries.html
+
+
+---
+
+https://docs.gradle.org/current/userguide/cpp_library_plugin.html
+
+https://docs.nokee.dev/manual/cpp-library-plugin.html
+
+---
+
+
+https://docs.gradle.org/current/userguide/building_cpp_projects.html#sec:introducing_build_variants-cpp
+
+
+https://en.cppreference.com/w/cpp/links/libs
+
+
+----------- Build System -----------
+
+https://hackingcpp.com/cpp/tools/build_systems.html
+
+
+https://www.saashub.com/compare-conan-vs-build2
+
+cmake
+
+----------- Package Manager -----------
+
+conan, vcpkg
+
+https://build2.org/
+
+https://en.cppreference.com/w/cpp/links/libs
+
+
+----------------- CPM  最简单 --------------
+
+https://medium.com/swlh/cpm-an-awesome-dependency-manager-for-c-with-cmake-3c53f4376766

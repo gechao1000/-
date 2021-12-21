@@ -1,0 +1,44 @@
+https://nixos.org/guides/install-nix.html
+
+
+https://www.howtoing.com/nix-package-manager-for-linux
+
+
+
+https://zhuanlan.zhihu.com/p/365278966
+https://github.com/nixos-cn/NixOS-FAQ
+
+
+
+pacman nix
+
+
+
+
+
+
+
+semver 语义化版本规范
+
+https://www.jianshu.com/p/a7490344044f
+
+
+----  AppImage
+
+https://github.com/ssbc/patchwork
+
+
+https://nixos.org/manual/nixpkgs/stable/#sec-pkgs-appimageTools
+
+
+
+------ Jar
+
+ou can execute any class which has a public final static main method from a JAR file, even if the jar file has a Main-Class defined.
+
+Execute Main-Class:
+
+java -jar MyJar.jar  // will execute the Main-Class
+Execute another class with a public static void main method:
+
+java -cp MyJar.jar com.mycomp.myproj.AnotherClassWithMainMethod
