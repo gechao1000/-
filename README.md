@@ -1,3 +1,13 @@
+#### PS: 文件校验码
+
+```
+certutil -hashfile .\HELP.md MD5
+certutil -hashfile .\HELP.md SHA1
+certutil -hashfile .\HELP.md SHA256
+```
+
+
+
 #### PS：批量重命名
 
 ```powershell
