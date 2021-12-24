@@ -1,3 +1,28 @@
+普通 jar 包
+
+```
+--- 没有依赖
+java -cp starter.jar example.App
+
+
+--- 有依赖
+java -cp "starter-1.0-SNAPSHOT.jar;C:\Users\gecha\.m2\repository\com\vdurmont\emoji-java\5.1.1\emoji-java-5.1.1.jar;C:\Users\gecha\.m2\repository\org\json\json\20170516\json-20170516.jar" example.App
+```
+
+
+
+Maven 对项目打包
+
+https://www.jianshu.com/p/14bcb17b99e0
+
+| **plugin**            | **function**                                   |
+| --------------------- | ---------------------------------------------- |
+| maven-jar-plugin      | maven 默认打包插件，用来创建 project jar       |
+| maven-shade-plugin    | 用来打可执行包，executable(fat) jar            |
+| maven-assembly-plugin | 支持定制化打包方式，例如 apache 项目的打包方式 |
+
+
+
 方式1：SpringBoot  
 
 ```
@@ -28,11 +53,11 @@ https://rvesse.github.io/airline/guide/
 
 
 
-
-
-方式3：  maven-shade-plugin
+方式3：  maven-shade-plugin 
 
 > https://www.jianshu.com/p/7a0e20b30401
+>
+> https://cloud.tencent.com/developer/article/1622207
 
 ```xml
 <plugin>
@@ -60,9 +85,7 @@ https://rvesse.github.io/airline/guide/
 
 
 
-方式4：maven-jar-plugin,  mave-shade-plugin
-
-
+方式4：maven-jar-plugin,  mave-shade-plugin		（效果和方式3相同）
 
 ```xml
 <plugin>
@@ -90,6 +113,41 @@ https://rvesse.github.io/airline/guide/
             <phase>package</phase>
             <goals>
                 <goal>shade</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+
+
+方式5：maven-assembly-plugin		（效果和方式3相同，可以使用xml 配置）
+
+> https://maven.apache.org/plugins/maven-assembly-plugin/usage.html
+>
+> https://ktor.io/docs/maven-assembly-plugin.html   （Maven + Gradle）
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>3.3.0</version>
+    <configuration>
+        <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+        <archive>
+            <manifest>
+                <mainClass>com.example.ApplicationKt</mainClass>
+            </manifest>
+        </archive>
+    </configuration>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
             </goals>
         </execution>
     </executions>

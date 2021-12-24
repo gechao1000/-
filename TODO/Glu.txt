@@ -1,0 +1,5 @@
+Gluon提供了利用github action在线编译打包的示范项目和代码，项目在github上的地址：https://github.com/gluonhq/hello-gluon-ci
+相关说明：
+https://gluonhq.com/use-github-actions-to-automate-your-gluon-build-and-release-cycle/
+支持操作系统和cpu架构有各种桌面（Windows, macOSX, Linux）以及安卓，苹果手机（iOS）和树莓派
+里面关于gluon license的部分，是可选的，你可以将其删除，但是如果用了gluon attach等gluon提供的工具，那么你必需购买license，否则，无需license

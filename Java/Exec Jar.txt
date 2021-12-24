@@ -1,5 +1,0 @@
-https://stackoverflow.com/questions/5474666/how-to-run-a-class-from-jar-which-is-not-the-main-class-in-its-manifest-file
-
-
-
-java -cp starter.jar example.App

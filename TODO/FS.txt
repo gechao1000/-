@@ -1,0 +1,61 @@
+StorePath {group, path}
+
+StorageClient
+
+
+/{group}/M00/02/44/adsfewrqwe.sh
+
+
+
+group ==? bucket
+
+fullpath = 文件存储虚拟磁盘路径 + 数据文件两级目录 + 文件名
+
+
+https://moosefs.com/download/#current
+https://github.com/tangx/gitbooks-doc2cn-moosefs/blob/master/moosefs_1.6.27_maintenance/chapter03-moosefs-usage.md
+https://blog.csdn.net/ranrancc_/article/details/103648984
+
+
+https://cloud.tencent.com/developer/article/1026016
+
+------------ MooseFS
+用户，组：mfs
+
+/var/lib/mfs
+/etc/mfs
+
+
+// systemctl start moosefs-master
+
+
+
+mfsmaster start
+  * 配置文件 mfsmaster.cfg
+  * 路径 DATA_PATH = /var/lib/mfs
+  * PORT 9419, 9420, 9421
+
+mfsmetalogger start
+  * 配置文件 mfsmetalogger.cfg
+  * 配置 host 
+  * MASTER_HOST = mfsmaster
+
+
+mfschunkserver start
+  * 配置文件 mfschunkserver.cfg
+  * MASTER_HSOT=10.0.0.50
+  * 配置文件 mfshdd.cfg
+  * 文件目录 /mnt/hd1   创建文件夹
+  * chown -R mfs:mfs /mnt/hd1/
+  
+  
+mfscgiserv start
+  * 监控 http://192.168.80.128:9425/
+  
+  
+mfsmount 在其他机器运行
+	* mkidr /mnt/mfs
+	* mfsmount /mnt/mfs/ -H 10.0.0.50
+	* df -h 
+  
+  
