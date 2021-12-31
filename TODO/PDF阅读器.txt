@@ -1,0 +1,4 @@
+https://pdfbox.apache.org/
+
+
+https://stackoverflow.com/questions/4784825/how-to-read-pdf-files-using-java
