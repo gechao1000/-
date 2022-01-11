@@ -70,3 +70,13 @@ java --list-modules
 JDK 最低 11
 
 jpackage 打包 app-image失败
+
+
+
+
+
+---
+
+树莓派
+
+https://pi4j.com/getting-started/

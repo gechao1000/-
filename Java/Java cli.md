@@ -23,6 +23,14 @@ https://www.jianshu.com/p/14bcb17b99e0
 
 
 
+纯命令行
+
+https://github.com/remkop/picocli
+
+https://segmentfault.com/a/1190000039730744
+
+
+
 方式1：SpringBoot  
 
 ```
@@ -58,28 +66,38 @@ https://rvesse.github.io/airline/guide/
 > https://www.jianshu.com/p/7a0e20b30401
 >
 > https://cloud.tencent.com/developer/article/1622207
+>
+> https://run-zheng.github.io/2019/11/06/maven-shade-plugin/
 
 ```xml
 <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-shade-plugin</artifactId>
-    <version>2.4.3</version>
-    <configuration>
-        <!-- put your configurations here -->
-        <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                <mainClass>org.sonatype.haven.HavenCli</mainClass>
-            </transformer>
-        </transformers>
-    </configuration>
-    <executions>
-        <execution>
-            <phase>package</phase>
-            <goals>
-                <goal>shade</goal>
-            </goals>
-        </execution>
-    </executions>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-shade-plugin</artifactId>
+	<version>2.4.3</version>
+	<configuration>
+		<!-- put your configurations here -->
+		<transformers>
+			<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+				<mainClass>cli.CheckSum</mainClass>
+			</transformer>
+		</transformers>
+		<artifactSet>
+			<includes>
+				<include>*:*</include>
+			</includes>
+			<excludes>
+				<exclude>org.projectlombok:lombok</exclude>
+			</excludes>
+		</artifactSet>
+	</configuration>
+	<executions>
+		<execution>
+			<phase>package</phase>
+			<goals>
+				<goal>shade</goal>
+			</goals>
+		</execution>
+	</executions>
 </plugin>
 ```
 
