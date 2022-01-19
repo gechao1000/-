@@ -1,0 +1,20 @@
+https://www.baeldung.com/java-pairs
+
+
+https://www.geeksforgeeks.org/javatuples-introduction/
+
+
+
+
+
+
+
+反射 创建对象
+
+https://www.baeldung.com/java-set-private-field-value
+
+
+
+泛型 class参数
+
+https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html

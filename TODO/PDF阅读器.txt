@@ -2,3 +2,40 @@ https://pdfbox.apache.org/
 
 
 https://stackoverflow.com/questions/4784825/how-to-read-pdf-files-using-java
+
+
+文件大小 file.length() 字节数
+https://www.baeldung.com/java-file-size
+
+
+
+---- Standard Java IO
+File.length()
+
+
+
+---- Java NIO
+FileChannel fc = FileChannel.open(Path.of("jvm.pdf"));
+fc.size()
+
+
+---- commons-io 格式化 filesize
+FileUtils.byteCountToDisplaySize(fc.size());
+
+
+
+---- 参考
+
+https://github.com/Dansoftowner/PDFViewerFX
+
+https://stackoverflow.com/questions/18207116/displaying-pdf-in-javafx
+
+
+https://www.tutorialspoint.com/pdfbox/pdfbox_quick_guide.htm
+
+
+https://stackoverflow.com/questions/51612966/javafx-apache-pdfbox-view-pddocument-in-pane
+
+
+https://awesomeopensource.com/projects/javafx-library/pdf-viewer?fbclid=iwar2jbhp7wig-tc...
+https://github.com/Patr1ick/fxPDF
