@@ -196,3 +196,11 @@ yum install fuse fuse-libs ack -y
 ./squashfs-root/AppRun --version
 ```
 
+
+
+#### OpenJDK
+
+```
+yum install java-1.8.0-openjdk
+```
+
