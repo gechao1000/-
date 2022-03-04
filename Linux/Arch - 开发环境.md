@@ -227,3 +227,13 @@ sudo adduser your-user vboxsf
 sudo usermod -a -G vboxsf <user>
 ```
 
+
+
+取消自动登录
+
+```
+vi /etc/lightdm/lightdm.conf
+
+注释掉 autologin-user=
+```
+
