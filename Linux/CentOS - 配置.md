@@ -12,6 +12,28 @@ SELINUX=disabled
 :wq
 ```
 
+#### 查看 MAC
+
+```
+ip a
+ifconfig -a
+
+--
+/sbin/ifconfig | grep HWaddr
+/sbin/ifconfig | grep ether
+ifconfig xxx | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+--
+cat /sys/class/net/eth0/address 
+--
+ip link show p4p1 | awk '/ether/ {print $2}';
+--
+nmcli device show p4p1 | grep -i hw
+nmcli device show ens160 | grep -i hwaddr
+dmesg | grep eth
+```
+
+
+
 #### 配置网卡(静态IP)
 
 ```shell
