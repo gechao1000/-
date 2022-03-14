@@ -1,3 +1,31 @@
+https://gitee.com/kkzzhizhou/scoop-apps
+
+https://gitee.com/gechao1000/scoop
+
+---------------------------------------- 2022-3-14 ---------------------------------------------
+
+Installed apps:
+
+Name            Version         Source Updated             Info
+----            -------         ------ -------             ----
+7zip            21.07           main   2022-01-06 11:01:42     
+busybox         4487-gd239d2d52 main   2021-12-29 16:12:17     
+ccleaner        5.89.9401       extras 2022-01-30 14:01:20     
+diskgenius      5.4.2.1239      extras 2021-06-16 09:06:03     
+eclipse-mat     1.12.0.20210602 extras 2021-07-02 15:07:55     
+ffmpeg          5.0             main   2022-01-30 14:01:25     
+filezilla       3.57.0          extras 2021-12-22 08:12:07     
+imagemagick     7.1.0-23        main   2022-02-07 08:02:16     
+innounp         0.50            main   2021-11-17 09:11:35     
+jmeter          5.4.3           extras 2022-01-30 14:01:38     
+maven           3.8.4           main   2021-11-22 08:11:57     
+mobaxterm       21.5            extras 2021-11-26 08:11:53     
+mysql-workbench 8.0.28          main   2022-01-30 14:01:32     
+nodejs-lts      16.13.2         main   2022-01-30 14:01:52     
+rufus           3.17            extras 2021-11-17 09:11:44     
+swig            4.0.2           main   2021-05-20 14:05:30     
+switchhosts     4.1.0.6076      extras 2022-01-30 14:01:49     
+which           2.20            main   2021-03-17 14:03:07     
 
 
 
