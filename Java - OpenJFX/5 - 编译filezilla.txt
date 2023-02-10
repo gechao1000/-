@@ -1,8 +1,0 @@
-https://wiki.filezilla-project.org/Compiling_FileZilla_3_and_Getting_Dependencies_on_Linux
-
-
-https://linux265.com/course/linux-command-autoreconf.html
-
-
-
-https://github.com/thecarnie/make-filezilla/blob/main/build-filezilla-client.md

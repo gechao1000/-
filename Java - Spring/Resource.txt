@@ -1,6 +1,0 @@
-https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/java.io.-input-stream/
-
-https://docs.spring.io/spring-framework/docs/3.0.0.M3/spring-framework-reference/html/ch05s02.html
-
-
-https://www.baeldung.com/spring-load-resource-as-string

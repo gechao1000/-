@@ -1,8 +1,0 @@
-https://cloud.tencent.com/developer/article/1605745
-https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc
-https://github.com/fcwu/docker-ubuntu-vnc-desktop/blob/develop/Dockerfile.amd64
-
-
-
-# vnc 客户端
-http://sd.downxia.com/down/VNCViewer.rar
